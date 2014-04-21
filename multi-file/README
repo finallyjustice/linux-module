@@ -6,4 +6,4 @@ For any question, please contact Dongli Zhang @ dongli.zhang0129@gmail.com.
 To run the template:
 
 make
-sudo ./install
+sudo sh install.sh
