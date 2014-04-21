@@ -1,5 +1,7 @@
 This is a sample of hooking a mkdir system call.
-It has been tested on Ubuntu 12.04 with 64-bit Linux 3.9.0.
+It has been tested on :
+- Ubuntu 12.04 with 64-bit Linux 3.9.0.
+- Ubuntu 12.04 with 64-bit Linux 3.8.0.
 
 For any question, please contact Dongli Zhang @ dongli.zhang0129@gmail.com.
 
