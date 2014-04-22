@@ -5,8 +5,8 @@
 #include <asm/pgtable_types.h>
 #include <linux/syscalls.h>
 
-//unsigned long **sys_call_table = (unsigned long **)0xffffffff81a001a0;
-unsigned long **sys_call_table = (unsigned long **)0xffffffff81801360;
+unsigned long **sys_call_table = (unsigned long **)0xffffffff81a001a0;
+//unsigned long **sys_call_table = (unsigned long **)0xffffffff81801360;
 unsigned long *old_mkdir = NULL;
 
 int make_rw(unsigned long addr)
