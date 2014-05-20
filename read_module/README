@@ -1,0 +1,10 @@
+This is a module template to list the LKM and the address.
+It has been tested on :
+- Ubuntu 12.04 with 64-bit Linux 3.5.0.
+
+For any question, please contact Dongli Zhang @ dongli.zhang0129@gmail.com.
+
+To run the template:
+
+make
+sudo sh install.sh
