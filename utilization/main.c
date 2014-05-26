@@ -26,6 +26,7 @@
 #include <linux/blkdev.h>
 #include <linux/list.h>
 #include <linux/swap.h>
+#include <linux/cpumask.h>
 
 #define PAGE_KB 4
 
@@ -74,7 +75,7 @@ unsigned long getCached(void)
 	return cached;
 }
 
-static int __init utilization_init(void)
+void memory_utilization(void)
 {
 	unsigned long mem_usage;
 	unsigned long MemTotal = getMemTotal();
@@ -89,7 +90,21 @@ static int __init utilization_init(void)
 	printk(KERN_ALERT "Buffers   : %lu kB\n", Buffers);
 	printk(KERN_ALERT "Cached    : %lu kB\n", Cached);
 	printk(KERN_ALERT "Mem Usage : %lu/100\n", mem_usage);
+}
 
+void cpu_utilization(void)
+{
+	int i;
+	for_each_possible_cpu(i)
+	{
+		printk(KERN_ALERT "CPU %d is active\n", i);
+	}
+}
+
+static int __init utilization_init(void)
+{
+	memory_utilization();
+	cpu_utilization();
 	return 0;
 }
 
