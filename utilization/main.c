@@ -83,7 +83,7 @@ void memory_utilization(void)
 	unsigned long Buffers  = getBuffers();
 	unsigned long Cached   = getCached();
 
-	// the equation to compute the CPU utilization
+	// the equation to compute the Memory utilization
 	mem_usage = (MemTotal-MemFree-Buffers-Cached)*100/MemTotal;
 	printk(KERN_ALERT "MemTotal  : %lu kB\n", MemTotal);
 	printk(KERN_ALERT "MemFree   : %lu kB\n", MemFree);
@@ -93,14 +93,24 @@ void memory_utilization(void)
 }
 
 // check DECLARE_BITMAP(name,bits)
+// The length of cpu_possible_mask->bits is 1 -> 64 bit
 void cpu_utilization(void)
 {
-	int i;
-	printk(KERN_ALERT "%lu\n", BITS_TO_LONGS(64));
-	printk(KERN_ALERT "cpu_possible_mask: 0x%016lx\n", *((unsigned long *)cpu_possible_mask->bits));
-	for_each_possible_cpu(i)
+	//printk(KERN_ALERT "cpu_possible_mask: 0x%016lx\n", *((unsigned long *)cpu_possible_mask->bits));
+	//printk(KERN_ALERT "cpu_possible_mask: 0x%016lx\n", *((unsigned long *)cpu_online_mask->bits));
+	//printk(KERN_ALERT "cpu_possible_mask: 0x%016lx\n", *((unsigned long *)cpu_present_mask->bits));
+	unsigned long cpu_bit = *((unsigned long *)cpu_possible_mask->bits);
+	unsigned long idx = cpu_bit;
+	int c = 0;
+	while(idx)
 	{
-		printk(KERN_ALERT "CPU %d is active\n", i);
+		printk(KERN_ALERT "CPU %d is active\n", c);
+		c++;
+		idx = idx >> 1;
+	}
+	for_each_possible_cpu(c)
+	{
+		printk(KERN_ALERT "CPU %d is active\n", c);
 	}
 }
 
