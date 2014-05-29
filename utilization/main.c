@@ -92,9 +92,12 @@ void memory_utilization(void)
 	printk(KERN_ALERT "Mem Usage : %lu/100\n", mem_usage);
 }
 
+// check DECLARE_BITMAP(name,bits)
 void cpu_utilization(void)
 {
 	int i;
+	printk(KERN_ALERT "%lu\n", BITS_TO_LONGS(64));
+	printk(KERN_ALERT "cpu_possible_mask: 0x%016lx\n", *((unsigned long *)cpu_possible_mask->bits));
 	for_each_possible_cpu(i)
 	{
 		printk(KERN_ALERT "CPU %d is active\n", i);
@@ -103,7 +106,7 @@ void cpu_utilization(void)
 
 static int __init utilization_init(void)
 {
-	memory_utilization();
+	//memory_utilization();
 	cpu_utilization();
 	return 0;
 }
