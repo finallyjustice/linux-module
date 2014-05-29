@@ -27,6 +27,7 @@
 #include <linux/list.h>
 #include <linux/swap.h>
 #include <linux/cpumask.h>
+#include <linux/kernel_stat.h>
 
 #define PAGE_KB 4
 
@@ -102,16 +103,26 @@ void cpu_utilization(void)
 	unsigned long cpu_bit = *((unsigned long *)cpu_possible_mask->bits);
 	unsigned long idx = cpu_bit;
 	int c = 0;
-	while(idx)
+	//while(idx)
 	{
 		printk(KERN_ALERT "CPU %d is active\n", c);
+
+		// probably convert with cputime64_to_clock_t
+		printk("USER_1: %lu\n", kcpustat_cpu(0).cpustat[CPUTIME_USER]);
+
+		struct kernel_cpustat *base = (unsigned long)__per_cpu_offset[c]+(unsigned long)&kernel_cpustat;
+		printk("USER_2: %lu\n", base->cpustat[CPUTIME_USER]);	
+		printk(KERN_ALERT "BASE: 0x%016lx\n", (unsigned long)base);
+		printk(KERN_ALERT "ADDR: 0x%016lx\n", (unsigned long)&kernel_cpustat);
+		printk(KERN_ALERT "ADDR: 0x%016lx\n", (unsigned long)__per_cpu_offset[0]);
+
 		c++;
 		idx = idx >> 1;
 	}
-	for_each_possible_cpu(c)
-	{
-		printk(KERN_ALERT "CPU %d is active\n", c);
-	}
+	//for_each_possible_cpu(c)
+	//{
+	//	printk(KERN_ALERT "CPU %d is active\n", c);
+	//}
 }
 
 static int __init utilization_init(void)
