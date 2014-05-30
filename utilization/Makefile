@@ -1,9 +1,11 @@
 obj-m := utilization.o
 utilization-objs += main.o 
+utilization-objs += memory.o 
+utilization-objs += cpu.o 
 
 KERNELDIR ?= /lib/modules/$(shell uname -r)/build
 PWD       := $(shell pwd)
-#EXTRA_CFLAGS += -I$(src)/include
+EXTRA_CFLAGS += -I$(src)/include
 
 all:
 	$(MAKE) -C $(KERNELDIR) M=$(PWD) 
