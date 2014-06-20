@@ -29,12 +29,12 @@
 static int __init hostname_init(void)
 {
 	printk(KERN_ALERT "init the module\n");
-	printk(KERN_ALERT "sysname    : %s\n", current->nsproxy->uts_ns->name.sysname);
-	printk(KERN_ALERT "nodename   : %s\n", current->nsproxy->uts_ns->name.nodename);
-	printk(KERN_ALERT "release    : %s\n", current->nsproxy->uts_ns->name.release);
-	printk(KERN_ALERT "version    : %s\n", current->nsproxy->uts_ns->name.version);
-	printk(KERN_ALERT "machine    : %s\n", current->nsproxy->uts_ns->name.machine);
-	printk(KERN_ALERT "domainname : %s\n", current->nsproxy->uts_ns->name.domainname);
+	printk(KERN_ALERT "sysname    : %s\n", init_task.nsproxy->uts_ns->name.sysname);
+	printk(KERN_ALERT "nodename   : %s\n", init_task.nsproxy->uts_ns->name.nodename);
+	printk(KERN_ALERT "release    : %s\n", init_task.nsproxy->uts_ns->name.release);
+	printk(KERN_ALERT "version    : %s\n", init_task.nsproxy->uts_ns->name.version);
+	printk(KERN_ALERT "machine    : %s\n", init_task.nsproxy->uts_ns->name.machine);
+	printk(KERN_ALERT "domainname : %s\n", init_task.nsproxy->uts_ns->name.domainname);
 	return 0;
 }
 
