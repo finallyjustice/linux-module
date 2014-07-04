@@ -70,12 +70,18 @@ ssize_t temp_write(struct file *filep, const char __user *buf, size_t count, lof
 	return 0;
 }
 
+long temp_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
+{
+	return 0;
+}
+
 struct file_operations temp_fops = {
 	owner:   THIS_MODULE, 
 	open:    temp_open,    
 	read:    temp_read,
 	write:   temp_write,
 	release: temp_release,
+	unlocked_ioctl : temp_ioctl,
 };
 
 int cdev_temp_install(void)
