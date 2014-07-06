@@ -29,6 +29,9 @@
 #include <linux/proc_fs.h>
 #include <asm/io.h>
 
+#include "myvmx.h"
+#include "machine.h"
+
 #define N_ARENAS      11		// number of 64KB memory allocations
 #define ARENA_LENGTH  (64<<10)  // size of each allocated memory-arena
 #define MSR_VMX_CAPS  0x480     // index for VMX-Capabilities MSRs
@@ -69,14 +72,98 @@ unsigned long g_TSS_region;
 unsigned long g_TOS_region;
 unsigned long h_MSR_region;
 
-long my_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
+int temp_open(struct inode *inode, struct file *filep)
 {
+	printk(KERN_ALERT "temp_open\n");
 	return 0;
 }
 
+ssize_t temp_read(struct file *filep, char __user *buf, size_t count, loff_t *offp)
+{
+	printk(KERN_ALERT "temp_read\n");
+	return 0;
+}
+
+ssize_t temp_write(struct file *filep, const char __user *buf, size_t count, loff_t *offp)
+{
+	printk(KERN_ALERT "temp_write\n");
+	return 0;
+}
+
+unsigned short  _gdtr[ 5 ], _idtr[ 5 ];
+unsigned int    _eax, _ebx, _ecx, _edx, _esp, _ebp, _esi, _edi;
+int     retval = -1;
+
+regs_ia32   vm;
+
+long my_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
+{
+	unsigned long   *gdt, *ldt, *idt;
+	unsigned int    *pgtbl, *pgdir, *tss, phys_addr = 0;
+	signed long desc = 0;
+	int     i, j;
+
+	// sanity check: we require the client-process to pass an
+	// exact amount of data representing CPU's register-state
+	if(count != sizeof(regs_ia32)) 
+		return -EINVAL;
+
+	printk(KERN_ALERT "my_ioctl\n");
+	return 0;
+}
+
+int my_mmap(struct file *file, struct vm_area_struct *vma)
+{
+	unsigned long user_virtaddr = vma->vm_start;
+	unsigned long region_length = vma->vm_end - vma->vm_start;
+	unsigned long physical_addr, pfn;
+	int i;
+
+	// we require prescribed parameter-values from our client
+	if(user_virtaddr != 0x00000000L) 
+		return -EINVAL;
+	if(region_length != LEGACY_REACH) 
+		return -EINVAL;
+
+	// let the kernel know not to try swapping out this region
+	vma->vm_flags |= (VM_DONTEXPAND | VM_DONTDUMP);
+
+	// ask the kernel to add page-table entries to 'map' these arenas
+	for(i=0; i<N_ARENAS+6; i++)
+	{
+		int j = i % 16;
+		
+		if(j < 0xA) 
+			physical_addr = virt_to_phys(kmem[j]);
+		else    
+			physical_addr = user_virtaddr;
+		
+		pfn = (physical_addr >> PAGE_SHIFT);
+		if(remap_pfn_range(vma, user_virtaddr, pfn,
+			ARENA_LENGTH, vma->vm_page_prot)) 
+		{
+			return -EAGAIN;
+		}
+		user_virtaddr += ARENA_LENGTH;
+	}
+
+	// copy page-frame 0x000 to bottom of arena 0x0 (for IVT and BDA)
+	memcpy(kmem[0], phys_to_virt(0x00000), PAGE_SIZE);
+
+	// copy page-frames 0x90 to 0x9F to arena 0x9 (for EBDA)    
+	memcpy(kmem[9], phys_to_virt(0x90000), ARENA_LENGTH);
+
+	printk(KERN_ALERT "my_mmap\n");
+	return 0;  // SUCCESS
+}
+
 struct file_operations my_fops = {
+	owner          : THIS_MODULE,
 	unlocked_ioctl : my_ioctl,
-	//mmap:	my_mmap,
+	mmap           : my_mmap,
+	open           : temp_open,
+	read           : temp_read,
+	write          : temp_write,
 };
 
 int my_info(char *buf, char **start, off_t off, int count, int *eof, void *data)
@@ -210,7 +297,8 @@ static int __init test_vmm_init(void)
 	set_CR4_vmxe(NULL);
 	smp_call_function(set_CR4_vmxe, NULL, 1);
 
-	create_proc_read_entry(modname, 0, NULL, my_info, NULL );
+	//create_proc_read_entry(modname, 0, NULL, my_info, NULL );
+	register_chrdev(my_major, modname, &my_fops);
 
 	printk(KERN_ALERT "Hello World\n");
 
@@ -221,14 +309,16 @@ static void __exit test_vmm_exit(void)
 {
 	int i;
 
-	smp_call_function( clear_CR4_vmxe, NULL, 1);
-	clear_CR4_vmxe( NULL );
+	smp_call_function(clear_CR4_vmxe, NULL, 1);
+	clear_CR4_vmxe(NULL);
 
-	//unregister_chrdev( my_major, modname );
-	remove_proc_entry( modname, NULL );
-	for (i = 0; i < N_ARENAS; i++) 
-		kfree( kmem[ i ] );
-	printk(KERN_ALERT "Removing \'%s\' module\n", modname );
+	unregister_chrdev(my_major, modname);
+	//remove_proc_entry( modname, NULL );
+	for (i=0; i<N_ARENAS; i++)
+	{
+		kfree(kmem[i]);
+	}
+	printk(KERN_ALERT "Removing \'%s\' module\n", modname);
 	printk(KERN_ALERT "exit the module\n");
 }
 
