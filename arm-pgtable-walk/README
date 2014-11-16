@@ -1,0 +1,5 @@
+This is a sample of virt-to-phys address translation on ARM.
+It has been tested on :
+- Linux 2.6.35-imx on Freescale i.MX53 QSB.
+
+For any question, please contact Dongli Zhang @ dongli.zhang0129@gmail.com.
