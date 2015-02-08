@@ -5,6 +5,8 @@ It has been tested on :
 To test, run :
 sudo mknod /dev/temp c 50 0
 
+read.c is used to interact with /dev/temp
+
 For any question, please contact Dongli Zhang @ dongli.zhang0129@gmail.com.
 
 To run the template:
