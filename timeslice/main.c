@@ -58,9 +58,21 @@ ssize_t temp_read(struct file *filep, char __user *buf, size_t count, loff_t *of
 	//sprintf(my_data, "%s", "Hello World");
 	//if(copy_to_user(buf, my_data, strlen(my_data)) != 0)
 	//	printk(KERN_ALERT "copy_to_user failed\n");
+	
+	
 	printk(KERN_ALERT "temp_read\n");
 	printk(KERN_ALERT "taskname: %s\n", current->comm);
 	printk(KERN_ALERT "timeslice: %lu\n", current->rt.time_slice);
+	printk(KERN_ALERT "exec_start: %lu\n", current->se.exec_start);
+	printk(KERN_ALERT "sum_exec_runtime: %lu\n", current->se.sum_exec_runtime);
+	printk(KERN_ALERT "vruntime: %lu\n", current->se.vruntime);
+	printk(KERN_ALERT "prev_sum_exec_runtime: %lu\n", current->se.prev_sum_exec_runtime);
+	schedule();
+	//current->rt.time_slice = 0;
+	//printk(KERN_ALERT "timeslice new: %lu\n", current->rt.time_slice);
+	
+	
+	
 	//vfree(my_data);
 	//return strlen(my_data);
 	return 0;

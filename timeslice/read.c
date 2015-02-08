@@ -14,7 +14,12 @@ int main(int argc, char **argv)
 	}
 
 	char buf[1024];
-	read(fp, buf, 0);
+	int i;
+	
+	for(i=0; i<5; i++)
+	{
+		read(fp, buf, 0);
+	}
 
 	close(fp);
 
