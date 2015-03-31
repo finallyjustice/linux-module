@@ -35,6 +35,19 @@
 #include <asm/segment.h>
 #include <asm/uaccess.h>
 
+void traverse_threads(void)
+{
+	struct task_struct *me = current;
+	struct task_struct *t = me;
+	int count = 0;
+	
+	do_each_thread(me, t) {
+		printk(KERN_ALERT "[process %d]: %s - %d\n",
+				count, t->comm, t->pid);
+		count++;
+	}while_each_thread(me, t);
+}
+
 void traverse_tasks(void)
 {
 	struct task_struct *pt;
