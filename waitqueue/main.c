@@ -48,8 +48,10 @@ int dev_major = 50;
 int dev_minor = 0;
 
 static int global_flag = 0;
-//static wait_queue_head_t my_outq;
 static DECLARE_WAIT_QUEUE_HEAD(my_outq);
+
+//wait_queue_head_t my_outq;
+//init_waitqueue_head(&my_outq);
 
 int ioctl_dev_open(struct inode *inode, struct file *filep)
 {
