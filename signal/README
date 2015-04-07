@@ -1,0 +1,15 @@
+This is a module template to develop a char device driver with kthread and signal for Linux.
+It has been tested on :
+- Ubuntu 12.04 with 64-bit Linux 3.11.0.
+
+To test, run :
+sudo mknod /dev/tzvisor-vm c 50 0
+
+read.c is used to interact with /dev/temp
+
+For any question, please contact Dongli Zhang @ dongli.zhang0129@gmail.com.
+
+To run the template:
+
+make
+sudo sh install.sh
