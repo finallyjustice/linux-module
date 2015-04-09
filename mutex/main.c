@@ -48,7 +48,7 @@ struct cdev cdev;
 int dev_major = 50;
 int dev_minor = 0;
 
-DECLARE_MUTEX(my_mutex);
+DEFINE_MUTEX(my_mutex);
 
 int ioctl_dev_open(struct inode *inode, struct file *filep)
 {
@@ -71,11 +71,18 @@ long ioctl_dev_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
 		case TZV_IOLOCK:
 		{
 			printk(KERN_ALERT "command: LOCK\n");
+			mutex_lock(&my_mutex);
+			printk(KERN_ALERT "wait until unlock...\n");
+			mutex_lock(&my_mutex);
+			printk(KERN_ALERT "mutext is unlocked!\n");
+			mutex_unlock(&my_mutex);
 			break;
 		}
 		case TZV_IOUNLOCK:
 		{
 			printk(KERN_ALERT "command: UNLOCK\n");
+			mutex_unlock(&my_mutex);
+			printk(KERN_ALERT "I am life saver\n");
 			break;
 		}
 		default:
