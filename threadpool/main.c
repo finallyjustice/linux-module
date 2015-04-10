@@ -37,6 +37,7 @@
 #include <linux/wait.h>
 #include <linux/mutex.h>
 #include <linux/spinlock.h>
+#include <linux/kthread.h>
 
 #include <asm/current.h>
 #include <asm/segment.h>
@@ -46,8 +47,6 @@
 #include "ioctl-io.h"
 
 #define KTHREAD_POOL_SIZE 3
-
-DEFINE_MUTEXT(ktp);
 
 struct kjob
 {
@@ -62,45 +61,154 @@ struct kthread_pool
 	int num;            // number of threads
 };
 
+DEFINE_MUTEX(ktp_mutex);  // mutex for thread pool
+struct kthread_pool ktp;  // thread pool 
+static DECLARE_WAIT_QUEUE_HEAD(ktp_wq);
+struct task_struct **kts_ptr;  // array of kernel threads
+
 struct cdev cdev;
 int dev_major = 50;
 int dev_minor = 0;
 
-static int global_flag = 0;
-static DECLARE_WAIT_QUEUE_HEAD(my_outq);
+void produce(void)
+{
+	struct kjob *j = (struct kjob *)kmalloc(sizeof(struct kjob), GFP_KERNEL);
+	j->pid  = current->pid;
+	j->next = NULL;
+
+	mutex_lock(&ktp_mutex);
+		
+	// insert the job at the tail
+	if(ktp.num == 0)
+	{
+		ktp.head = j;
+		ktp.tail = j;
+	}
+	else
+	{
+		ktp.tail->next = j;
+		ktp.tail = j;
+	}
+	ktp.num++;
+	
+	// notify the consumer
+	wake_up_interruptible(&ktp_wq);
+
+	mutex_unlock(&ktp_mutex);
+
+	printk(KERN_ALERT "Job %d is submitted. current(%d)\n", current->pid, ktp.num);
+}
+
+int consume(void *data)
+{
+	struct kjob *nj;
+
+	printk(KERN_ALERT "thread %d is created\n", current->pid);
+
+	do {
+		//printk(KERN_ALERT "Waiting for the new job...\n");
+		wait_event_interruptible(ktp_wq, ktp.num>0);
+		mutex_lock(&ktp_mutex);
+		nj = NULL;
+		if(ktp.num > 0)
+		{
+			// get the job from queue
+			nj = ktp.head;
+			ktp.head = ktp.head->next;
+			nj->next = NULL;
+			ktp.num--;
+
+			if(ktp.num == 0)
+				ktp.tail = NULL;
+		}
+		mutex_unlock(&ktp_mutex);
+
+		// process the job
+		if(nj != NULL)
+		{
+			printk(KERN_ALERT "Thread %d crocess job %d (current:%d)\n", current->pid, nj->pid, ktp.num);
+			// free job
+			kfree(nj);
+		}
+
+		//schedule();
+	}while(!kthread_should_stop());
+
+	return 0;
+}
+
+void pool_initialization(void)
+{
+	int i;
+
+	// init the thread pool
+	ktp.head = NULL;
+	ktp.tail = NULL;
+	ktp.num  = 0;
+
+	// init kthreads
+	kts_ptr = (struct task_struct **)kmalloc(sizeof(struct task_struct *)*KTHREAD_POOL_SIZE, GFP_KERNEL);	
+	for(i=0; i<KTHREAD_POOL_SIZE; i++)
+	{
+		kts_ptr[i] = kthread_run(consume, NULL, "thread_pool_%d", i);
+	}
+}
+
+void pool_reclaim(void)
+{
+	int i;
+	struct kjob *head, *tmp;
+
+	// lock before reclaiming the resource
+	mutex_lock(&ktp_mutex);
+
+	// kill all threads
+	for(i=0; i<KTHREAD_POOL_SIZE; i++)
+	{
+		kthread_stop(kts_ptr[i]);
+	}
+
+	// free all pending jobs
+	head = ktp.head;
+	while(head)
+	{
+		tmp = head;
+		head = head->next;
+		kfree(tmp);
+	}
+
+	kfree(kts_ptr);
+
+	mutex_unlock(&ktp_mutex);
+}
 
 int ioctl_dev_open(struct inode *inode, struct file *filep)
 {
-	printk(KERN_ALERT "ioctl_dev_open\n");
+	//printk(KERN_ALERT "ioctl_dev_open\n");
 	return 0;
 }
 
 int ioctl_dev_release(struct inode *inode, struct file *filep)
 {
-	printk(KERN_ALERT "ioctl_dev_release\n");
+	//printk(KERN_ALERT "ioctl_dev_release\n");
 	return 0;
 }
 
 long ioctl_dev_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
 {
-	printk(KERN_ALERT "ioctl_dev_ioctl\n");
+	//printk(KERN_ALERT "ioctl_dev_ioctl\n");
 	
 	switch(ioctl)
 	{
 		case TZV_IOSUBMIT:
 		{
-			printk(KERN_ALERT "command: READ\n");
-			if(wait_event_interruptible(my_outq, global_flag!=0))
-			{
-				printk(KERN_ALERT "wait_event_interruptible error!\n");
-				//return -ERESTARTSYS;
-			}
-			printk("Read successfully!\n");
+			//printk(KERN_ALERT "command: SUBMIT\n");
+			produce();
 			break;
 		}
 		default:
 		{
-			printk(KERN_ALERT "command: Unknown\n");
+			//printk(KERN_ALERT "command: Unknown\n");
 		}
 	}
 	return 0;
@@ -159,6 +267,7 @@ static int __init thread_pool_init(void)
 	int ret;
 	printk(KERN_ALERT "init the module\n");
 	ret = ioctl_dev_install();
+	pool_initialization();
 	return ret;
 }
 
