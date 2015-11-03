@@ -49,7 +49,8 @@ There is another way to email out the patch with msmtp utility.
 
 Please copy msmtprc to ~/.msmtprc and change the corresponding fields.
 
-# git send-email --smtp-server /usr/bin/msmtp --to maintainer@hotmail.com \
+# git send-email --smtp-server /usr/bin/msmtp --from "Dongli Zhang" \
+# --to maintainer@hotmail.com \
 # 0001-patch-name
 
 How to apply a patch:
