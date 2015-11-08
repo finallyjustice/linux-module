@@ -1,6 +1,6 @@
-This is a module to print the list of tasks in Linux.
+This is a module to test the block device.
 It has been tested on :
-- Ubuntu 12.04 with 64-bit Linux 3.9.0.
+- Ubuntu 15.10 with 64-bit Linux 4.2.0.
 
 For any question, please contact Dongli Zhang @ dongli.zhang0129@gmail.com.
 
@@ -8,3 +8,6 @@ To run the template:
 
 make
 sudo sh install.sh
+
+You can check 
+/proc/devices

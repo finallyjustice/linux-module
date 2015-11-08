@@ -66,8 +66,10 @@ static int vmem_disk_xfer_bio(struct vmem_disk_dev *dev, struct bio *bio)
 {
 	struct bio_vec bvec;
 	struct bvec_iter iter;
-	sector_t sector = bio->bi_iter.bi_sector;
+	/* first sector on disk of block I/O operation in 512 byte sectors */
+	sector_t sector = bio->bi_iter.bi_sector; 
 
+	/* for each bio vector */
 	bio_for_each_segment(bvec, bio, iter) {
 		char *buffer = __bio_kmap_atomic(bio, iter);
 		vmem_disk_transfer(dev, sector, bio_cur_bytes(bio) >> 9, buffer,
@@ -90,11 +92,13 @@ static void vmem_disk_request(struct request_queue *q)
 		struct vmem_disk_dev *dev = req->rq_disk->private_data;
 		if (req->cmd_type != REQ_TYPE_FS) {
 			printk(KERN_ALERT "skip non-fs request\n");
+			/* dequeue the request from request queue */
 			blk_start_request(req);
 			__blk_end_request_all(req, -EIO);
 			continue;
 		}
 
+		/* dequeue the request from request queue */
 		blk_start_request(req);
 		__rq_for_each_bio(bio, req)
 			vmem_disk_xfer_bio(dev, bio);
@@ -111,6 +115,10 @@ static void vmem_disk_make_request(struct request_queue *q, struct bio *bio)
 	int status;
 
 	status = vmem_disk_xfer_bio(dev, bio);
+	/* 
+	 * if we bypass the I/O scheduler, we should call bio_endio to notify the
+	 * end of processing bio.
+	 */
 	bio_endio(bio, status);
 }
 
@@ -120,6 +128,12 @@ static int vmem_disk_getgeo(struct block_device *bdev, struct hd_geometry *geo)
 	struct vmem_disk_dev *dev = bdev->bd_disk->private_data;
 
 	size = dev->size * (HARDSECT_SIZE/KERNEL_SECTOR_SIZE);
+	
+	printk(KERN_ALERT "vmem_disk_getgeo: %s, %ld\n", dev->gd->disk_name, size);
+
+	/* 
+	 * capacity = #cylinder x #head x #size
+	 */
 	geo->cylinders = (size & ~0x3f) >> 6;
 	geo->heads = 4;
 	geo->sectors = 16;
@@ -138,6 +152,7 @@ static struct block_device_operations vmem_disk_ops = {
 static void setup_device(struct vmem_disk_dev *dev, int which)
 {
 	memset(dev, 0, sizeof(struct vmem_disk_dev));
+	/* 1024 * 512 */
 	dev->size = NSECTORS*HARDSECT_SIZE;
 	dev->data = vmalloc(dev->size);
 	if (dev->data == NULL) {
@@ -155,16 +170,22 @@ static void setup_device(struct vmem_disk_dev *dev, int which)
 		dev->queue = blk_alloc_queue(GFP_KERNEL);
 		if (dev->queue == NULL)
 			goto out_vfree;
+		/* dev->queue will not contain any request in this mode */
 		blk_queue_make_request(dev->queue, vmem_disk_make_request);
 		break;
 	default:
 		printk(KERN_ALERT "Bad request mode %d, using simple\n", request_mode);
 	case VMEMD_QUEUE:
+		/*
+		 * vmem_disk_request cannot be called by this driver. It is called by
+		 * the "kernel" only when it is time to do I/O.
+		 */
 		dev->queue = blk_init_queue(vmem_disk_request, &dev->lock);
 		if (dev->queue == NULL)
 			goto out_vfree;
 		break;
 	}
+	/* notify the block layer and I/O scheduler the size of logical block */
 	blk_queue_logical_block_size(dev->queue, HARDSECT_SIZE);
 	dev->queue->queuedata = dev;
 
@@ -179,6 +200,10 @@ static void setup_device(struct vmem_disk_dev *dev, int which)
 	dev->gd->queue = dev->queue;
 	dev->gd->private_data = dev;
 	snprintf(dev->gd->disk_name, 32, "vmem_disk%c", which + 'a');
+	/* 
+	 * 1024 * (512 / 512) --- in 512-byte sectors.
+	 * The total should be 1024 * 512 bytes = 512k
+	 */
 	set_capacity(dev->gd, NSECTORS*(HARDSECT_SIZE/KERNEL_SECTOR_SIZE));
 	add_disk(dev->gd);
 	return;
@@ -192,6 +217,11 @@ static int __init test_blkdev_init(void)
 {
 	int i;
 
+	/* 
+	 * Apply for a major device number and register the device. "vmem_disk" will
+	 * show in /proc/devices. The kernel will allocate a new major id if the
+	 * input major id is 0.
+	 */
 	vmem_disk_major = register_blkdev(vmem_disk_major, "vmem_disk");
 	if (vmem_disk_major <= 0) {
 		printk(KERN_ALERT "vmem_disk: unable to get major number\n");
@@ -209,7 +239,7 @@ static int __init test_blkdev_init(void)
 	return 0;
 
 out_unregister:
-	unregister_blkdev(vmem_disk_major, "sbd");
+	unregister_blkdev(vmem_disk_major, "vmem_disk");
 	return -ENOMEM;
 }
 
@@ -233,6 +263,9 @@ static void __exit test_blkdev_exit(void)
 		if (dev->data)
 			vfree(dev->data);
 	}
+	/*
+	 * Parameters should match with parameters given to register_blkdev.
+	 */
 	unregister_blkdev(vmem_disk_major, "vmem_disk");
 	kfree(devices);
 
