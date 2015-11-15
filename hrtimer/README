@@ -1,0 +1,10 @@
+This is a module to test the High Resolution Timer (hrtimer).
+It has been tested on :
+- Ubuntu 15.10 with 64-bit Linux 4.2.0.
+
+For any question, please contact Dongli Zhang @ dongli.zhang0129@hotmail.com.
+
+To run the template:
+
+make
+sudo sh install.sh
