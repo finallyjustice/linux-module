@@ -26,6 +26,10 @@ Website: http://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git
 
 # git format-patch -s -n master..MyBugFixPoint
 
+To generate the v2 of patch:
+
+# git format-patch -s -n --subject-prefix="PATCH v2" master..MyBugFixPoint
+
 7. Check your patch for errors
 
 # scripts/checkpatch.pl 0001-patch-name
