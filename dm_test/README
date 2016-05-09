@@ -1,0 +1,31 @@
+This is a module to print the list of tasks in Linux.
+- Ubuntu 12.04 with 64-bit Linux 3.9.0.
+
+This module is the implementation of a sample device mapper.
+
+It has been tested on :
+- Ubuntu 14.04.3 with 64-bit Linux 3.19.0
+
+For any question, please contact Dongli Zhang @ dongli.zhang0129@gmail.com.
+
+To test:
+
+$ make
+$ sudo sh install.sh
+
+# dd if=/dev/zero of=disk.img bs=512 count=20480
+# losetup /dev/loop0 disk.img
+# echo 0 20480 basic_target /dev/loop0 0 | dmsetup create dm_test0
+
+We would see dm_test0 under /dev/mapper/
+
+Create a folder called root, then:
+
+# mkfs.ext4 /dev/mapper/dm_test0
+# mount /dev/mapper/dm_test0 root
+
+To remove:
+
+# umount root
+# dmsetup remove dm_test0
+# losetup -d /dev/loop0
