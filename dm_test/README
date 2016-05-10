@@ -15,7 +15,7 @@ $ sudo sh install.sh
 
 # dd if=/dev/zero of=disk.img bs=512 count=20480
 # losetup /dev/loop0 disk.img
-# echo 0 20480 basic_target /dev/loop0 0 | dmsetup create dm_test0
+# echo 0 20480 wrap_target /dev/loop0 0 | dmsetup create dm_test0
 
 We would see dm_test0 under /dev/mapper/
 
