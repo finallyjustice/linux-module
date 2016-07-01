@@ -1,0 +1,11 @@
+This module is to test the sysfs.
+
+It has been tested on :
+- Oracle Linux 6.7 with 3.8.13
+
+For any question, please contact Dongli Zhang @ dongli.zhang0129@gmail.com.
+
+To test:
+
+$ make
+$ sudo sh install.sh
