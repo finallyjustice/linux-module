@@ -28,7 +28,7 @@ static int __init usermodehelper_test_init(void)
 	int ret = 0;
 	char cmd_path[] = "/bin/touch";
 	char *cmd_argv[] = {cmd_path, "/tmp/usermodehelper.txt", NULL};
-	char *cmd_envp[] = {"PATH=/sbin:/bin:/usr/bin", NULL};
+	char *cmd_envp[] = {"HOME=/", "PATH=/sbin:/bin:/usr/bin", NULL};
 
 	ret = call_usermodehelper(cmd_path, cmd_argv, cmd_envp, UMH_WAIT_PROC);
 
