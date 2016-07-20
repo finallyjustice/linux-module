@@ -1,0 +1,10 @@
+This is a module to print the list of block_device.
+It has been tested on :
+- Oracle Linux 5 with Linux 2.6.39
+
+For any question, please contact Dongli Zhang @ dongli.zhang0129@gmail.com.
+
+To run the template:
+
+make
+sudo sh install.sh
