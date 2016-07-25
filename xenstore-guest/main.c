@@ -30,6 +30,9 @@ static int __init xenstore_guest_init(void)
 	char *macstr1;
     char macstr2[20];
 
+	/* we can also use full path here or the path of corresponding otherned
+	 * backend: /local/domain/0/backend/vif/5/0/feature-gso-tcpv4
+	 */
     macstr1 = xenbus_read(XBT_NIL, "device/vif/0", "mac", NULL);
     printk(KERN_ALERT "mc1: %s\n", macstr1);
     

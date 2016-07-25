@@ -31,6 +31,11 @@ static int __init xenstore_host_init(void)
     char macstr2[18];
     char *bridgestr;
 
+	/* Dom0 kernel is able to access everything under /local/domain/, with
+	 * either abs or relative path, e.g., 
+	 * /local/domain/0/backend/vif/5/0/feature-gso-tcpv4,
+	 * /local/domain/1/vm
+	 */
     macstr1 = xenbus_read(XBT_NIL, "backend/vif/1/0", "mac", NULL);
     printk(KERN_ALERT "macstr1: %s\n", macstr1);
 
