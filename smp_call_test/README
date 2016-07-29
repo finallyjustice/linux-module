@@ -1,0 +1,8 @@
+This module is used to test smp_call_function.
+
+For any question, please contact Dongli Zhang @ dongli.zhang0129@gmail.com.
+
+To test:
+
+$ make
+$ sudo sh install.sh
