@@ -1,0 +1,11 @@
+This module is to test the MSR.
+
+It has been tested on :
+- Ubuntu 14.04 with Linux 3.19
+
+For any question, please contact Dongli Zhang @ dongli.zhang0129@gmail.com.
+
+To test:
+
+$ make
+$ sudo sh install.sh
