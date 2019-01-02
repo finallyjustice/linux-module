@@ -1,0 +1,107 @@
+kvm_track: track write from guest
+
+linux-4.18.12
+
+---
+ arch/x86/include/asm/kvm_page_track.h |  2 ++
+ arch/x86/kvm/page_track.c             | 40 ++++++++++++++++++++++++++++++++++-
+ arch/x86/kvm/x86.c                    |  4 ++++
+ include/uapi/linux/kvm_para.h         |  1 +
+ 4 files changed, 46 insertions(+), 1 deletion(-)
+
+diff --git a/arch/x86/include/asm/kvm_page_track.h b/arch/x86/include/asm/kvm_page_track.h
+index 172f974..866859e 100644
+--- a/arch/x86/include/asm/kvm_page_track.h
++++ b/arch/x86/include/asm/kvm_page_track.h
+@@ -72,4 +72,6 @@ kvm_page_track_unregister_notifier(struct kvm *kvm,
+ void kvm_page_track_write(struct kvm_vcpu *vcpu, gpa_t gpa, const u8 *new,
+ 			  int bytes);
+ void kvm_page_track_flush_slot(struct kvm *kvm, struct kvm_memory_slot *slot);
++
++void kvm_page_track_corruption(struct kvm_vcpu *vcpu, u64 gpa);
+ #endif
+diff --git a/arch/x86/kvm/page_track.c b/arch/x86/kvm/page_track.c
+index 3052a59..c5b0775 100644
+--- a/arch/x86/kvm/page_track.c
++++ b/arch/x86/kvm/page_track.c
+@@ -93,7 +93,6 @@ void kvm_slot_page_track_add_page(struct kvm *kvm,
+ 				  struct kvm_memory_slot *slot, gfn_t gfn,
+ 				  enum kvm_page_track_mode mode)
+ {
+-
+ 	if (WARN_ON(!page_track_mode_is_valid(mode)))
+ 		return;
+ 
+@@ -265,3 +264,42 @@ void kvm_page_track_flush_slot(struct kvm *kvm, struct kvm_memory_slot *slot)
+ 			n->track_flush_slot(kvm, slot, n);
+ 	srcu_read_unlock(&head->track_srcu, idx);
+ }
++
++struct kvm_page_track_notifier_node *track_node;
++u64 track_gpa;
++
++void kvm_page_corruption_write(struct kvm_vcpu *vcpu, gpa_t gpa,
++				     const u8 *new, int bytes,
++				     struct kvm_page_track_notifier_node *node)
++{
++	if (track_gpa && (gpa & PAGE_MASK) == track_gpa)
++		pr_alert("orabug: intercept write for 0x%016llx\n", gpa);
++}
++
++void kvm_page_init_corruption(struct kvm *kvm)
++{
++	if (track_node)
++		return;
++
++	pr_alert("orabug: register notifier\n");
++
++	track_node = kmalloc(sizeof(*track_node), GFP_KERNEL);
++	track_node->track_write = kvm_page_corruption_write;
++	kvm_page_track_register_notifier(kvm, track_node);
++}
++
++void kvm_page_track_corruption(struct kvm_vcpu *vcpu, u64 gpa)
++{
++	struct kvm_memory_slot *slot;
++	gfn_t gfn = gpa >> PAGE_SHIFT;
++
++	kvm_page_init_corruption(vcpu->kvm);
++	
++	track_gpa = gpa & PAGE_MASK;
++	
++	pr_alert("orabug: gpa = 0x%016llx\n", track_gpa);
++
++	slot = kvm_vcpu_gfn_to_memslot(vcpu, gfn);
++
++	kvm_slot_page_track_add_page(vcpu->kvm, slot, gfn, KVM_PAGE_TRACK_WRITE);
++}
+diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+index 97fcac3..2f2724d 100644
+--- a/arch/x86/kvm/x86.c
++++ b/arch/x86/kvm/x86.c
+@@ -6781,6 +6781,10 @@ int kvm_emulate_hypercall(struct kvm_vcpu *vcpu)
+ 		ret = kvm_pv_clock_pairing(vcpu, a0, a1);
+ 		break;
+ #endif
++	case KVM_HC_TRACK_WRITE:
++		kvm_page_track_corruption(vcpu, a0);
++		ret = 0;
++		break;
+ 	default:
+ 		ret = -KVM_ENOSYS;
+ 		break;
+diff --git a/include/uapi/linux/kvm_para.h b/include/uapi/linux/kvm_para.h
+index dcf629d..6c882ba 100644
+--- a/include/uapi/linux/kvm_para.h
++++ b/include/uapi/linux/kvm_para.h
+@@ -26,6 +26,7 @@
+ #define KVM_HC_MIPS_EXIT_VM		7
+ #define KVM_HC_MIPS_CONSOLE_OUTPUT	8
+ #define KVM_HC_CLOCK_PAIRING		9
++#define KVM_HC_TRACK_WRITE		10
+ 
+ /*
+  * hypercalls use architecture specific
+-- 
+2.7.4
+
