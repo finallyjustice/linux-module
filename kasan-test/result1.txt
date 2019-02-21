@@ -1,0 +1,90 @@
+[  361.979732] kasan_test: loading out-of-tree module taints kernel.
+[  361.981660] out-of-bounds to right
+[  361.981684] ==================================================================
+[  361.983128] BUG: KASAN: slab-out-of-bounds in kmalloc_oob_right+0x86/0x93 [kasan_test]
+[  361.984560] Write of size 1 at addr ffff888069a99dfb by task insmod/2368
+
+[  361.986313] CPU: 0 PID: 2368 Comm: insmod Tainted: G           O      5.0.0-rc4 #1
+[  361.986315] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[  361.986324] Call Trace:
+[  361.986353]  dump_stack+0x5b/0x8b
+[  361.986368]  print_address_description+0x66/0x280
+[  361.986374]  ? kmalloc_oob_right+0x86/0x93 [kasan_test]
+[  361.986378]  kasan_report+0x13a/0x19b
+[  361.986382]  ? kmalloc_oob_right+0x86/0x93 [kasan_test]
+[  361.986386]  ? kasan_test_init+0x1/0x1000 [kasan_test]
+[  361.986390]  ? kmalloc_oob_right+0x86/0x93 [kasan_test]
+[  361.986393]  kmalloc_oob_right+0x86/0x93 [kasan_test]
+[  361.986396]  ? 0xffffffffc03c8000
+[  361.986400]  kasan_test_init+0x5/0x1000 [kasan_test]
+[  361.986407]  do_one_initcall+0x9c/0x301
+[  361.986411]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[  361.986415]  ? kasan_unpoison_shadow+0x31/0x40
+[  361.986419]  ? __kasan_kmalloc+0xa9/0xf0
+[  361.986423]  ? kasan_unpoison_shadow+0x31/0x40
+[  361.986427]  ? kasan_unpoison_shadow+0x31/0x40
+[  361.986437]  do_init_module+0x1be/0x545
+[  361.986442]  load_module+0x6529/0x7e50
+[  361.986447]  ? kmalloc_oob_right+0x22/0x93 [kasan_test]
+[  361.986452]  ? module_frob_arch_sections+0x20/0x20
+[  361.986460]  ? kernel_read_file+0x1cb/0x5a0
+[  361.986469]  ? do_mmap+0x766/0xd60
+[  361.986474]  ? __do_sys_finit_module+0x16a/0x180
+[  361.986477]  __do_sys_finit_module+0x16a/0x180
+[  361.986481]  ? __ia32_sys_init_module+0xa0/0xa0
+[  361.986493]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[  361.986497]  ? __do_sys_newfstat+0x83/0xd0
+[  361.986508]  ? __do_page_fault+0x42c/0x990
+[  361.986512]  do_syscall_64+0x8c/0x270
+[  361.986519]  ? page_fault+0x8/0x30
+[  361.986522]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[  361.986526] RIP: 0033:0x7f18332544d9
+[  361.986531] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[  361.986533] RSP: 002b:00007fffd0225908 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[  361.986541] RAX: ffffffffffffffda RBX: 0000563dc406c210 RCX: 00007f18332544d9
+[  361.986543] RDX: 0000000000000000 RSI: 0000563dc24ea26b RDI: 0000000000000003
+[  361.986546] RBP: 0000563dc24ea26b R08: 0000000000000000 R09: 00007f1833519ea0
+[  361.986551] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[  361.986553] R13: 0000563dc406c1e0 R14: 0000000000000000 R15: 0000000000000000
+
+[  361.987235] Allocated by task 2368:
+[  361.988061]  __kasan_kmalloc+0xa9/0xf0
+[  361.988065]  kmalloc_oob_right+0x46/0x93 [kasan_test]
+[  361.988068]  kasan_test_init+0x5/0x1000 [kasan_test]
+[  361.988071]  do_one_initcall+0x9c/0x301
+[  361.988074]  do_init_module+0x1be/0x545
+[  361.988077]  load_module+0x6529/0x7e50
+[  361.988080]  __do_sys_finit_module+0x16a/0x180
+[  361.988083]  do_syscall_64+0x8c/0x270
+[  361.988086]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[  361.988758] Freed by task 2158:
+[  361.989564]  __kasan_slab_free+0x137/0x190
+[  361.989568]  kfree+0x86/0x1b0
+[  361.989579]  load_elf_binary+0x21d/0x41ee
+[  361.989583]  search_binary_handler+0x15e/0x460
+[  361.989587]  __do_execve_file.isra.44+0x118f/0x1fa0
+[  361.989590]  __x64_sys_execve+0x85/0xb0
+[  361.989592]  do_syscall_64+0x8c/0x270
+[  361.989595]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[  361.990274] The buggy address belongs to the object at ffff888069a99d80
+                which belongs to the cache kmalloc-128 of size 128
+[  361.992039] The buggy address is located 123 bytes inside of
+                128-byte region [ffff888069a99d80, ffff888069a99e00)
+[  361.993750] The buggy address belongs to the page:
+[  361.994671] page:ffffea0001a6a640 count:1 mapcount:0 mapping:ffff88806a401640 index:0x0
+[  361.994683] flags: 0x100000000000200(slab)
+[  361.994688] raw: 0100000000000200 ffffea0001a6fe00 0000000900000009 ffff88806a401640
+[  361.994692] raw: 0000000000000000 0000000080150015 00000001ffffffff 0000000000000000
+[  361.994693] page dumped because: kasan: bad access detected
+
+[  361.995363] Memory state around the buggy address:
+[  361.996285]  ffff888069a99c80: fc fc fc fc fc fc fc fc fb fb fb fb fb fb fb fb
+[  361.997641]  ffff888069a99d00: fb fb fb fb fb fb fb fb fc fc fc fc fc fc fc fc
+[  361.998945] >ffff888069a99d80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 03
+[  362.000248]                                                                 ^
+[  362.001300]  ffff888069a99e00: fc fc fc fc fc fc fc fc fb fb fb fb fb fb fb fb
+[  362.002603]  ffff888069a99e80: fb fb fb fb fb fb fb fb fc fc fc fc fc fc fc fc
+[  362.003905] ==================================================================
+[  362.005221] Disabling lock debugging due to kernel taint

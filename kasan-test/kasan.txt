@@ -1,0 +1,3204 @@
+[    0.000000] Linux version 5.0.0-rc4 (zhang@test1) (gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.10)) #1 SMP Thu Feb 21 14:26:45 CST 2019
+[    0.000000] Command line: root=/dev/sda1 init=/sbin/init text
+[    0.000000] x86/fpu: x87 FPU will use FXSAVE
+[    0.000000] BIOS-provided physical RAM map:
+[    0.000000] BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff] usable
+[    0.000000] BIOS-e820: [mem 0x000000000009fc00-0x000000000009ffff] reserved
+[    0.000000] BIOS-e820: [mem 0x00000000000f0000-0x00000000000fffff] reserved
+[    0.000000] BIOS-e820: [mem 0x0000000000100000-0x00000000bffdffff] usable
+[    0.000000] BIOS-e820: [mem 0x00000000bffe0000-0x00000000bfffffff] reserved
+[    0.000000] BIOS-e820: [mem 0x00000000feffc000-0x00000000feffffff] reserved
+[    0.000000] BIOS-e820: [mem 0x00000000fffc0000-0x00000000ffffffff] reserved
+[    0.000000] BIOS-e820: [mem 0x0000000100000000-0x0000000139ffffff] usable
+[    0.000000] NX (Execute Disable) protection: active
+[    0.000000] SMBIOS 2.8 present.
+[    0.000000] DMI: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[    0.000000] tsc: Fast TSC calibration using PIT
+[    0.000000] tsc: Detected 3093.306 MHz processor
+[    0.002005] e820: update [mem 0x00000000-0x00000fff] usable ==> reserved
+[    0.002007] e820: remove [mem 0x000a0000-0x000fffff] usable
+[    0.002013] last_pfn = 0x13a000 max_arch_pfn = 0x400000000
+[    0.002041] MTRR default type: write-back
+[    0.002042] MTRR fixed ranges enabled:
+[    0.002043]   00000-9FFFF write-back
+[    0.002044]   A0000-BFFFF uncachable
+[    0.002045]   C0000-FFFFF write-protect
+[    0.002045] MTRR variable ranges enabled:
+[    0.002047]   0 base 00C0000000 mask FFC0000000 uncachable
+[    0.002048]   1 disabled
+[    0.002048]   2 disabled
+[    0.002049]   3 disabled
+[    0.002049]   4 disabled
+[    0.002050]   5 disabled
+[    0.002050]   6 disabled
+[    0.002051]   7 disabled
+[    0.002059] x86/PAT: PAT not supported by CPU.
+[    0.002066] x86/PAT: Configuration [0-7]: WB  WT  UC- UC  WB  WT  UC- UC  
+[    0.002068] last_pfn = 0xbffe0 max_arch_pfn = 0x400000000
+[    0.009115] found SMP MP-table at [mem 0x000f5920-0x000f592f] mapped at [(____ptrval____)]
+[    0.009172] check: Scanning 1 areas for low memory corruption
+[    0.009176] Base memory trampoline at [(____ptrval____)] 99000 size 24576
+[    0.009204] BRK [0x2d001000, 0x2d001fff] PGTABLE
+[    0.009207] BRK [0x2d002000, 0x2d002fff] PGTABLE
+[    0.009208] BRK [0x2d003000, 0x2d003fff] PGTABLE
+[    0.009336] BRK [0x2d004000, 0x2d004fff] PGTABLE
+[    0.010276] ACPI: Early table checksum verification disabled
+[    0.010333] ACPI: RSDP 0x00000000000F56C0 000014 (v00 BOCHS )
+[    0.010338] ACPI: RSDT 0x00000000BFFE15D6 000030 (v01 BOCHS  BXPCRSDT 00000001 BXPC 00000001)
+[    0.010346] ACPI: FACP 0x00000000BFFE14AA 000074 (v01 BOCHS  BXPCFACP 00000001 BXPC 00000001)
+[    0.010355] ACPI: DSDT 0x00000000BFFE0040 00146A (v01 BOCHS  BXPCDSDT 00000001 BXPC 00000001)
+[    0.010360] ACPI: FACS 0x00000000BFFE0000 000040
+[    0.010364] ACPI: APIC 0x00000000BFFE151E 000080 (v01 BOCHS  BXPCAPIC 00000001 BXPC 00000001)
+[    0.010369] ACPI: HPET 0x00000000BFFE159E 000038 (v01 BOCHS  BXPCHPET 00000001 BXPC 00000001)
+[    0.010381] ACPI: Local APIC address 0xfee00000
+[    0.010858] No NUMA configuration found
+[    0.010860] Faking a node at [mem 0x0000000000000000-0x0000000139ffffff]
+[    0.010865] NODE_DATA(0) allocated [mem 0x139ff9000-0x139ffcfff]
+[    0.011241] Zone ranges:
+[    0.011243]   DMA      [mem 0x0000000000001000-0x0000000000ffffff]
+[    0.011244]   DMA32    [mem 0x0000000001000000-0x00000000ffffffff]
+[    0.011246]   Normal   [mem 0x0000000100000000-0x0000000139ffffff]
+[    0.011248] Movable zone start for each node
+[    0.011249] Early memory node ranges
+[    0.011250]   node   0: [mem 0x0000000000001000-0x000000000009efff]
+[    0.011251]   node   0: [mem 0x0000000000100000-0x00000000bffdffff]
+[    0.011253]   node   0: [mem 0x0000000100000000-0x0000000139ffffff]
+[    0.011931] Zeroed struct page in unavailable ranges: 130 pages
+[    0.011933] Initmem setup node 0 [mem 0x0000000000001000-0x0000000139ffffff]
+[    0.011935] On node 0 totalpages: 1023870
+[    0.011937]   DMA zone: 64 pages used for memmap
+[    0.011937]   DMA zone: 21 pages reserved
+[    0.011938]   DMA zone: 3998 pages, LIFO batch:0
+[    0.014070]   DMA32 zone: 12224 pages used for memmap
+[    0.014071]   DMA32 zone: 782304 pages, LIFO batch:63
+[    0.088312]   Normal zone: 3712 pages used for memmap
+[    0.088315]   Normal zone: 237568 pages, LIFO batch:63
+[    0.548838] kasan: KernelAddressSanitizer initialized
+[    0.549446] ACPI: PM-Timer IO Port: 0x608
+[    0.549458] ACPI: Local APIC address 0xfee00000
+[    0.549486] ACPI: LAPIC_NMI (acpi_id[0xff] dfl dfl lint[0x1])
+[    0.549553] IOAPIC[0]: apic_id 0, version 17, address 0xfec00000, GSI 0-23
+[    0.549560] ACPI: INT_SRC_OVR (bus 0 bus_irq 0 global_irq 2 dfl dfl)
+[    0.549567] ACPI: INT_SRC_OVR (bus 0 bus_irq 5 global_irq 5 high level)
+[    0.549568] ACPI: INT_SRC_OVR (bus 0 bus_irq 9 global_irq 9 high level)
+[    0.549574] ACPI: INT_SRC_OVR (bus 0 bus_irq 10 global_irq 10 high level)
+[    0.549575] ACPI: INT_SRC_OVR (bus 0 bus_irq 11 global_irq 11 high level)
+[    0.549578] ACPI: IRQ0 used by override.
+[    0.549579] ACPI: IRQ5 used by override.
+[    0.549581] ACPI: IRQ9 used by override.
+[    0.549581] ACPI: IRQ10 used by override.
+[    0.549582] ACPI: IRQ11 used by override.
+[    0.549586] Using ACPI (MADT) for SMP configuration information
+[    0.549589] ACPI: HPET id: 0x8086a201 base: 0xfed00000
+[    0.549620] smpboot: Allowing 2 CPUs, 0 hotplug CPUs
+[    0.549664] PM: Registered nosave memory: [mem 0x00000000-0x00000fff]
+[    0.549667] PM: Registered nosave memory: [mem 0x0009f000-0x0009ffff]
+[    0.549668] PM: Registered nosave memory: [mem 0x000a0000-0x000effff]
+[    0.549669] PM: Registered nosave memory: [mem 0x000f0000-0x000fffff]
+[    0.549672] PM: Registered nosave memory: [mem 0xbffe0000-0xbfffffff]
+[    0.549673] PM: Registered nosave memory: [mem 0xc0000000-0xfeffbfff]
+[    0.549674] PM: Registered nosave memory: [mem 0xfeffc000-0xfeffffff]
+[    0.549675] PM: Registered nosave memory: [mem 0xff000000-0xfffbffff]
+[    0.549677] PM: Registered nosave memory: [mem 0xfffc0000-0xffffffff]
+[    0.549682] [mem 0xc0000000-0xfeffbfff] available for PCI devices
+[    0.549703] clocksource: refined-jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1910969940391419 ns
+[    0.874949] random: get_random_bytes called from start_kernel+0xdc/0x6cf with crng_init=0
+[    0.874971] setup_percpu: NR_CPUS:64 nr_cpumask_bits:64 nr_cpu_ids:2 nr_node_ids:1
+[    0.878232] percpu: Embedded 52 pages/cpu @(____ptrval____) s175192 r8192 d29608 u1048576
+[    0.878246] pcpu-alloc: s175192 r8192 d29608 u1048576 alloc=1*2097152
+[    0.878247] pcpu-alloc: [0] 0 1 
+[    0.878311] Built 1 zonelists, mobility grouping on.  Total pages: 1007849
+[    0.878315] Policy zone: Normal
+[    0.878328] Kernel command line: root=/dev/sda1 init=/sbin/init text
+[    0.944583] Calgary: detecting Calgary via BIOS EBDA area
+[    0.944598] Calgary: Unable to locate Rio Grande table in EBDA - bailing!
+[    1.107295] Memory: 3373724K/4095480K available (36868K kernel code, 4878K rwdata, 5816K rodata, 1764K init, 9420K bss, 721756K reserved, 0K cma-reserved)
+[    1.108076] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=2, Nodes=1
+[    1.108103] Kernel/User page tables isolation: enabled
+[    1.108993] rcu: Hierarchical RCU implementation.
+[    1.108995] rcu: 	RCU event tracing is enabled.
+[    1.108998] rcu: 	RCU restricting CPUs from NR_CPUS=64 to nr_cpu_ids=2.
+[    1.109003] rcu: RCU calculated value of scheduler-enlistment delay is 100 jiffies.
+[    1.109006] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=2
+[    1.110883] NR_IRQS: 4352, nr_irqs: 440, preallocated irqs: 16
+[    1.122639] Console: colour VGA+ 80x25
+[    1.176790] printk: console [tty0] enabled
+[    1.177366] ACPI: Core revision 20181213
+[    1.178405] clocksource: hpet: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604467 ns
+[    1.179489] hpet clockevent registered
+[    1.179577] APIC: Switch to symmetric I/O mode setup
+[    1.181993] ..TIMER: vector=0x30 apic1=0 pin1=2 apic2=-1 pin2=-1
+[    1.187506] clocksource: tsc-early: mask: 0xffffffffffffffff max_cycles: 0x2c969448c73, max_idle_ns: 440795345271 ns
+[    1.188641] Calibrating delay loop (skipped), value calculated using timer frequency.. 6186.61 BogoMIPS (lpj=3093306)
+[    1.189605] pid_max: default: 32768 minimum: 301
+[    1.190310] LSM: Security Framework initializing
+[    1.190621] SELinux:  Initializing.
+[    1.195797] Dentry cache hash table entries: 524288 (order: 10, 4194304 bytes)
+[    1.198738] Inode-cache hash table entries: 262144 (order: 9, 2097152 bytes)
+[    1.199523] Mount-cache hash table entries: 8192 (order: 4, 65536 bytes)
+[    1.199682] Mountpoint-cache hash table entries: 8192 (order: 4, 65536 bytes)
+[    1.202618] mce: CPU supports 10 MCE banks
+[    1.203309] Last level iTLB entries: 4KB 0, 2MB 0, 4MB 0
+[    1.203604] Last level dTLB entries: 4KB 0, 2MB 0, 4MB 0, 1GB 0
+[    1.204610] Spectre V2 : Mitigation: Full generic retpoline
+[    1.205216] Spectre V2 : Spectre v2 / SpectreRSB mitigation: Filling RSB on context switch
+[    1.205607] Speculative Store Bypass: Vulnerable
+[    1.207007] Freeing SMP alternatives memory: 36K
+[    1.208600] smpboot: CPU0: Intel QEMU Virtual CPU version 2.5+ (family: 0x6, model: 0x6, stepping: 0x3)
+[    1.209056] Performance Events: PMU not available due to virtualization, using software events only.
+[    1.210697] rcu: Hierarchical SRCU implementation.
+[    1.211664] smp: Bringing up secondary CPUs ...
+[    1.212704] x86: Booting SMP configuration:
+[    1.213218] .... node  #0, CPUs:      #1
+[    1.274646] smp: Brought up 1 node, 2 CPUs
+[    1.275614] smpboot: Max logical packages: 2
+[    1.276086] smpboot: Total of 2 processors activated (12372.31 BogoMIPS)
+[    1.278337] devtmpfs: initialized
+[    1.285282] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1911260446275000 ns
+[    1.285188] kworker/u4:0 (21) used greatest stack depth: 28288 bytes left
+[    1.285640] futex hash table entries: 512 (order: 3, 32768 bytes)
+[    1.287773] RTC time: 08:04:06, date: 2019-02-21
+[    1.288985] NET: Registered protocol family 16
+[    1.290251] audit: initializing netlink subsys (disabled)
+[    1.291658] audit: type=2000 audit(1550736246.111:1): state=initialized audit_enabled=0 res=1
+[    1.293127] cpuidle: using governor menu
+[    1.293807] ACPI: bus type PCI registered
+[    1.295014] PCI: Using configuration type 1 for base access
+[    1.340877] HugeTLB registered 2.00 MiB page size, pre-allocated 0 pages
+[    1.342676] ACPI: Added _OSI(Module Device)
+[    1.343166] ACPI: Added _OSI(Processor Device)
+[    1.343613] ACPI: Added _OSI(3.0 _SCP Extensions)
+[    1.344101] ACPI: Added _OSI(Processor Aggregator Device)
+[    1.344624] ACPI: Added _OSI(Linux-Dell-Video)
+[    1.345111] ACPI: Added _OSI(Linux-Lenovo-NV-HDMI-Audio)
+[    1.345615] ACPI: Added _OSI(Linux-HPI-Hybrid-Graphics)
+[    1.368729] ACPI: 1 ACPI AML tables successfully acquired and loaded
+[    1.376218] ACPI: Interpreter enabled
+[    1.376742] ACPI: (supports S0 S3 S4 S5)
+[    1.377204] ACPI: Using IOAPIC for interrupt routing
+[    1.377743] PCI: Using host bridge windows from ACPI; if necessary, use "pci=nocrs" and report a bug
+[    1.380545] ACPI: Enabled 2 GPEs in block 00 to 0F
+[    1.437621] ACPI: PCI Root Bridge [PCI0] (domain 0000 [bus 00-ff])
+[    1.438233] acpi PNP0A03:00: _OSC: OS supports [ASPM ClockPM Segments MSI]
+[    1.438830] acpi PNP0A03:00: fail to add MMCONFIG information, can't access extended PCI configuration space under this bridge.
+[    1.440123] PCI host bridge to bus 0000:00
+[    1.440619] pci_bus 0000:00: root bus resource [io  0x0000-0x0cf7 window]
+[    1.441612] pci_bus 0000:00: root bus resource [io  0x0d00-0xffff window]
+[    1.442218] pci_bus 0000:00: root bus resource [mem 0x000a0000-0x000bffff window]
+[    1.442613] pci_bus 0000:00: root bus resource [mem 0xc0000000-0xfebfffff window]
+[    1.443613] pci_bus 0000:00: root bus resource [mem 0x140000000-0x1bfffffff window]
+[    1.444396] pci_bus 0000:00: root bus resource [bus 00-ff]
+[    1.444688] pci 0000:00:00.0: [8086:1237] type 00 class 0x060000
+[    1.447627] pci 0000:00:01.0: [8086:7000] type 00 class 0x060100
+[    1.450194] pci 0000:00:01.1: [8086:7010] type 00 class 0x010180
+[    1.454613] pci 0000:00:01.1: reg 0x20: [io  0xc040-0xc04f]
+[    1.456641] pci 0000:00:01.1: legacy IDE quirk: reg 0x10: [io  0x01f0-0x01f7]
+[    1.457238] pci 0000:00:01.1: legacy IDE quirk: reg 0x14: [io  0x03f6]
+[    1.457606] pci 0000:00:01.1: legacy IDE quirk: reg 0x18: [io  0x0170-0x0177]
+[    1.458196] pci 0000:00:01.1: legacy IDE quirk: reg 0x1c: [io  0x0376]
+[    1.461132] pci 0000:00:01.3: [8086:7113] type 00 class 0x068000
+[    1.461810] pci 0000:00:01.3: quirk: [io  0x0600-0x063f] claimed by PIIX4 ACPI
+[    1.462620] pci 0000:00:01.3: quirk: [io  0x0700-0x070f] claimed by PIIX4 SMB
+[    1.465405] pci 0000:00:02.0: [1234:1111] type 00 class 0x030000
+[    1.467676] pci 0000:00:02.0: reg 0x10: [mem 0xfd000000-0xfdffffff pref]
+[    1.471658] pci 0000:00:02.0: reg 0x18: [mem 0xfebf0000-0xfebf0fff]
+[    1.479664] pci 0000:00:02.0: reg 0x30: [mem 0xfebe0000-0xfebeffff pref]
+[    1.483500] pci 0000:00:03.0: [8086:100e] type 00 class 0x020000
+[    1.484608] pci 0000:00:03.0: reg 0x10: [mem 0xfebc0000-0xfebdffff]
+[    1.486607] pci 0000:00:03.0: reg 0x14: [io  0xc000-0xc03f]
+[    1.494614] pci 0000:00:03.0: reg 0x30: [mem 0xfeb80000-0xfebbffff pref]
+[    1.504494] ACPI: PCI Interrupt Link [LNKA] (IRQs 5 *10 11)
+[    1.506559] ACPI: PCI Interrupt Link [LNKB] (IRQs 5 *10 11)
+[    1.508491] ACPI: PCI Interrupt Link [LNKC] (IRQs 5 10 *11)
+[    1.510486] ACPI: PCI Interrupt Link [LNKD] (IRQs 5 10 *11)
+[    1.511633] ACPI: PCI Interrupt Link [LNKS] (IRQs *9)
+[    1.515153] pci 0000:00:02.0: vgaarb: setting as boot VGA device
+[    1.515264] pci 0000:00:02.0: vgaarb: VGA device added: decodes=io+mem,owns=io+mem,locks=none
+[    1.515609] pci 0000:00:02.0: vgaarb: bridge control possible
+[    1.516165] vgaarb: loaded
+[    1.518067] SCSI subsystem initialized
+[    1.518821] libata version 3.00 loaded.
+[    1.519191] ACPI: bus type USB registered
+[    1.519966] usbcore: registered new interface driver usbfs
+[    1.520750] usbcore: registered new interface driver hub
+[    1.521394] usbcore: registered new device driver usb
+[    1.521947] pps_core: LinuxPPS API ver. 1 registered
+[    1.522605] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    1.523678] PTP clock support registered
+[    1.524777] EDAC MC: Ver: 3.0.0
+[    1.526160] Advanced Linux Sound Architecture Driver Initialized.
+[    1.526836] PCI: Using ACPI for IRQ routing
+[    1.527647] PCI: pci_cache_line_size set to 64 bytes
+[    1.527800] e820: reserve RAM buffer [mem 0x0009fc00-0x0009ffff]
+[    1.527826] e820: reserve RAM buffer [mem 0xbffe0000-0xbfffffff]
+[    1.527835] e820: reserve RAM buffer [mem 0x13a000000-0x13bffffff]
+[    1.529372] NetLabel: Initializing
+[    1.529605] NetLabel:  domain hash size = 128
+[    1.530081] NetLabel:  protocols = UNLABELED CIPSOv4 CALIPSO
+[    1.530785] NetLabel:  unlabeled traffic allowed by default
+[    1.532043] HPET: 3 timers in total, 0 timers will be used for per-cpu timer
+[    1.532654] hpet0: at MMIO 0xfed00000, IRQs 2, 8, 0
+[    1.533152] hpet0: 3 comparators, 64-bit 100.000000 MHz counter
+[    1.538695] clocksource: Switched to clocksource tsc-early
+[    1.726696] VFS: Disk quotas dquot_6.6.0
+[    1.727269] VFS: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+[    1.728326] pnp: PnP ACPI init
+[    1.729297] pnp 00:00: Plug and Play ACPI device, IDs PNP0b00 (active)
+[    1.729705] pnp 00:01: Plug and Play ACPI device, IDs PNP0303 (active)
+[    1.730062] pnp 00:02: Plug and Play ACPI device, IDs PNP0f13 (active)
+[    1.730185] pnp 00:03: [dma 2]
+[    1.730324] pnp 00:03: Plug and Play ACPI device, IDs PNP0700 (active)
+[    1.730929] pnp 00:04: Plug and Play ACPI device, IDs PNP0400 (active)
+[    1.731472] pnp 00:05: Plug and Play ACPI device, IDs PNP0501 (active)
+[    1.734651] pnp: PnP ACPI: found 6 devices
+[    1.758408] clocksource: acpi_pm: mask: 0xffffff max_cycles: 0xffffff, max_idle_ns: 2085701024 ns
+[    1.759283] pci_bus 0000:00: resource 4 [io  0x0000-0x0cf7 window]
+[    1.759286] pci_bus 0000:00: resource 5 [io  0x0d00-0xffff window]
+[    1.759288] pci_bus 0000:00: resource 6 [mem 0x000a0000-0x000bffff window]
+[    1.759289] pci_bus 0000:00: resource 7 [mem 0xc0000000-0xfebfffff window]
+[    1.759291] pci_bus 0000:00: resource 8 [mem 0x140000000-0x1bfffffff window]
+[    1.759856] NET: Registered protocol family 2
+[    1.761318] tcp_listen_portaddr_hash hash table entries: 2048 (order: 3, 32768 bytes)
+[    1.762192] TCP established hash table entries: 32768 (order: 6, 262144 bytes)
+[    1.763243] TCP bind hash table entries: 32768 (order: 7, 524288 bytes)
+[    1.764488] TCP: Hash tables configured (established 32768 bind 32768)
+[    1.765331] UDP hash table entries: 2048 (order: 4, 65536 bytes)
+[    1.765985] UDP-Lite hash table entries: 2048 (order: 4, 65536 bytes)
+[    1.766941] NET: Registered protocol family 1
+[    1.768493] RPC: Registered named UNIX socket transport module.
+[    1.769065] RPC: Registered udp transport module.
+[    1.769552] RPC: Registered tcp transport module.
+[    1.770062] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    1.771347] pci 0000:00:01.0: PIIX3: Enabling Passive Release
+[    1.771955] pci 0000:00:00.0: Limiting direct PCI/PCI transfers
+[    1.772518] pci 0000:00:01.0: Activating ISA DMA hang workarounds
+[    1.773180] pci 0000:00:02.0: Video device with shadowed ROM at [mem 0x000c0000-0x000dffff]
+[    1.774018] PCI: CLS 0 bytes, default 64
+[    1.774393] PCI-DMA: Using software bounce buffering for IO (SWIOTLB)
+[    1.775006] software IO TLB: mapped [mem 0xbbfe0000-0xbffe0000] (64MB)
+[    1.777255] check: Scanning for low memory corruption every 60 seconds
+[    1.781129] Initialise system trusted keyrings
+[    1.781834] workingset: timestamp_bits=56 max_order=20 bucket_order=0
+[    1.808868] NFS: Registering the id_resolver key type
+[    1.809456] Key type id_resolver registered
+[    1.809952] Key type id_legacy registered
+[    1.821655] Key type asymmetric registered
+[    1.822182] Asymmetric key parser 'x509' registered
+[    1.823026] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 251)
+[    1.823823] io scheduler mq-deadline registered
+[    1.824303] io scheduler kyber registered
+[    1.826577] input: Power Button as /devices/LNXSYSTM:00/LNXPWRBN:00/input/input0
+[    1.827766] ACPI: Power Button [PWRF]
+[    1.830100] Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+[    1.854187] 00:05: ttyS0 at I/O 0x3f8 (irq = 4, base_baud = 115200) is a 16550A
+[    1.857725] Non-volatile memory driver v1.3
+[    1.858488] Linux agpgart interface v0.103
+[    1.875485] loop: module loaded
+[    1.876855] ata_piix 0000:00:01.1: version 2.13
+[    1.880127] scsi host0: ata_piix
+[    1.881603] scsi host1: ata_piix
+[    1.882497] ata1: PATA max MWDMA2 cmd 0x1f0 ctl 0x3f6 bmdma 0xc040 irq 14
+[    1.883104] ata2: PATA max MWDMA2 cmd 0x170 ctl 0x376 bmdma 0xc048 irq 15
+[    1.885250] e100: Intel(R) PRO/100 Network Driver, 3.5.24-k2-NAPI
+[    1.885835] e100: Copyright(c) 1999-2006 Intel Corporation
+[    1.886462] e1000: Intel(R) PRO/1000 Network Driver - version 7.3.21-k8-NAPI
+[    1.887072] e1000: Copyright (c) 1999-2006 Intel Corporation.
+[    2.041569] ata2.01: NODEV after polling detection
+[    2.041869] ata1.01: NODEV after polling detection
+[    2.042236] ata2.00: ATAPI: QEMU DVD-ROM, 2.5+, max UDMA/100
+[    2.043076] ata1.00: ATA-7: QEMU HARDDISK, 2.5+, max UDMA/100
+[    2.043650] ata1.00: 41943040 sectors, multi 16: LBA48 
+[    2.045937] scsi 0:0:0:0: Direct-Access     ATA      QEMU HARDDISK    2.5+ PQ: 0 ANSI: 5
+[    2.048431] sd 0:0:0:0: [sda] 41943040 512-byte logical blocks: (21.5 GB/20.0 GiB)
+[    2.049277] sd 0:0:0:0: [sda] Write Protect is off
+[    2.049809] sd 0:0:0:0: [sda] Mode Sense: 00 3a 00 00
+[    2.049874] sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+[    2.050878] sd 0:0:0:0: Attached scsi generic sg0 type 0
+[    2.052919] scsi 1:0:0:0: CD-ROM            QEMU     QEMU DVD-ROM     2.5+ PQ: 0 ANSI: 5
+[    2.056924]  sda: sda1 sda2 < sda5 >
+[    2.059689] sd 0:0:0:0: [sda] Attached SCSI disk
+[    2.220650] sr 1:0:0:0: [sr0] scsi3-mmc drive: 4x/4x cd/rw xa/form2 tray
+[    2.221265] cdrom: Uniform CD-ROM driver Revision: 3.20
+[    2.223767] sr 1:0:0:0: Attached scsi CD-ROM sr0
+[    2.224658] sr 1:0:0:0: Attached scsi generic sg1 type 5
+[    2.811674] tsc: Refined TSC clocksource calibration: 3092.977 MHz
+[    2.812272] clocksource: tsc: mask: 0xffffffffffffffff max_cycles: 0x2c955d30b27, max_idle_ns: 440795258062 ns
+[    2.813233] clocksource: Switched to clocksource tsc
+[    3.265040] PCI Interrupt Link [LNKC] enabled at IRQ 11
+[    3.611464] e1000 0000:00:03.0 eth0: (PCI:33MHz:32-bit) 52:54:00:12:34:56
+[    3.612422] e1000 0000:00:03.0 eth0: Intel(R) PRO/1000 Network Connection
+[    3.613637] e1000e: Intel(R) PRO/1000 Network Driver - 3.2.6-k
+[    3.614469] e1000e: Copyright(c) 1999 - 2015 Intel Corporation.
+[    3.615501] sky2: driver version 1.30
+[    3.617984] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    3.618898] ehci-pci: EHCI PCI platform driver
+[    3.619744] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    3.620719] ohci-pci: OHCI PCI platform driver
+[    3.622278] uhci_hcd: USB Universal Host Controller Interface driver
+[    3.624247] usbcore: registered new interface driver usblp
+[    3.625228] usbcore: registered new interface driver usb-storage
+[    3.626661] i8042: PNP: PS/2 Controller [PNP0303:KBD,PNP0f13:MOU] at 0x60,0x64 irq 1,12
+[    3.629590] serio: i8042 KBD port at 0x60,0x64 irq 1
+[    3.630443] serio: i8042 AUX port at 0x60,0x64 irq 12
+[    3.633327] rtc_cmos 00:00: RTC can wake from S4
+[    3.634483] input: AT Translated Set 2 keyboard as /devices/platform/i8042/serio0/input/input1
+[    3.637156] rtc_cmos 00:00: registered as rtc0
+[    3.638529] rtc_cmos 00:00: alarms up to one day, y3k, 114 bytes nvram, hpet irqs
+[    3.643834] device-mapper: ioctl: 4.39.0-ioctl (2018-04-03) initialised: dm-devel@redhat.com
+[    3.645390] hidraw: raw HID events driver (C) Jiri Kosina
+[    3.650357] usbcore: registered new interface driver usbhid
+[    3.651152] usbhid: USB HID core driver
+[    3.655989] Initializing XFRM netlink socket
+[    3.658828] NET: Registered protocol family 10
+[    3.662719] Segment Routing with IPv6
+[    3.664370] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    3.666453] NET: Registered protocol family 17
+[    3.667251] Key type dns_resolver registered
+[    3.668924] sched_clock: Marking stable (3600333274, 68279932)->(3812345056, -143731850)
+[    3.671430] registered taskstats version 1
+[    3.672055] Loading compiled-in X.509 certificates
+[    3.677160]   Magic number: 7:911:68
+[    3.677826] printk: console [netcon0] enabled
+[    3.678408] netconsole: network logging started
+[    3.679584] cfg80211: Loading compiled-in X.509 certificates for regulatory database
+[    3.682538] cfg80211: Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+[    3.683401] ALSA device list:
+[    3.683922]   No soundcards found.
+[    3.684799] platform regulatory.0: Direct firmware load for regulatory.db failed with error -2
+[    3.685787] cfg80211: failed to load regulatory.db
+[    4.262233] random: fast init done
+[    4.264006] input: ImExPS/2 Generic Explorer Mouse as /devices/platform/i8042/serio1/input/input3
+[    4.267189] md: Waiting for all devices to be available before autodetect
+[    4.268548] md: If you don't use raid, use raid=noautodetect
+[    4.271938] md: Autodetecting RAID arrays.
+[    4.272997] md: autorun ...
+[    4.274025] md: ... autorun DONE.
+[    4.280756] EXT4-fs (sda1): INFO: recovery required on readonly filesystem
+[    4.281992] EXT4-fs (sda1): write access will be enabled during recovery
+[    4.420041] EXT4-fs (sda1): recovery complete
+[    4.444932] EXT4-fs (sda1): mounted filesystem with ordered data mode. Opts: (null)
+[    4.446521] VFS: Mounted root (ext4 filesystem) readonly on device 8:1.
+[    4.448751] devtmpfs: mounted
+[    4.451481] Freeing unused kernel image memory: 1764K
+[    4.455695] Write protecting the kernel read-only data: 45056k
+[    4.459399] Freeing unused kernel image memory: 2008K
+[    4.461014] Freeing unused kernel image memory: 328K
+[    4.462137] Run /sbin/init as init process
+[    4.652246] random: systemd: uninitialized urandom read (16 bytes read)
+[    4.657724] systemd[1]: systemd 229 running in system mode. (+PAM +AUDIT +SELINUX +IMA +APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT +GNUTLS +ACL +XZ -LZ4 +SECCOMP +BLKID +ELFUTILS +KMOD -IDN)
+[    4.663044] systemd[1]: Detected virtualization qemu.
+[    4.663805] systemd[1]: Detected architecture x86-64.
+[    4.668459] systemd[1]: Set hostname to <vm>.
+[    4.692692] random: systemd: uninitialized urandom read (16 bytes read)
+[    4.695303] systemd-hiberna (1158) used greatest stack depth: 27432 bytes left
+[    4.698234] random: systemd: uninitialized urandom read (16 bytes read)
+[    4.721486] systemd-fstab-g (1160) used greatest stack depth: 26280 bytes left
+[    4.880918] systemd[1]: sysinit.target: Found ordering cycle on sysinit.target/start
+[    4.881763] systemd[1]: sysinit.target: Found dependency on ocfs2.service/start
+[    4.882549] systemd[1]: sysinit.target: Found dependency on network-online.target/start
+[    4.883387] systemd[1]: sysinit.target: Found dependency on NetworkManager-wait-online.service/start
+[    4.884287] systemd[1]: sysinit.target: Found dependency on NetworkManager.service/start
+[    4.885102] systemd[1]: sysinit.target: Found dependency on dbus.service/start
+[    5.363923] EXT4-fs (sda1): re-mounted. Opts: errors=remount-ro
+[    5.480107] systemd-journald[1171]: Received request to flush runtime journal from PID 1
+[    5.696441] random: crng init done
+[    5.696444] random: 7 urandom warning(s) missed due to ratelimiting
+[    6.121524] e1000 0000:00:03.0 enp0s3: renamed from eth0
+[    7.183414] Adding 4323324k swap on /dev/sda5.  Priority:-2 extents:1 across:4323324k 
+[    9.794778] e1000: enp0s3 NIC Link is Up 1000 Mbps Full Duplex, Flow Control: RX
+[    9.796668] IPv6: ADDRCONF(NETDEV_CHANGE): enp0s3: link becomes ready
+[   39.569545] systemd-hostnam (2192) used greatest stack depth: 26064 bytes left
+[   40.078521] lsb_release (2404) used greatest stack depth: 26056 bytes left
+[   54.804534] kasan_test: loading out-of-tree module taints kernel.
+[   54.808721] kasan test: kmalloc_oob_right out-of-bounds to right
+[   54.808743] ==================================================================
+[   54.810298] BUG: KASAN: slab-out-of-bounds in kmalloc_oob_right+0x94/0xa1 [kasan_test]
+[   54.811886] Write of size 1 at addr ffff8881149f067b by task insmod/2506
+
+[   54.813784] CPU: 1 PID: 2506 Comm: insmod Tainted: G           O      5.0.0-rc4 #1
+[   54.813786] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[   54.813794] Call Trace:
+[   54.813812]  dump_stack+0x5b/0x8b
+[   54.813826]  print_address_description+0x66/0x280
+[   54.813833]  ? kmalloc_oob_right+0x94/0xa1 [kasan_test]
+[   54.813837]  kasan_report+0x13a/0x19b
+[   54.813843]  ? kmalloc_oob_right+0x94/0xa1 [kasan_test]
+[   54.813848]  ? kasan_strings+0x74/0xcd [kasan_test]
+[   54.813852]  ? kmalloc_oob_right+0x94/0xa1 [kasan_test]
+[   54.813857]  kmalloc_oob_right+0x94/0xa1 [kasan_test]
+[   54.813862]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   54.813867]  kmalloc_tests_init+0xd/0x8a6 [kasan_test]
+[   54.813871]  ? kasan_strings+0xcd/0xcd [kasan_test]
+[   54.813875]  do_one_initcall+0x9c/0x301
+[   54.813879]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[   54.813884]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.813891]  ? __kasan_kmalloc+0xa9/0xf0
+[   54.813896]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.813900]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.813911]  do_init_module+0x1be/0x545
+[   54.813917]  load_module+0x6529/0x7e50
+[   54.813924]  ? module_frob_arch_sections+0x20/0x20
+[   54.813932]  ? kernel_read_file+0x1cb/0x5a0
+[   54.813940]  ? do_mmap+0x766/0xd60
+[   54.813946]  ? __do_sys_finit_module+0x16a/0x180
+[   54.813949]  __do_sys_finit_module+0x16a/0x180
+[   54.813954]  ? __ia32_sys_init_module+0xa0/0xa0
+[   54.813967]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[   54.813971]  ? __do_sys_newfstat+0x83/0xd0
+[   54.813982]  ? __do_page_fault+0x42c/0x990
+[   54.813986]  do_syscall_64+0x8c/0x270
+[   54.813993]  ? page_fault+0x8/0x30
+[   54.813997]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   54.814001] RIP: 0033:0x7fb82b1fa4d9
+[   54.814006] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[   54.814008] RSP: 002b:00007ffe130aba08 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[   54.814017] RAX: ffffffffffffffda RBX: 0000560344210210 RCX: 00007fb82b1fa4d9
+[   54.814019] RDX: 0000000000000000 RSI: 000056034318026b RDI: 0000000000000003
+[   54.814021] RBP: 000056034318026b R08: 0000000000000000 R09: 00007fb82b4bfea0
+[   54.814024] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[   54.814026] R13: 00005603442101e0 R14: 0000000000000000 R15: 0000000000000000
+
+[   54.814767] Allocated by task 2506:
+[   54.815675]  __kasan_kmalloc+0xa9/0xf0
+[   54.815679]  kmalloc_oob_right+0x4d/0xa1 [kasan_test]
+[   54.815684]  kmalloc_tests_init+0xd/0x8a6 [kasan_test]
+[   54.815686]  do_one_initcall+0x9c/0x301
+[   54.815689]  do_init_module+0x1be/0x545
+[   54.815693]  load_module+0x6529/0x7e50
+[   54.815696]  __do_sys_finit_module+0x16a/0x180
+[   54.815698]  do_syscall_64+0x8c/0x270
+[   54.815701]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   54.816435] Freed by task 2178:
+[   54.817307]  __kasan_slab_free+0x137/0x190
+[   54.817311]  kfree+0x86/0x1b0
+[   54.817323]  load_elf_binary+0x21d/0x41ee
+[   54.817327]  search_binary_handler+0x15e/0x460
+[   54.817331]  __do_execve_file.isra.44+0x118f/0x1fa0
+[   54.817334]  __x64_sys_execve+0x85/0xb0
+[   54.817337]  do_syscall_64+0x8c/0x270
+[   54.817340]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   54.818080] The buggy address belongs to the object at ffff8881149f0600
+                which belongs to the cache kmalloc-128 of size 128
+[   54.819970] The buggy address is located 123 bytes inside of
+                128-byte region [ffff8881149f0600, ffff8881149f0680)
+[   54.821706] The buggy address belongs to the page:
+[   54.822644] page:ffffea0004527c00 count:1 mapcount:0 mapping:ffff888115c01640 index:0x0
+[   54.822656] flags: 0x200000000000200(slab)
+[   54.822662] raw: 0200000000000200 ffffea00044ebcc0 0000000f0000000f ffff888115c01640
+[   54.822665] raw: 0000000000000000 0000000080150015 00000001ffffffff 0000000000000000
+[   54.822667] page dumped because: kasan: bad access detected
+
+[   54.823356] Memory state around the buggy address:
+[   54.824294]  ffff8881149f0500: fc fc fc fc fc fc fc fc fb fb fb fb fb fb fb fb
+[   54.825697]  ffff8881149f0580: fb fb fb fb fb fb fb fb fc fc fc fc fc fc fc fc
+[   54.827106] >ffff8881149f0600: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 03
+[   54.828509]                                                                 ^
+[   54.829626]  ffff8881149f0680: fc fc fc fc fc fc fc fc fb fb fb fb fb fb fb fb
+[   54.831029]  ffff8881149f0700: fb fb fb fb fb fb fb fb fc fc fc fc fc fc fc fc
+[   54.832373] ==================================================================
+[   54.833699] Disabling lock debugging due to kernel taint
+[   54.833845] kasan test: kmalloc_oob_left out-of-bounds to left
+[   54.835308] ==================================================================
+[   54.836681] BUG: KASAN: slab-out-of-bounds in kmalloc_oob_left+0x96/0xcb [kasan_test]
+[   54.838055] Read of size 1 at addr ffff8881144e01ff by task insmod/2506
+
+[   54.839726] CPU: 0 PID: 2506 Comm: insmod Tainted: G    B      O      5.0.0-rc4 #1
+[   54.839729] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[   54.839730] Call Trace:
+[   54.839738]  dump_stack+0x5b/0x8b
+[   54.839744]  print_address_description+0x66/0x280
+[   54.839749]  ? kmalloc_oob_left+0x96/0xcb [kasan_test]
+[   54.839753]  kasan_report+0x13a/0x19b
+[   54.839758]  ? kmalloc_oob_left+0x96/0xcb [kasan_test]
+[   54.839762]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   54.839766]  ? kmalloc_oob_left+0x96/0xcb [kasan_test]
+[   54.839771]  kmalloc_oob_left+0x96/0xcb [kasan_test]
+[   54.839775]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   54.839779]  kmalloc_tests_init+0x12/0x8a6 [kasan_test]
+[   54.839784]  ? kasan_strings+0xcd/0xcd [kasan_test]
+[   54.839787]  do_one_initcall+0x9c/0x301
+[   54.839790]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[   54.839794]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.839798]  ? __kasan_kmalloc+0xa9/0xf0
+[   54.839801]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.839804]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.839809]  do_init_module+0x1be/0x545
+[   54.839813]  load_module+0x6529/0x7e50
+[   54.839819]  ? module_frob_arch_sections+0x20/0x20
+[   54.839823]  ? kernel_read_file+0x1cb/0x5a0
+[   54.839827]  ? do_mmap+0x766/0xd60
+[   54.839832]  ? __do_sys_finit_module+0x16a/0x180
+[   54.839835]  __do_sys_finit_module+0x16a/0x180
+[   54.839838]  ? __ia32_sys_init_module+0xa0/0xa0
+[   54.839842]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[   54.839845]  ? __do_sys_newfstat+0x83/0xd0
+[   54.839850]  ? __do_page_fault+0x42c/0x990
+[   54.839853]  do_syscall_64+0x8c/0x270
+[   54.839856]  ? page_fault+0x8/0x30
+[   54.839859]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   54.839862] RIP: 0033:0x7fb82b1fa4d9
+[   54.839867] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[   54.839869] RSP: 002b:00007ffe130aba08 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[   54.839873] RAX: ffffffffffffffda RBX: 0000560344210210 RCX: 00007fb82b1fa4d9
+[   54.839875] RDX: 0000000000000000 RSI: 000056034318026b RDI: 0000000000000003
+[   54.839877] RBP: 000056034318026b R08: 0000000000000000 R09: 00007fb82b4bfea0
+[   54.839879] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[   54.839881] R13: 00005603442101e0 R14: 0000000000000000 R15: 0000000000000000
+
+[   54.840528] Allocated by task 2456:
+[   54.841318]  __kasan_kmalloc+0xa9/0xf0
+[   54.841327]  proc_self_get_link+0x167/0x1c0
+[   54.841330]  link_path_walk+0xb92/0x11f0
+[   54.841333]  path_openat+0x20a/0x4500
+[   54.841335]  do_filp_open+0x189/0x280
+[   54.841339]  do_sys_open+0x170/0x350
+[   54.841341]  do_syscall_64+0x8c/0x270
+[   54.841344]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   54.841988] Freed by task 2456:
+[   54.842753]  __kasan_slab_free+0x137/0x190
+[   54.842756]  kfree+0x86/0x1b0
+[   54.842758]  walk_component+0x3e5/0xf60
+[   54.842760]  link_path_walk+0x78c/0x11f0
+[   54.842763]  path_openat+0x20a/0x4500
+[   54.842765]  do_filp_open+0x189/0x280
+[   54.842768]  do_sys_open+0x170/0x350
+[   54.842770]  do_syscall_64+0x8c/0x270
+[   54.842773]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   54.843427] The buggy address belongs to the object at ffff8881144e01e0
+                which belongs to the cache kmalloc-16 of size 16
+[   54.845077] The buggy address is located 15 bytes to the right of
+                16-byte region [ffff8881144e01e0, ffff8881144e01f0)
+[   54.846754] The buggy address belongs to the page:
+[   54.847631] page:ffffea0004513800 count:1 mapcount:0 mapping:ffff888115c01b40 index:0x0
+[   54.847641] flags: 0x200000000000200(slab)
+[   54.847646] raw: 0200000000000200 ffffea00045289c0 0000000500000005 ffff888115c01b40
+[   54.847650] raw: 0000000000000000 0000000080800080 00000001ffffffff 0000000000000000
+[   54.847651] page dumped because: kasan: bad access detected
+
+[   54.848261] Memory state around the buggy address:
+[   54.849097]  ffff8881144e0080: 00 00 fc fc fb fb fc fc 00 00 fc fc 00 00 fc fc
+[   54.850352]  ffff8881144e0100: 00 00 fc fc fb fb fc fc 00 00 fc fc fb fb fc fc
+[   54.851614] >ffff8881144e0180: 00 04 fc fc fb fb fc fc fb fb fc fc fb fb fc fc
+[   54.852867]                                                                 ^
+[   54.853864]  ffff8881144e0200: 00 07 fc fc 00 00 fc fc fb fb fc fc fb fb fc fc
+[   54.855122]  ffff8881144e0280: fb fb fc fc fb fb fc fc fb fb fc fc 00 00 fc fc
+[   54.856373] ==================================================================
+[   54.857707] kasan test: kmalloc_node_oob_right kmalloc_node(): out-of-bounds to right
+[   54.858032] ==================================================================
+[   54.859318] BUG: KASAN: slab-out-of-bounds in kmalloc_node_oob_right+0x93/0xa3 [kasan_test]
+[   54.860588] Write of size 1 at addr ffff88810917d400 by task insmod/2506
+
+[   54.862091] CPU: 0 PID: 2506 Comm: insmod Tainted: G    B      O      5.0.0-rc4 #1
+[   54.862093] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[   54.862094] Call Trace:
+[   54.862102]  dump_stack+0x5b/0x8b
+[   54.862107]  print_address_description+0x66/0x280
+[   54.862112]  ? kmalloc_node_oob_right+0x93/0xa3 [kasan_test]
+[   54.862115]  kasan_report+0x13a/0x19b
+[   54.862119]  ? kmalloc_node_oob_right+0x93/0xa3 [kasan_test]
+[   54.862123]  ? kasan_strings+0x74/0xcd [kasan_test]
+[   54.862127]  ? kmalloc_node_oob_right+0x93/0xa3 [kasan_test]
+[   54.862131]  kmalloc_node_oob_right+0x93/0xa3 [kasan_test]
+[   54.862135]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   54.862139]  kmalloc_tests_init+0x17/0x8a6 [kasan_test]
+[   54.862143]  ? kasan_strings+0xcd/0xcd [kasan_test]
+[   54.862145]  do_one_initcall+0x9c/0x301
+[   54.862149]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[   54.862152]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.862155]  ? __kasan_kmalloc+0xa9/0xf0
+[   54.862158]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.862161]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.862165]  do_init_module+0x1be/0x545
+[   54.862169]  load_module+0x6529/0x7e50
+[   54.862175]  ? module_frob_arch_sections+0x20/0x20
+[   54.862178]  ? kernel_read_file+0x1cb/0x5a0
+[   54.862182]  ? do_mmap+0x766/0xd60
+[   54.862186]  ? __do_sys_finit_module+0x16a/0x180
+[   54.862189]  __do_sys_finit_module+0x16a/0x180
+[   54.862192]  ? __ia32_sys_init_module+0xa0/0xa0
+[   54.862195]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[   54.862198]  ? __do_sys_newfstat+0x83/0xd0
+[   54.862203]  ? __do_page_fault+0x42c/0x990
+[   54.862205]  do_syscall_64+0x8c/0x270
+[   54.862208]  ? page_fault+0x8/0x30
+[   54.862211]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   54.862214] RIP: 0033:0x7fb82b1fa4d9
+[   54.862218] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[   54.862220] RSP: 002b:00007ffe130aba08 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[   54.862223] RAX: ffffffffffffffda RBX: 0000560344210210 RCX: 00007fb82b1fa4d9
+[   54.862225] RDX: 0000000000000000 RSI: 000056034318026b RDI: 0000000000000003
+[   54.862227] RBP: 000056034318026b R08: 0000000000000000 R09: 00007fb82b4bfea0
+[   54.862229] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[   54.862231] R13: 00005603442101e0 R14: 0000000000000000 R15: 0000000000000000
+
+[   54.862817] Allocated by task 2506:
+[   54.863538]  __kasan_kmalloc+0xa9/0xf0
+[   54.863543]  kmalloc_node_oob_right+0x4f/0xa3 [kasan_test]
+[   54.863555]  kmalloc_tests_init+0x17/0x8a6 [kasan_test]
+[   54.863558]  do_one_initcall+0x9c/0x301
+[   54.863561]  do_init_module+0x1be/0x545
+[   54.863563]  load_module+0x6529/0x7e50
+[   54.863566]  __do_sys_finit_module+0x16a/0x180
+[   54.863568]  do_syscall_64+0x8c/0x270
+[   54.863571]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   54.864154] Freed by task 1171:
+[   54.864844]  __kasan_slab_free+0x137/0x190
+[   54.864846]  kfree+0x86/0x1b0
+[   54.864854]  proc_cgroup_show+0x36d/0x5f0
+[   54.864858]  proc_single_show+0xe2/0x160
+[   54.864861]  seq_read+0x45d/0xfd0
+[   54.864864]  __vfs_read+0xe3/0x670
+[   54.864867]  vfs_read+0xe1/0x2c0
+[   54.864870]  ksys_read+0xb6/0x180
+[   54.864872]  do_syscall_64+0x8c/0x270
+[   54.864875]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   54.865458] The buggy address belongs to the object at ffff88810917c400
+                which belongs to the cache kmalloc-4k of size 4096
+[   54.866987] The buggy address is located 0 bytes to the right of
+                4096-byte region [ffff88810917c400, ffff88810917d400)
+[   54.868504] The buggy address belongs to the page:
+[   54.869302] page:ffffea0004245e00 count:1 mapcount:0 mapping:ffff888115c02140 index:0x0 compound_mapcount: 0
+[   54.869306] flags: 0x200000000010200(slab|head)
+[   54.869310] raw: 0200000000010200 ffffea0004480000 0000000200000002 ffff888115c02140
+[   54.869313] raw: 0000000000000000 0000000080070007 00000001ffffffff 0000000000000000
+[   54.869314] page dumped because: kasan: bad access detected
+
+[   54.869894] Memory state around the buggy address:
+[   54.870691]  ffff88810917d300: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[   54.871873]  ffff88810917d380: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[   54.873013] >ffff88810917d400: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+[   54.874151]                    ^
+[   54.874814]  ffff88810917d480: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+[   54.875989]  ffff88810917d500: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+[   54.877127] ==================================================================
+[   54.878390] kasan test: kmalloc_pagealloc_oob_right kmalloc pagealloc allocation: out-of-bounds to right
+[   54.878779] ==================================================================
+[   54.879963] BUG: KASAN: slab-out-of-bounds in kmalloc_pagealloc_oob_right+0x72/0x82 [kasan_test]
+[   54.881201] Write of size 1 at addr ffff888113ebe00a by task insmod/2506
+
+[   54.882634] CPU: 0 PID: 2506 Comm: insmod Tainted: G    B      O      5.0.0-rc4 #1
+[   54.882636] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[   54.882637] Call Trace:
+[   54.882644]  dump_stack+0x5b/0x8b
+[   54.882648]  print_address_description+0x66/0x280
+[   54.882653]  ? kmalloc_pagealloc_oob_right+0x72/0x82 [kasan_test]
+[   54.882656]  kasan_report+0x13a/0x19b
+[   54.882661]  ? kmalloc_pagealloc_oob_right+0x72/0x82 [kasan_test]
+[   54.882664]  ? kmalloc_pagealloc_oob_right+0x72/0x82 [kasan_test]
+[   54.882668]  kmalloc_pagealloc_oob_right+0x72/0x82 [kasan_test]
+[   54.882672]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   54.882676]  kmalloc_tests_init+0x1c/0x8a6 [kasan_test]
+[   54.882680]  ? kasan_strings+0xcd/0xcd [kasan_test]
+[   54.882682]  do_one_initcall+0x9c/0x301
+[   54.882685]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[   54.882688]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.882691]  ? __kasan_kmalloc+0xa9/0xf0
+[   54.882694]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.882697]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.882701]  do_init_module+0x1be/0x545
+[   54.882705]  load_module+0x6529/0x7e50
+[   54.882710]  ? module_frob_arch_sections+0x20/0x20
+[   54.882713]  ? kernel_read_file+0x1cb/0x5a0
+[   54.882717]  ? do_mmap+0x766/0xd60
+[   54.882720]  ? __do_sys_finit_module+0x16a/0x180
+[   54.882723]  __do_sys_finit_module+0x16a/0x180
+[   54.882732]  ? __ia32_sys_init_module+0xa0/0xa0
+[   54.882735]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[   54.882738]  ? __do_sys_newfstat+0x83/0xd0
+[   54.882742]  ? __do_page_fault+0x42c/0x990
+[   54.882745]  do_syscall_64+0x8c/0x270
+[   54.882748]  ? page_fault+0x8/0x30
+[   54.882751]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   54.882753] RIP: 0033:0x7fb82b1fa4d9
+[   54.882757] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[   54.882758] RSP: 002b:00007ffe130aba08 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[   54.882762] RAX: ffffffffffffffda RBX: 0000560344210210 RCX: 00007fb82b1fa4d9
+[   54.882764] RDX: 0000000000000000 RSI: 000056034318026b RDI: 0000000000000003
+[   54.882765] RBP: 000056034318026b R08: 0000000000000000 R09: 00007fb82b4bfea0
+[   54.882767] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[   54.882768] R13: 00005603442101e0 R14: 0000000000000000 R15: 0000000000000000
+
+[   54.883335] The buggy address belongs to the page:
+[   54.884063] page:ffffea00044faf00 count:1 mapcount:0 mapping:0000000000000000 index:0x0 compound_mapcount: 0
+[   54.884067] flags: 0x200000000010000(head)
+[   54.884070] raw: 0200000000010000 dead000000000100 dead000000000200 0000000000000000
+[   54.884073] raw: 0000000000000000 0000000000000000 00000001ffffffff 0000000000000000
+[   54.884074] page dumped because: kasan: bad access detected
+
+[   54.884605] Memory state around the buggy address:
+[   54.885330]  ffff888113ebdf00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[   54.886419]  ffff888113ebdf80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[   54.887514] >ffff888113ebe000: 00 02 fe fe fe fe fe fe fe fe fe fe fe fe fe fe
+[   54.888602]                       ^
+[   54.889250]  ffff888113ebe080: fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe
+[   54.890338]  ffff888113ebe100: fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe
+[   54.891433] ==================================================================
+[   54.892641] kasan test: kmalloc_pagealloc_uaf kmalloc pagealloc allocation: use-after-free
+[   54.892892] ==================================================================
+[   54.894002] BUG: KASAN: use-after-free in kmalloc_pagealloc_uaf+0x70/0x75 [kasan_test]
+[   54.895147] Write of size 1 at addr ffff888113ebc000 by task insmod/2506
+
+[   54.896461] CPU: 0 PID: 2506 Comm: insmod Tainted: G    B      O      5.0.0-rc4 #1
+[   54.896462] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[   54.896463] Call Trace:
+[   54.896469]  dump_stack+0x5b/0x8b
+[   54.896473]  print_address_description+0x66/0x280
+[   54.896477]  ? kmalloc_pagealloc_uaf+0x70/0x75 [kasan_test]
+[   54.896480]  kasan_report+0x13a/0x19b
+[   54.896484]  ? kmalloc_pagealloc_uaf+0x70/0x75 [kasan_test]
+[   54.896487]  ? kmalloc_pagealloc_uaf+0x70/0x75 [kasan_test]
+[   54.896491]  kmalloc_pagealloc_uaf+0x70/0x75 [kasan_test]
+[   54.896494]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   54.896498]  kmalloc_tests_init+0x21/0x8a6 [kasan_test]
+[   54.896501]  ? kasan_strings+0xcd/0xcd [kasan_test]
+[   54.896503]  do_one_initcall+0x9c/0x301
+[   54.896506]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[   54.896509]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.896512]  ? __kasan_kmalloc+0xa9/0xf0
+[   54.896515]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.896518]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.896521]  do_init_module+0x1be/0x545
+[   54.896524]  load_module+0x6529/0x7e50
+[   54.896529]  ? module_frob_arch_sections+0x20/0x20
+[   54.896532]  ? kernel_read_file+0x1cb/0x5a0
+[   54.896535]  ? do_mmap+0x766/0xd60
+[   54.896539]  ? __do_sys_finit_module+0x16a/0x180
+[   54.896541]  __do_sys_finit_module+0x16a/0x180
+[   54.896544]  ? __ia32_sys_init_module+0xa0/0xa0
+[   54.896547]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[   54.896554]  ? __do_sys_newfstat+0x83/0xd0
+[   54.896558]  ? __do_page_fault+0x42c/0x990
+[   54.896561]  do_syscall_64+0x8c/0x270
+[   54.896564]  ? page_fault+0x8/0x30
+[   54.896566]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   54.896568] RIP: 0033:0x7fb82b1fa4d9
+[   54.896571] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[   54.896573] RSP: 002b:00007ffe130aba08 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[   54.896576] RAX: ffffffffffffffda RBX: 0000560344210210 RCX: 00007fb82b1fa4d9
+[   54.896577] RDX: 0000000000000000 RSI: 000056034318026b RDI: 0000000000000003
+[   54.896579] RBP: 000056034318026b R08: 0000000000000000 R09: 00007fb82b4bfea0
+[   54.896581] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[   54.896582] R13: 00005603442101e0 R14: 0000000000000000 R15: 0000000000000000
+
+[   54.897093] The buggy address belongs to the page:
+[   54.897791] page:ffffea00044faf00 count:0 mapcount:-128 mapping:0000000000000000 index:0x0
+[   54.897793] flags: 0x200000000000000()
+[   54.897796] raw: 0200000000000000 ffffea0004520808 ffff888139ff9b50 0000000000000000
+[   54.897799] raw: 0000000000000000 0000000000000002 00000000ffffff7f 0000000000000000
+[   54.897800] page dumped because: kasan: bad access detected
+
+[   54.898307] Memory state around the buggy address:
+[   54.899004]  ffff888113ebbf00: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+[   54.900052]  ffff888113ebbf80: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+[   54.901095] >ffff888113ebc000: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+[   54.902137]                    ^
+[   54.902744]  ffff888113ebc080: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+[   54.903792]  ffff888113ebc100: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+[   54.904834] ==================================================================
+[   54.905925] kasan test: kmalloc_pagealloc_invalid_free kmalloc pagealloc allocation: invalid-free
+[   54.906113] ==================================================================
+[   54.907187] BUG: KASAN: double-free or invalid-free in kmalloc_tests_init+0x26/0x8a6 [kasan_test]
+
+[   54.908768] CPU: 0 PID: 2506 Comm: insmod Tainted: G    B      O      5.0.0-rc4 #1
+[   54.908769] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[   54.908770] Call Trace:
+[   54.908776]  dump_stack+0x5b/0x8b
+[   54.908779]  print_address_description+0x66/0x280
+[   54.908783]  ? kmalloc_tests_init+0x26/0x8a6 [kasan_test]
+[   54.908787]  kasan_report_invalid_free+0x60/0xa0
+[   54.908789]  kfree+0x17f/0x1b0
+[   54.908793]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   54.908796]  kmalloc_tests_init+0x26/0x8a6 [kasan_test]
+[   54.908800]  ? kasan_strings+0xcd/0xcd [kasan_test]
+[   54.908802]  do_one_initcall+0x9c/0x301
+[   54.908804]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[   54.908807]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.908810]  ? __kasan_kmalloc+0xa9/0xf0
+[   54.908813]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.908815]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.908818]  do_init_module+0x1be/0x545
+[   54.908821]  load_module+0x6529/0x7e50
+[   54.908826]  ? module_frob_arch_sections+0x20/0x20
+[   54.908829]  ? kernel_read_file+0x1cb/0x5a0
+[   54.908832]  ? do_mmap+0x766/0xd60
+[   54.908835]  ? __do_sys_finit_module+0x16a/0x180
+[   54.908837]  __do_sys_finit_module+0x16a/0x180
+[   54.908840]  ? __ia32_sys_init_module+0xa0/0xa0
+[   54.908843]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[   54.908845]  ? __do_sys_newfstat+0x83/0xd0
+[   54.908849]  ? __do_page_fault+0x42c/0x990
+[   54.908851]  do_syscall_64+0x8c/0x270
+[   54.908854]  ? page_fault+0x8/0x30
+[   54.908856]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   54.908858] RIP: 0033:0x7fb82b1fa4d9
+[   54.908865] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[   54.908867] RSP: 002b:00007ffe130aba08 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[   54.908870] RAX: ffffffffffffffda RBX: 0000560344210210 RCX: 00007fb82b1fa4d9
+[   54.908871] RDX: 0000000000000000 RSI: 000056034318026b RDI: 0000000000000003
+[   54.908873] RBP: 000056034318026b R08: 0000000000000000 R09: 00007fb82b4bfea0
+[   54.908874] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[   54.908876] R13: 00005603442101e0 R14: 0000000000000000 R15: 0000000000000000
+
+[   54.909368] The buggy address belongs to the page:
+[   54.910038] page:ffffea00044faf00 count:1 mapcount:0 mapping:0000000000000000 index:0x0 compound_mapcount: 0
+[   54.910041] flags: 0x200000000010000(head)
+[   54.910044] raw: 0200000000010000 dead000000000100 dead000000000200 0000000000000000
+[   54.910046] raw: 0000000000000000 0000000000000000 00000001ffffffff 0000000000000000
+[   54.910047] page dumped because: kasan: bad access detected
+
+[   54.910535] Memory state around the buggy address:
+[   54.911209]  ffff888113ebbf00: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+[   54.912211]  ffff888113ebbf80: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+[   54.913213] >ffff888113ebc000: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[   54.914213]                    ^
+[   54.914797]  ffff888113ebc080: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[   54.915806]  ffff888113ebc100: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[   54.916808] ==================================================================
+[   54.917856] kasan test: kmalloc_large_oob_right kmalloc large allocation: out-of-bounds to right
+[   54.918056] ==================================================================
+[   54.919091] BUG: KASAN: slab-out-of-bounds in kmalloc_large_oob_right+0x91/0xa1 [kasan_test]
+[   54.922890] Write of size 1 at addr ffff88810aade100 by task insmod/2506
+
+[   54.924110] CPU: 0 PID: 2506 Comm: insmod Tainted: G    B      O      5.0.0-rc4 #1
+[   54.924112] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[   54.924113] Call Trace:
+[   54.924118]  dump_stack+0x5b/0x8b
+[   54.924122]  print_address_description+0x66/0x280
+[   54.924126]  ? kmalloc_large_oob_right+0x91/0xa1 [kasan_test]
+[   54.924128]  kasan_report+0x13a/0x19b
+[   54.924132]  ? kmalloc_large_oob_right+0x91/0xa1 [kasan_test]
+[   54.924135]  ? kasan_strings+0x74/0xcd [kasan_test]
+[   54.924138]  ? kmalloc_large_oob_right+0x91/0xa1 [kasan_test]
+[   54.924141]  kmalloc_large_oob_right+0x91/0xa1 [kasan_test]
+[   54.924144]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   54.924147]  kmalloc_tests_init+0x2b/0x8a6 [kasan_test]
+[   54.924151]  ? kasan_strings+0xcd/0xcd [kasan_test]
+[   54.924153]  do_one_initcall+0x9c/0x301
+[   54.924155]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[   54.924158]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.924160]  ? __kasan_kmalloc+0xa9/0xf0
+[   54.924163]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.924166]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.924169]  do_init_module+0x1be/0x545
+[   54.924172]  load_module+0x6529/0x7e50
+[   54.924176]  ? module_frob_arch_sections+0x20/0x20
+[   54.924179]  ? kernel_read_file+0x1cb/0x5a0
+[   54.924182]  ? do_mmap+0x766/0xd60
+[   54.924185]  ? __do_sys_finit_module+0x16a/0x180
+[   54.924187]  __do_sys_finit_module+0x16a/0x180
+[   54.924190]  ? __ia32_sys_init_module+0xa0/0xa0
+[   54.924192]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[   54.924195]  ? __do_sys_newfstat+0x83/0xd0
+[   54.924198]  ? __do_page_fault+0x42c/0x990
+[   54.924200]  do_syscall_64+0x8c/0x270
+[   54.924203]  ? page_fault+0x8/0x30
+[   54.924205]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   54.924207] RIP: 0033:0x7fb82b1fa4d9
+[   54.924214] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[   54.924216] RSP: 002b:00007ffe130aba08 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[   54.924219] RAX: ffffffffffffffda RBX: 0000560344210210 RCX: 00007fb82b1fa4d9
+[   54.924220] RDX: 0000000000000000 RSI: 000056034318026b RDI: 0000000000000003
+[   54.924222] RBP: 000056034318026b R08: 0000000000000000 R09: 00007fb82b4bfea0
+[   54.924223] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[   54.924224] R13: 00005603442101e0 R14: 0000000000000000 R15: 0000000000000000
+
+[   54.924698] Allocated by task 2506:
+[   54.925274]  __kasan_kmalloc+0xa9/0xf0
+[   54.925278]  kmalloc_large_oob_right+0x4d/0xa1 [kasan_test]
+[   54.925280]  kmalloc_tests_init+0x2b/0x8a6 [kasan_test]
+[   54.925282]  do_one_initcall+0x9c/0x301
+[   54.925284]  do_init_module+0x1be/0x545
+[   54.925287]  load_module+0x6529/0x7e50
+[   54.925289]  __do_sys_finit_module+0x16a/0x180
+[   54.925291]  do_syscall_64+0x8c/0x270
+[   54.925293]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   54.925763] Freed by task 0:
+[   54.926303] (stack is not available)
+
+[   54.927356] The buggy address belongs to the object at ffff88810aadc200
+                which belongs to the cache kmalloc-8k of size 8192
+[   54.928589] The buggy address is located 7936 bytes inside of
+                8192-byte region [ffff88810aadc200, ffff88810aade200)
+[   54.929788] The buggy address belongs to the page:
+[   54.930432] page:ffffea00042ab600 count:1 mapcount:0 mapping:ffff888115c02280 index:0x0 compound_mapcount: 0
+[   54.930435] flags: 0x200000000010200(slab|head)
+[   54.930438] raw: 0200000000010200 dead000000000100 dead000000000200 ffff888115c02280
+[   54.930440] raw: 0000000000000000 0000000080030003 00000001ffffffff 0000000000000000
+[   54.930441] page dumped because: kasan: bad access detected
+
+[   54.930909] Memory state around the buggy address:
+[   54.931549]  ffff88810aade000: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[   54.932477]  ffff88810aade080: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[   54.933403] >ffff88810aade100: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+[   54.934329]                    ^
+[   54.934869]  ffff88810aade180: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+[   54.935800]  ffff88810aade200: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+[   54.936727] ==================================================================
+[   54.937711] kasan test: kmalloc_oob_krealloc_more out-of-bounds after krealloc more
+[   54.937723] ==================================================================
+[   54.938665] BUG: KASAN: slab-out-of-bounds in kmalloc_oob_krealloc_more+0xb8/0xc6 [kasan_test]
+[   54.939671] Write of size 1 at addr ffff88810d7a7d03 by task insmod/2506
+
+[   54.940838] CPU: 0 PID: 2506 Comm: insmod Tainted: G    B      O      5.0.0-rc4 #1
+[   54.940839] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[   54.940840] Call Trace:
+[   54.940845]  dump_stack+0x5b/0x8b
+[   54.940848]  print_address_description+0x66/0x280
+[   54.940852]  ? kmalloc_oob_krealloc_more+0xb8/0xc6 [kasan_test]
+[   54.940854]  kasan_report+0x13a/0x19b
+[   54.940858]  ? kmalloc_oob_krealloc_more+0xb8/0xc6 [kasan_test]
+[   54.940865]  ? __krealloc+0x41/0xa0
+[   54.940868]  ? kmalloc_oob_krealloc_more+0xb8/0xc6 [kasan_test]
+[   54.940871]  kmalloc_oob_krealloc_more+0xb8/0xc6 [kasan_test]
+[   54.940874]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   54.940877]  kmalloc_tests_init+0x30/0x8a6 [kasan_test]
+[   54.940880]  ? kasan_strings+0xcd/0xcd [kasan_test]
+[   54.940882]  do_one_initcall+0x9c/0x301
+[   54.940885]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[   54.940887]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.940890]  ? __kasan_kmalloc+0xa9/0xf0
+[   54.940895]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.940897]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.940900]  do_init_module+0x1be/0x545
+[   54.940903]  load_module+0x6529/0x7e50
+[   54.940907]  ? module_frob_arch_sections+0x20/0x20
+[   54.940910]  ? kernel_read_file+0x1cb/0x5a0
+[   54.940913]  ? do_mmap+0x766/0xd60
+[   54.940916]  ? __do_sys_finit_module+0x16a/0x180
+[   54.940918]  __do_sys_finit_module+0x16a/0x180
+[   54.940920]  ? __ia32_sys_init_module+0xa0/0xa0
+[   54.940923]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[   54.940925]  ? __do_sys_newfstat+0x83/0xd0
+[   54.940928]  ? __do_page_fault+0x42c/0x990
+[   54.940931]  do_syscall_64+0x8c/0x270
+[   54.940933]  ? page_fault+0x8/0x30
+[   54.940935]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   54.940937] RIP: 0033:0x7fb82b1fa4d9
+[   54.940940] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[   54.940941] RSP: 002b:00007ffe130aba08 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[   54.940943] RAX: ffffffffffffffda RBX: 0000560344210210 RCX: 00007fb82b1fa4d9
+[   54.940945] RDX: 0000000000000000 RSI: 000056034318026b RDI: 0000000000000003
+[   54.940946] RBP: 000056034318026b R08: 0000000000000000 R09: 00007fb82b4bfea0
+[   54.940947] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[   54.940949] R13: 00005603442101e0 R14: 0000000000000000 R15: 0000000000000000
+
+[   54.941405] Allocated by task 2506:
+[   54.941959]  __kasan_kmalloc+0xa9/0xf0
+[   54.941961]  krealloc+0x38/0xb0
+[   54.941964]  kmalloc_oob_krealloc_more+0x63/0xc6 [kasan_test]
+[   54.941967]  kmalloc_tests_init+0x30/0x8a6 [kasan_test]
+[   54.941969]  do_one_initcall+0x9c/0x301
+[   54.941971]  do_init_module+0x1be/0x545
+[   54.941973]  load_module+0x6529/0x7e50
+[   54.941975]  __do_sys_finit_module+0x16a/0x180
+[   54.941977]  do_syscall_64+0x8c/0x270
+[   54.941979]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   54.942430] Freed by task 1171:
+[   54.942968]  __kasan_slab_free+0x137/0x190
+[   54.942970]  kfree+0x86/0x1b0
+[   54.942972]  single_release+0x80/0xb0
+[   54.942973]  __fput+0x230/0x710
+[   54.942980]  task_work_run+0x11a/0x1b0
+[   54.942982]  exit_to_usermode_loop+0x107/0x130
+[   54.942984]  do_syscall_64+0x1d9/0x270
+[   54.942985]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   54.943440] The buggy address belongs to the object at ffff88810d7a7cf0
+                which belongs to the cache kmalloc-32 of size 32
+[   54.944578] The buggy address is located 19 bytes inside of
+                32-byte region [ffff88810d7a7cf0, ffff88810d7a7d10)
+[   54.945675] The buggy address belongs to the page:
+[   54.946271] page:ffffea000435e9c0 count:1 mapcount:0 mapping:ffff888115c01a00 index:0x0
+[   54.946274] flags: 0x200000000000200(slab)
+[   54.946276] raw: 0200000000000200 ffffea00043f5640 0000000e0000000e ffff888115c01a00
+[   54.946278] raw: 0000000000000000 0000000080550055 00000001ffffffff 0000000000000000
+[   54.946279] page dumped because: kasan: bad access detected
+
+[   54.946715] Memory state around the buggy address:
+[   54.947317]  ffff88810d7a7c00: fb fb fb fb fc fc fb fb fb fb fc fc fb fb fb fb
+[   54.948212]  ffff88810d7a7c80: fc fc fb fb fb fb fc fc fb fb fb fb fc fc 00 00
+[   54.949105] >ffff88810d7a7d00: 03 fc fc fc fb fb fb fb fc fc fb fb fb fb fc fc
+[   54.950001]                    ^
+[   54.950520]  ffff88810d7a7d80: fb fb fb fb fc fc fb fb fb fb fc fc fb fb fb fb
+[   54.951419]  ffff88810d7a7e00: fc fc fb fb fb fb fc fc fb fb fb fb fc fc fb fb
+[   54.952313] ==================================================================
+[   54.953261] kasan test: kmalloc_oob_krealloc_less out-of-bounds after krealloc less
+[   54.953270] ==================================================================
+[   54.954173] BUG: KASAN: slab-out-of-bounds in kmalloc_oob_krealloc_less+0xb8/0xc6 [kasan_test]
+[   54.955152] Write of size 1 at addr ffff88810d7a7a8f by task insmod/2506
+
+[   54.956240] CPU: 0 PID: 2506 Comm: insmod Tainted: G    B      O      5.0.0-rc4 #1
+[   54.956241] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[   54.956242] Call Trace:
+[   54.956246]  dump_stack+0x5b/0x8b
+[   54.956249]  print_address_description+0x66/0x280
+[   54.956253]  ? kmalloc_oob_krealloc_less+0xb8/0xc6 [kasan_test]
+[   54.956255]  kasan_report+0x13a/0x19b
+[   54.956258]  ? kmalloc_oob_krealloc_less+0xb8/0xc6 [kasan_test]
+[   54.956260]  ? __krealloc+0x41/0xa0
+[   54.956263]  ? kmalloc_oob_krealloc_less+0xb8/0xc6 [kasan_test]
+[   54.956266]  kmalloc_oob_krealloc_less+0xb8/0xc6 [kasan_test]
+[   54.956269]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   54.956271]  kmalloc_tests_init+0x35/0x8a6 [kasan_test]
+[   54.956274]  ? kasan_strings+0xcd/0xcd [kasan_test]
+[   54.956276]  do_one_initcall+0x9c/0x301
+[   54.956278]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[   54.956281]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.956283]  ? __kasan_kmalloc+0xa9/0xf0
+[   54.956285]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.956287]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.956290]  do_init_module+0x1be/0x545
+[   54.956293]  load_module+0x6529/0x7e50
+[   54.956297]  ? module_frob_arch_sections+0x20/0x20
+[   54.956299]  ? kernel_read_file+0x1cb/0x5a0
+[   54.956302]  ? do_mmap+0x766/0xd60
+[   54.956305]  ? __do_sys_finit_module+0x16a/0x180
+[   54.956307]  __do_sys_finit_module+0x16a/0x180
+[   54.956309]  ? __ia32_sys_init_module+0xa0/0xa0
+[   54.956311]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[   54.956313]  ? __do_sys_newfstat+0x83/0xd0
+[   54.956316]  ? __do_page_fault+0x42c/0x990
+[   54.956318]  do_syscall_64+0x8c/0x270
+[   54.956320]  ? page_fault+0x8/0x30
+[   54.956322]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   54.956324] RIP: 0033:0x7fb82b1fa4d9
+[   54.956326] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[   54.956328] RSP: 002b:00007ffe130aba08 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[   54.956330] RAX: ffffffffffffffda RBX: 0000560344210210 RCX: 00007fb82b1fa4d9
+[   54.956331] RDX: 0000000000000000 RSI: 000056034318026b RDI: 0000000000000003
+[   54.956332] RBP: 000056034318026b R08: 0000000000000000 R09: 00007fb82b4bfea0
+[   54.956334] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[   54.956335] R13: 00005603442101e0 R14: 0000000000000000 R15: 0000000000000000
+
+[   54.956759] Allocated by task 2506:
+[   54.957274]  __kasan_kmalloc+0xa9/0xf0
+[   54.957276]  krealloc+0x38/0xb0
+[   54.957279]  kmalloc_oob_krealloc_less+0x63/0xc6 [kasan_test]
+[   54.957281]  kmalloc_tests_init+0x35/0x8a6 [kasan_test]
+[   54.957283]  do_one_initcall+0x9c/0x301
+[   54.957285]  do_init_module+0x1be/0x545
+[   54.957287]  load_module+0x6529/0x7e50
+[   54.957289]  __do_sys_finit_module+0x16a/0x180
+[   54.957290]  do_syscall_64+0x8c/0x270
+[   54.957292]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   54.957714] Freed by task 1171:
+[   54.958213]  __kasan_slab_free+0x137/0x190
+[   54.958215]  kfree+0x86/0x1b0
+[   54.958217]  single_release+0x80/0xb0
+[   54.958218]  __fput+0x230/0x710
+[   54.958221]  task_work_run+0x11a/0x1b0
+[   54.958222]  exit_to_usermode_loop+0x107/0x130
+[   54.958224]  do_syscall_64+0x1d9/0x270
+[   54.958226]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   54.958648] The buggy address belongs to the object at ffff88810d7a7a80
+                which belongs to the cache kmalloc-32 of size 32
+[   54.959751] The buggy address is located 15 bytes inside of
+                32-byte region [ffff88810d7a7a80, ffff88810d7a7aa0)
+[   54.960810] The buggy address belongs to the page:
+[   54.961386] page:ffffea000435e9c0 count:1 mapcount:0 mapping:ffff888115c01a00 index:0x0
+[   54.961391] flags: 0x200000000000200(slab)
+[   54.961394] raw: 0200000000000200 ffffea00043f5640 0000000e0000000e ffff888115c01a00
+[   54.961396] raw: 0000000000000000 0000000080550055 00000001ffffffff 0000000000000000
+[   54.961397] page dumped because: kasan: bad access detected
+
+[   54.961817] Memory state around the buggy address:
+[   54.962394]  ffff88810d7a7980: fc fc fb fb fb fb fc fc fb fb fb fb fc fc fb fb
+[   54.963265]  ffff88810d7a7a00: fb fb fc fc fb fb fb fb fc fc fb fb fb fb fc fc
+[   54.964128] >ffff88810d7a7a80: 00 07 fc fc fc fc fb fb fb fb fc fc fb fb fb fb
+[   54.964991]                       ^
+[   54.965505]  ffff88810d7a7b00: fc fc fb fb fb fb fc fc fb fb fb fb fc fc fb fb
+[   54.966366]  ffff88810d7a7b80: fb fb fc fc fb fb fb fb fc fc fb fb fb fb fc fc
+[   54.967235] ==================================================================
+[   54.968104] kasan test: kmalloc_oob_16 kmalloc out-of-bounds for 16-bytes access
+[   54.968114] ==================================================================
+[   54.968957] BUG: KASAN: slab-out-of-bounds in kmalloc_oob_16+0xd3/0x119 [kasan_test]
+[   54.969817] Write of size 16 at addr ffff8881144e0160 by task insmod/2506
+
+[   54.970870] CPU: 0 PID: 2506 Comm: insmod Tainted: G    B      O      5.0.0-rc4 #1
+[   54.970871] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[   54.970872] Call Trace:
+[   54.970876]  dump_stack+0x5b/0x8b
+[   54.970879]  print_address_description+0x66/0x280
+[   54.970882]  ? kmalloc_oob_16+0xd3/0x119 [kasan_test]
+[   54.970884]  kasan_report+0x13a/0x19b
+[   54.970887]  ? kmalloc_oob_16+0xd3/0x119 [kasan_test]
+[   54.970890]  ? kmalloc_oob_16+0xd3/0x119 [kasan_test]
+[   54.970893]  kmalloc_oob_16+0xd3/0x119 [kasan_test]
+[   54.970895]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   54.970898]  kmalloc_tests_init+0x3a/0x8a6 [kasan_test]
+[   54.970901]  ? kasan_strings+0xcd/0xcd [kasan_test]
+[   54.970903]  do_one_initcall+0x9c/0x301
+[   54.970905]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[   54.970907]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.970909]  ? __kasan_kmalloc+0xa9/0xf0
+[   54.970912]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.970914]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.970916]  do_init_module+0x1be/0x545
+[   54.970919]  load_module+0x6529/0x7e50
+[   54.970923]  ? module_frob_arch_sections+0x20/0x20
+[   54.970925]  ? kernel_read_file+0x1cb/0x5a0
+[   54.970928]  ? do_mmap+0x766/0xd60
+[   54.970930]  ? __do_sys_finit_module+0x16a/0x180
+[   54.970932]  __do_sys_finit_module+0x16a/0x180
+[   54.970935]  ? __ia32_sys_init_module+0xa0/0xa0
+[   54.970937]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[   54.970939]  ? __do_sys_newfstat+0x83/0xd0
+[   54.970942]  ? __do_page_fault+0x42c/0x990
+[   54.970944]  do_syscall_64+0x8c/0x270
+[   54.970946]  ? page_fault+0x8/0x30
+[   54.970947]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   54.970949] RIP: 0033:0x7fb82b1fa4d9
+[   54.970951] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[   54.970952] RSP: 002b:00007ffe130aba08 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[   54.970955] RAX: ffffffffffffffda RBX: 0000560344210210 RCX: 00007fb82b1fa4d9
+[   54.970956] RDX: 0000000000000000 RSI: 000056034318026b RDI: 0000000000000003
+[   54.970957] RBP: 000056034318026b R08: 0000000000000000 R09: 00007fb82b4bfea0
+[   54.970958] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[   54.970959] R13: 00005603442101e0 R14: 0000000000000000 R15: 0000000000000000
+
+[   54.971374] Allocated by task 2506:
+[   54.971874]  __kasan_kmalloc+0xa9/0xf0
+[   54.971877]  kmalloc_oob_16+0x5c/0x119 [kasan_test]
+[   54.971879]  kmalloc_tests_init+0x3a/0x8a6 [kasan_test]
+[   54.971881]  do_one_initcall+0x9c/0x301
+[   54.971888]  do_init_module+0x1be/0x545
+[   54.971890]  load_module+0x6529/0x7e50
+[   54.971892]  __do_sys_finit_module+0x16a/0x180
+[   54.971894]  do_syscall_64+0x8c/0x270
+[   54.971895]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   54.972302] Freed by task 2111:
+[   54.972785]  __kasan_slab_free+0x137/0x190
+[   54.972787]  kfree+0x86/0x1b0
+[   54.972789]  walk_component+0x3e5/0xf60
+[   54.972790]  link_path_walk+0x78c/0x11f0
+[   54.972792]  path_openat+0x20a/0x4500
+[   54.972793]  do_filp_open+0x189/0x280
+[   54.972795]  do_sys_open+0x170/0x350
+[   54.972797]  do_syscall_64+0x8c/0x270
+[   54.972798]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   54.973205] The buggy address belongs to the object at ffff8881144e0160
+                which belongs to the cache kmalloc-16 of size 16
+[   54.974268] The buggy address is located 0 bytes inside of
+                16-byte region [ffff8881144e0160, ffff8881144e0170)
+[   54.975292] The buggy address belongs to the page:
+[   54.975849] page:ffffea0004513800 count:1 mapcount:0 mapping:ffff888115c01b40 index:0x0
+[   54.975851] flags: 0x200000000000200(slab)
+[   54.975854] raw: 0200000000000200 ffffea00045289c0 0000000500000005 ffff888115c01b40
+[   54.975855] raw: 0000000000000000 0000000080800080 00000001ffffffff 0000000000000000
+[   54.975856] page dumped because: kasan: bad access detected
+
+[   54.976262] Memory state around the buggy address:
+[   54.976818]  ffff8881144e0000: fb fb fc fc fb fb fc fc 00 00 fc fc fb fb fc fc
+[   54.977653]  ffff8881144e0080: 00 00 fc fc fb fb fc fc 00 00 fc fc 00 00 fc fc
+[   54.978487] >ffff8881144e0100: 00 00 fc fc fb fb fc fc 00 00 fc fc 00 05 fc fc
+[   54.979325]                                                           ^
+[   54.979944]  ffff8881144e0180: 00 04 fc fc fb fb fc fc fb fb fc fc fb fb fc fc
+[   54.980752]  ffff8881144e0200: fb fb fc fc 00 00 fc fc 00 00 fc fc fb fb fc fc
+[   54.981558] ==================================================================
+[   54.982401] kasan test: kmalloc_oob_in_memset out-of-bounds in memset
+[   54.982406] ==================================================================
+[   54.983225] BUG: KASAN: slab-out-of-bounds in kmalloc_oob_in_memset+0x73/0x7b [kasan_test]
+[   54.984080] Write of size 671 at addr ffff88810b587600 by task insmod/2506
+
+[   54.985103] CPU: 0 PID: 2506 Comm: insmod Tainted: G    B      O      5.0.0-rc4 #1
+[   54.985104] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[   54.985105] Call Trace:
+[   54.985109]  dump_stack+0x5b/0x8b
+[   54.985112]  print_address_description+0x66/0x280
+[   54.985115]  ? kmalloc_oob_in_memset+0x73/0x7b [kasan_test]
+[   54.985117]  kasan_report+0x13a/0x19b
+[   54.985120]  ? kmalloc_oob_in_memset+0x73/0x7b [kasan_test]
+[   54.985123]  ? kmalloc_oob_in_memset+0x73/0x7b [kasan_test]
+[   54.985125]  memset+0x1f/0x40
+[   54.985127]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   54.985130]  kmalloc_oob_in_memset+0x73/0x7b [kasan_test]
+[   54.985133]  kmalloc_tests_init+0x3f/0x8a6 [kasan_test]
+[   54.985135]  ? kasan_strings+0xcd/0xcd [kasan_test]
+[   54.985137]  do_one_initcall+0x9c/0x301
+[   54.985139]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[   54.985141]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.985143]  ? __kasan_kmalloc+0xa9/0xf0
+[   54.985145]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.985147]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.985150]  do_init_module+0x1be/0x545
+[   54.985152]  load_module+0x6529/0x7e50
+[   54.985156]  ? module_frob_arch_sections+0x20/0x20
+[   54.985158]  ? kernel_read_file+0x1cb/0x5a0
+[   54.985161]  ? do_mmap+0x766/0xd60
+[   54.985163]  ? __do_sys_finit_module+0x16a/0x180
+[   54.985165]  __do_sys_finit_module+0x16a/0x180
+[   54.985167]  ? __ia32_sys_init_module+0xa0/0xa0
+[   54.985169]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[   54.985171]  ? __do_sys_newfstat+0x83/0xd0
+[   54.985174]  ? __do_page_fault+0x42c/0x990
+[   54.985179]  do_syscall_64+0x8c/0x270
+[   54.985182]  ? page_fault+0x8/0x30
+[   54.985183]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   54.985185] RIP: 0033:0x7fb82b1fa4d9
+[   54.985187] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[   54.985188] RSP: 002b:00007ffe130aba08 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[   54.985190] RAX: ffffffffffffffda RBX: 0000560344210210 RCX: 00007fb82b1fa4d9
+[   54.985191] RDX: 0000000000000000 RSI: 000056034318026b RDI: 0000000000000003
+[   54.985193] RBP: 000056034318026b R08: 0000000000000000 R09: 00007fb82b4bfea0
+[   54.985194] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[   54.985195] R13: 00005603442101e0 R14: 0000000000000000 R15: 0000000000000000
+
+[   54.985591] Allocated by task 2506:
+[   54.986075]  __kasan_kmalloc+0xa9/0xf0
+[   54.986078]  kmalloc_oob_in_memset+0x4c/0x7b [kasan_test]
+[   54.986080]  kmalloc_tests_init+0x3f/0x8a6 [kasan_test]
+[   54.986082]  do_one_initcall+0x9c/0x301
+[   54.986083]  do_init_module+0x1be/0x545
+[   54.986085]  load_module+0x6529/0x7e50
+[   54.986087]  __do_sys_finit_module+0x16a/0x180
+[   54.986088]  do_syscall_64+0x8c/0x270
+[   54.986090]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   54.986484] Freed by task 1171:
+[   54.986950]  __kasan_slab_free+0x137/0x190
+[   54.986952]  kfree+0x86/0x1b0
+[   54.986960]  consume_skb+0x68/0x170
+[   54.986962]  skb_free_datagram+0xd/0xb0
+[   54.986968]  unix_dgram_recvmsg+0x864/0xed0
+[   54.986972]  ___sys_recvmsg+0x240/0x5d0
+[   54.986974]  __sys_recvmsg+0xd6/0x170
+[   54.986975]  do_syscall_64+0x8c/0x270
+[   54.986977]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   54.987377] The buggy address belongs to the object at ffff88810b587600
+                which belongs to the cache kmalloc-1k of size 1024
+[   54.988412] The buggy address is located 0 bytes inside of
+                1024-byte region [ffff88810b587600, ffff88810b587a00)
+[   54.989408] The buggy address belongs to the page:
+[   54.989947] page:ffffea00042d6100 count:1 mapcount:0 mapping:ffff888115c01140 index:0x0 compound_mapcount: 0
+[   54.989949] flags: 0x200000000010200(slab|head)
+[   54.989951] raw: 0200000000010200 ffffea00042b3400 0000000500000005 ffff888115c01140
+[   54.989953] raw: 0000000000000000 00000000800e000e 00000001ffffffff 0000000000000000
+[   54.989954] page dumped because: kasan: bad access detected
+
+[   54.990347] Memory state around the buggy address:
+[   54.990885]  ffff88810b587780: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[   54.991686]  ffff88810b587800: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[   54.992468] >ffff88810b587880: 00 00 00 02 fc fc fc fc fc fc fc fc fc fc fc fc
+[   54.993250]                             ^
+[   54.993738]  ffff88810b587900: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+[   54.994520]  ffff88810b587980: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+[   54.995306] ==================================================================
+[   54.996119] kasan test: kmalloc_oob_memset_2 out-of-bounds in memset2
+[   54.996125] ==================================================================
+[   54.996916] BUG: KASAN: slab-out-of-bounds in kmalloc_oob_memset_2+0x79/0x82 [kasan_test]
+[   54.997742] Write of size 2 at addr ffff8881146918bf by task insmod/2506
+
+[   54.998726] CPU: 0 PID: 2506 Comm: insmod Tainted: G    B      O      5.0.0-rc4 #1
+[   54.998727] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[   54.998728] Call Trace:
+[   54.998732]  dump_stack+0x5b/0x8b
+[   54.998734]  print_address_description+0x66/0x280
+[   54.998738]  ? kmalloc_oob_memset_2+0x79/0x82 [kasan_test]
+[   54.998740]  kasan_report+0x13a/0x19b
+[   54.998742]  ? kmalloc_oob_memset_2+0x79/0x82 [kasan_test]
+[   54.998748]  ? kmalloc_oob_memset_2+0x79/0x82 [kasan_test]
+[   54.998751]  memset+0x1f/0x40
+[   54.998753]  kmalloc_oob_memset_2+0x79/0x82 [kasan_test]
+[   54.998756]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   54.998759]  kmalloc_tests_init+0x44/0x8a6 [kasan_test]
+[   54.998761]  ? kasan_strings+0xcd/0xcd [kasan_test]
+[   54.998763]  do_one_initcall+0x9c/0x301
+[   54.998765]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[   54.998767]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.998769]  ? __kasan_kmalloc+0xa9/0xf0
+[   54.998771]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.998773]  ? kasan_unpoison_shadow+0x31/0x40
+[   54.998776]  do_init_module+0x1be/0x545
+[   54.998778]  load_module+0x6529/0x7e50
+[   54.998782]  ? module_frob_arch_sections+0x20/0x20
+[   54.998784]  ? kernel_read_file+0x1cb/0x5a0
+[   54.998786]  ? do_mmap+0x766/0xd60
+[   54.998789]  ? __do_sys_finit_module+0x16a/0x180
+[   54.998791]  __do_sys_finit_module+0x16a/0x180
+[   54.998793]  ? __ia32_sys_init_module+0xa0/0xa0
+[   54.998795]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[   54.998797]  ? __do_sys_newfstat+0x83/0xd0
+[   54.998799]  ? __do_page_fault+0x42c/0x990
+[   54.998801]  do_syscall_64+0x8c/0x270
+[   54.998803]  ? page_fault+0x8/0x30
+[   54.998805]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   54.998806] RIP: 0033:0x7fb82b1fa4d9
+[   54.998808] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[   54.998809] RSP: 002b:00007ffe130aba08 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[   54.998811] RAX: ffffffffffffffda RBX: 0000560344210210 RCX: 00007fb82b1fa4d9
+[   54.998812] RDX: 0000000000000000 RSI: 000056034318026b RDI: 0000000000000003
+[   54.998814] RBP: 000056034318026b R08: 0000000000000000 R09: 00007fb82b4bfea0
+[   54.998815] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[   54.998816] R13: 00005603442101e0 R14: 0000000000000000 R15: 0000000000000000
+
+[   54.999204] Allocated by task 2506:
+[   54.999672]  __kasan_kmalloc+0xa9/0xf0
+[   54.999674]  kmalloc_oob_memset_2+0x4d/0x82 [kasan_test]
+[   54.999677]  kmalloc_tests_init+0x44/0x8a6 [kasan_test]
+[   54.999678]  do_one_initcall+0x9c/0x301
+[   54.999680]  do_init_module+0x1be/0x545
+[   54.999682]  load_module+0x6529/0x7e50
+[   54.999683]  __do_sys_finit_module+0x16a/0x180
+[   54.999685]  do_syscall_64+0x8c/0x270
+[   54.999686]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   55.000068] Freed by task 1:
+[   55.000510]  __kasan_slab_free+0x137/0x190
+[   55.000512]  kfree+0x86/0x1b0
+[   55.000523]  acpi_ns_get_node_unlocked+0x1a8/0x1f7
+[   55.000525]  acpi_ns_get_node+0x38/0x4c
+[   55.000526]  acpi_get_handle+0x13f/0x1a9
+[   55.000533]  acpi_has_method+0x61/0x90
+[   55.000537]  handle_ioapic_add+0x7f/0xbf0
+[   55.000539]  acpi_ns_walk_namespace+0x16d/0x2a8
+[   55.000540]  acpi_walk_namespace+0x95/0xc4
+[   55.000542]  acpi_ioapic_add+0x84/0xe0
+[   55.000547]  pci_assign_unassigned_resources+0x141/0x165
+[   55.000555]  pcibios_assign_resources+0x49/0x1e6
+[   55.000556]  do_one_initcall+0x9c/0x301
+[   55.000560]  kernel_init_freeable+0x449/0x4f8
+[   55.000564]  kernel_init+0xa/0x120
+[   55.000566]  ret_from_fork+0x35/0x40
+
+[   55.000949] The buggy address belongs to the object at ffff8881146918b8
+                which belongs to the cache kmalloc-8 of size 8
+[   55.001935] The buggy address is located 7 bytes inside of
+                8-byte region [ffff8881146918b8, ffff8881146918c0)
+[   55.002888] The buggy address belongs to the page:
+[   55.003412] page:ffffea000451a440 count:1 mapcount:0 mapping:ffff888115c01c80 index:0x0
+[   55.003414] flags: 0x200000000000200(slab)
+[   55.003416] raw: 0200000000000200 ffffea000452b000 0000001700000017 ffff888115c01c80
+[   55.003418] raw: 0000000000000000 0000000080aa00aa 00000001ffffffff 0000000000000000
+[   55.003419] page dumped because: kasan: bad access detected
+
+[   55.003790] Memory state around the buggy address:
+[   55.004296]  ffff888114691780: fb fc fc fb fc fc fb fc fc fb fc fc fb fc fc fb
+[   55.005055]  ffff888114691800: fc fc fb fc fc fb fc fc fb fc fc fb fc fc fb fc
+[   55.005813] >ffff888114691880: fc fb fc fc fb fc fc 00 fc fc fb fc fc fb fc fc
+[   55.006571]                                            ^
+[   55.007102]  ffff888114691900: fb fc fc fb fc fc fb fc fc fb fc fc fb fc fc fb
+[   55.007860]  ffff888114691980: fc fc fb fc fc fb fc fc fb fc fc fb fc fc fb fc
+[   55.010797] ==================================================================
+[   55.011595] kasan test: kmalloc_oob_memset_4 out-of-bounds in memset4
+[   55.011600] ==================================================================
+[   55.012370] BUG: KASAN: slab-out-of-bounds in kmalloc_oob_memset_4+0x79/0x82 [kasan_test]
+[   55.013171] Write of size 4 at addr ffff8881146918a5 by task insmod/2506
+
+[   55.014125] CPU: 0 PID: 2506 Comm: insmod Tainted: G    B      O      5.0.0-rc4 #1
+[   55.014126] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[   55.014126] Call Trace:
+[   55.014130]  dump_stack+0x5b/0x8b
+[   55.014133]  print_address_description+0x66/0x280
+[   55.014136]  ? kmalloc_oob_memset_4+0x79/0x82 [kasan_test]
+[   55.014138]  kasan_report+0x13a/0x19b
+[   55.014140]  ? kmalloc_oob_memset_4+0x79/0x82 [kasan_test]
+[   55.014143]  ? kmalloc_oob_memset_4+0x79/0x82 [kasan_test]
+[   55.014145]  memset+0x1f/0x40
+[   55.014148]  kmalloc_oob_memset_4+0x79/0x82 [kasan_test]
+[   55.014150]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   55.014153]  kmalloc_tests_init+0x49/0x8a6 [kasan_test]
+[   55.014155]  ? kasan_strings+0xcd/0xcd [kasan_test]
+[   55.014157]  do_one_initcall+0x9c/0x301
+[   55.014159]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[   55.014161]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.014163]  ? __kasan_kmalloc+0xa9/0xf0
+[   55.014165]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.014167]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.014169]  do_init_module+0x1be/0x545
+[   55.014171]  load_module+0x6529/0x7e50
+[   55.014175]  ? module_frob_arch_sections+0x20/0x20
+[   55.014177]  ? kernel_read_file+0x1cb/0x5a0
+[   55.014179]  ? do_mmap+0x766/0xd60
+[   55.014182]  ? __do_sys_finit_module+0x16a/0x180
+[   55.014184]  __do_sys_finit_module+0x16a/0x180
+[   55.014186]  ? __ia32_sys_init_module+0xa0/0xa0
+[   55.014188]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[   55.014189]  ? __do_sys_newfstat+0x83/0xd0
+[   55.014192]  ? __do_page_fault+0x42c/0x990
+[   55.014194]  do_syscall_64+0x8c/0x270
+[   55.014196]  ? page_fault+0x8/0x30
+[   55.014197]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   55.014199] RIP: 0033:0x7fb82b1fa4d9
+[   55.014201] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[   55.014202] RSP: 002b:00007ffe130aba08 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[   55.014204] RAX: ffffffffffffffda RBX: 0000560344210210 RCX: 00007fb82b1fa4d9
+[   55.014205] RDX: 0000000000000000 RSI: 000056034318026b RDI: 0000000000000003
+[   55.014206] RBP: 000056034318026b R08: 0000000000000000 R09: 00007fb82b4bfea0
+[   55.014207] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[   55.014208] R13: 00005603442101e0 R14: 0000000000000000 R15: 0000000000000000
+
+[   55.014581] Allocated by task 2506:
+[   55.015034]  __kasan_kmalloc+0xa9/0xf0
+[   55.015037]  kmalloc_oob_memset_4+0x4d/0x82 [kasan_test]
+[   55.015039]  kmalloc_tests_init+0x49/0x8a6 [kasan_test]
+[   55.015041]  do_one_initcall+0x9c/0x301
+[   55.015042]  do_init_module+0x1be/0x545
+[   55.015044]  load_module+0x6529/0x7e50
+[   55.015046]  __do_sys_finit_module+0x16a/0x180
+[   55.015047]  do_syscall_64+0x8c/0x270
+[   55.015049]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   55.015424] Freed by task 1:
+[   55.015859]  __kasan_slab_free+0x137/0x190
+[   55.015860]  kfree+0x86/0x1b0
+[   55.015862]  acpi_ns_get_node_unlocked+0x1a8/0x1f7
+[   55.015863]  acpi_ns_get_node+0x38/0x4c
+[   55.015865]  acpi_get_handle+0x13f/0x1a9
+[   55.015866]  acpi_has_method+0x61/0x90
+[   55.015868]  handle_ioapic_add+0x7f/0xbf0
+[   55.015869]  acpi_ns_walk_namespace+0x16d/0x2a8
+[   55.015871]  acpi_walk_namespace+0x95/0xc4
+[   55.015872]  acpi_ioapic_add+0x84/0xe0
+[   55.015874]  pci_assign_unassigned_resources+0x141/0x165
+[   55.015876]  pcibios_assign_resources+0x49/0x1e6
+[   55.015877]  do_one_initcall+0x9c/0x301
+[   55.015879]  kernel_init_freeable+0x449/0x4f8
+[   55.015881]  kernel_init+0xa/0x120
+[   55.015882]  ret_from_fork+0x35/0x40
+
+[   55.016242] The buggy address belongs to the object at ffff8881146918a0
+                which belongs to the cache kmalloc-8 of size 8
+[   55.017172] The buggy address is located 5 bytes inside of
+                8-byte region [ffff8881146918a0, ffff8881146918a8)
+[   55.018068] The buggy address belongs to the page:
+[   55.018560] page:ffffea000451a440 count:1 mapcount:0 mapping:ffff888115c01c80 index:0x0
+[   55.018561] flags: 0x200000000000200(slab)
+[   55.018564] raw: 0200000000000200 ffffea000452b000 0000001700000017 ffff888115c01c80
+[   55.018565] raw: 0000000000000000 0000000080aa00aa 00000001ffffffff 0000000000000000
+[   55.018566] page dumped because: kasan: bad access detected
+
+[   55.018924] Memory state around the buggy address:
+[   55.019419]  ffff888114691780: fb fc fc fb fc fc fb fc fc fb fc fc fb fc fc fb
+[   55.020174]  ffff888114691800: fc fc fb fc fc fb fc fc fb fc fc fb fc fc fb fc
+[   55.020910] >ffff888114691880: fc fb fc fc 00 fc fc fb fc fc fb fc fc fb fc fc
+[   55.021649]                                   ^
+[   55.022130]  ffff888114691900: fb fc fc fb fc fc fb fc fc fb fc fc fb fc fc fb
+[   55.022867]  ffff888114691980: fc fc fb fc fc fb fc fc fb fc fc fb fc fc fb fc
+[   55.023615] ==================================================================
+[   55.024397] kasan test: kmalloc_oob_memset_8 out-of-bounds in memset8
+[   55.024402] ==================================================================
+[   55.025168] BUG: KASAN: slab-out-of-bounds in kmalloc_oob_memset_8+0x79/0x82 [kasan_test]
+[   55.025968] Write of size 8 at addr ffff888114691889 by task insmod/2506
+
+[   55.026910] CPU: 0 PID: 2506 Comm: insmod Tainted: G    B      O      5.0.0-rc4 #1
+[   55.026911] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[   55.026911] Call Trace:
+[   55.026915]  dump_stack+0x5b/0x8b
+[   55.026918]  print_address_description+0x66/0x280
+[   55.026920]  ? kmalloc_oob_memset_8+0x79/0x82 [kasan_test]
+[   55.026922]  kasan_report+0x13a/0x19b
+[   55.026925]  ? kmalloc_oob_memset_8+0x79/0x82 [kasan_test]
+[   55.026927]  ? kmalloc_oob_memset_8+0x79/0x82 [kasan_test]
+[   55.026929]  memset+0x1f/0x40
+[   55.026932]  kmalloc_oob_memset_8+0x79/0x82 [kasan_test]
+[   55.026934]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   55.026937]  kmalloc_tests_init+0x4e/0x8a6 [kasan_test]
+[   55.026939]  ? kasan_strings+0xcd/0xcd [kasan_test]
+[   55.026940]  do_one_initcall+0x9c/0x301
+[   55.026942]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[   55.026944]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.026946]  ? __kasan_kmalloc+0xa9/0xf0
+[   55.026948]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.026950]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.026952]  do_init_module+0x1be/0x545
+[   55.026955]  load_module+0x6529/0x7e50
+[   55.026958]  ? module_frob_arch_sections+0x20/0x20
+[   55.026960]  ? kernel_read_file+0x1cb/0x5a0
+[   55.026962]  ? do_mmap+0x766/0xd60
+[   55.026965]  ? __do_sys_finit_module+0x16a/0x180
+[   55.026967]  __do_sys_finit_module+0x16a/0x180
+[   55.026969]  ? __ia32_sys_init_module+0xa0/0xa0
+[   55.026970]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[   55.026972]  ? __do_sys_newfstat+0x83/0xd0
+[   55.026978]  ? __do_page_fault+0x42c/0x990
+[   55.026980]  do_syscall_64+0x8c/0x270
+[   55.026982]  ? page_fault+0x8/0x30
+[   55.026983]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   55.026985] RIP: 0033:0x7fb82b1fa4d9
+[   55.026987] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[   55.026988] RSP: 002b:00007ffe130aba08 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[   55.026989] RAX: ffffffffffffffda RBX: 0000560344210210 RCX: 00007fb82b1fa4d9
+[   55.026990] RDX: 0000000000000000 RSI: 000056034318026b RDI: 0000000000000003
+[   55.026992] RBP: 000056034318026b R08: 0000000000000000 R09: 00007fb82b4bfea0
+[   55.026993] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[   55.026994] R13: 00005603442101e0 R14: 0000000000000000 R15: 0000000000000000
+
+[   55.027375] Allocated by task 2506:
+[   55.027833]  __kasan_kmalloc+0xa9/0xf0
+[   55.027836]  kmalloc_oob_memset_8+0x4d/0x82 [kasan_test]
+[   55.027838]  kmalloc_tests_init+0x4e/0x8a6 [kasan_test]
+[   55.027839]  do_one_initcall+0x9c/0x301
+[   55.027841]  do_init_module+0x1be/0x545
+[   55.027843]  load_module+0x6529/0x7e50
+[   55.027844]  __do_sys_finit_module+0x16a/0x180
+[   55.027846]  do_syscall_64+0x8c/0x270
+[   55.027847]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   55.028206] Freed by task 1:
+[   55.028622]  __kasan_slab_free+0x137/0x190
+[   55.028624]  kfree+0x86/0x1b0
+[   55.028626]  acpi_ns_get_node_unlocked+0x1a8/0x1f7
+[   55.028627]  acpi_ns_get_node+0x38/0x4c
+[   55.028628]  acpi_get_handle+0x13f/0x1a9
+[   55.028630]  acpi_has_method+0x61/0x90
+[   55.028631]  handle_ioapic_add+0x7f/0xbf0
+[   55.028633]  acpi_ns_walk_namespace+0x16d/0x2a8
+[   55.028634]  acpi_walk_namespace+0x95/0xc4
+[   55.028635]  acpi_ioapic_add+0x84/0xe0
+[   55.028637]  pci_assign_unassigned_resources+0x141/0x165
+[   55.028639]  pcibios_assign_resources+0x49/0x1e6
+[   55.028641]  do_one_initcall+0x9c/0x301
+[   55.028642]  kernel_init_freeable+0x449/0x4f8
+[   55.028644]  kernel_init+0xa/0x120
+[   55.028645]  ret_from_fork+0x35/0x40
+
+[   55.029005] The buggy address belongs to the object at ffff888114691888
+                which belongs to the cache kmalloc-8 of size 8
+[   55.029933] The buggy address is located 1 bytes inside of
+                8-byte region [ffff888114691888, ffff888114691890)
+[   55.030829] The buggy address belongs to the page:
+[   55.031326] page:ffffea000451a440 count:1 mapcount:0 mapping:ffff888115c01c80 index:0x0
+[   55.031328] flags: 0x200000000000200(slab)
+[   55.031330] raw: 0200000000000200 ffffea000452b000 0000001700000017 ffff888115c01c80
+[   55.031332] raw: 0000000000000000 0000000080aa00aa 00000001ffffffff 0000000000000000
+[   55.031332] page dumped because: kasan: bad access detected
+
+[   55.031709] Memory state around the buggy address:
+[   55.032203]  ffff888114691780: fb fc fc fb fc fc fb fc fc fb fc fc fb fc fc fb
+[   55.032939]  ffff888114691800: fc fc fb fc fc fb fc fc fb fc fc fb fc fc fb fc
+[   55.033674] >ffff888114691880: fc 00 fc fc fb fc fc fb fc fc fb fc fc fb fc fc
+[   55.034409]                          ^
+[   55.034858]  ffff888114691900: fb fc fc fb fc fc fb fc fc fb fc fc fb fc fc fb
+[   55.035607]  ffff888114691980: fc fc fb fc fc fb fc fc fb fc fc fb fc fc fb fc
+[   55.036351] ==================================================================
+[   55.037125] kasan test: kmalloc_oob_memset_16 out-of-bounds in memset16
+[   55.037130] ==================================================================
+[   55.037895] BUG: KASAN: slab-out-of-bounds in kmalloc_oob_memset_16+0x79/0x82 [kasan_test]
+[   55.038698] Write of size 16 at addr ffff8881144e0261 by task insmod/2506
+
+[   55.039658] CPU: 0 PID: 2506 Comm: insmod Tainted: G    B      O      5.0.0-rc4 #1
+[   55.039662] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[   55.039663] Call Trace:
+[   55.039667]  dump_stack+0x5b/0x8b
+[   55.039670]  print_address_description+0x66/0x280
+[   55.039673]  ? kmalloc_oob_memset_16+0x79/0x82 [kasan_test]
+[   55.039675]  kasan_report+0x13a/0x19b
+[   55.039677]  ? kmalloc_oob_memset_16+0x79/0x82 [kasan_test]
+[   55.039680]  ? kmalloc_oob_memset_16+0x79/0x82 [kasan_test]
+[   55.039682]  memset+0x1f/0x40
+[   55.039685]  kmalloc_oob_memset_16+0x79/0x82 [kasan_test]
+[   55.039687]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   55.039697]  kmalloc_tests_init+0x53/0x8a6 [kasan_test]
+[   55.039699]  ? kasan_strings+0xcd/0xcd [kasan_test]
+[   55.039700]  do_one_initcall+0x9c/0x301
+[   55.039702]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[   55.039704]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.039706]  ? __kasan_kmalloc+0xa9/0xf0
+[   55.039708]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.039710]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.039712]  do_init_module+0x1be/0x545
+[   55.039715]  load_module+0x6529/0x7e50
+[   55.039718]  ? module_frob_arch_sections+0x20/0x20
+[   55.039720]  ? kernel_read_file+0x1cb/0x5a0
+[   55.039722]  ? do_mmap+0x766/0xd60
+[   55.039725]  ? __do_sys_finit_module+0x16a/0x180
+[   55.039726]  __do_sys_finit_module+0x16a/0x180
+[   55.039728]  ? __ia32_sys_init_module+0xa0/0xa0
+[   55.039730]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[   55.039732]  ? __do_sys_newfstat+0x83/0xd0
+[   55.039735]  ? __do_page_fault+0x42c/0x990
+[   55.039736]  do_syscall_64+0x8c/0x270
+[   55.039738]  ? page_fault+0x8/0x30
+[   55.039740]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   55.039741] RIP: 0033:0x7fb82b1fa4d9
+[   55.039743] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[   55.039744] RSP: 002b:00007ffe130aba08 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[   55.039746] RAX: ffffffffffffffda RBX: 0000560344210210 RCX: 00007fb82b1fa4d9
+[   55.039747] RDX: 0000000000000000 RSI: 000056034318026b RDI: 0000000000000003
+[   55.039748] RBP: 000056034318026b R08: 0000000000000000 R09: 00007fb82b4bfea0
+[   55.039749] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[   55.039750] R13: 00005603442101e0 R14: 0000000000000000 R15: 0000000000000000
+
+[   55.040111] Allocated by task 2506:
+[   55.040552]  __kasan_kmalloc+0xa9/0xf0
+[   55.040554]  kmalloc_oob_memset_16+0x4d/0x82 [kasan_test]
+[   55.040556]  kmalloc_tests_init+0x53/0x8a6 [kasan_test]
+[   55.040557]  do_one_initcall+0x9c/0x301
+[   55.040559]  do_init_module+0x1be/0x545
+[   55.040561]  load_module+0x6529/0x7e50
+[   55.040563]  __do_sys_finit_module+0x16a/0x180
+[   55.040564]  do_syscall_64+0x8c/0x270
+[   55.040565]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   55.040925] Freed by task 2143:
+[   55.041351]  __kasan_slab_free+0x137/0x190
+[   55.041353]  kfree+0x86/0x1b0
+[   55.041354]  walk_component+0x3e5/0xf60
+[   55.041355]  link_path_walk+0x78c/0x11f0
+[   55.041357]  path_openat+0x20a/0x4500
+[   55.041358]  do_filp_open+0x189/0x280
+[   55.041360]  do_sys_open+0x170/0x350
+[   55.041361]  do_syscall_64+0x8c/0x270
+[   55.041363]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   55.041722] The buggy address belongs to the object at ffff8881144e0260
+                which belongs to the cache kmalloc-16 of size 16
+[   55.042661] The buggy address is located 1 bytes inside of
+                16-byte region [ffff8881144e0260, ffff8881144e0270)
+[   55.043565] The buggy address belongs to the page:
+[   55.044074] page:ffffea0004513800 count:1 mapcount:0 mapping:ffff888115c01b40 index:0x0
+[   55.044076] flags: 0x200000000000200(slab)
+[   55.044078] raw: 0200000000000200 ffffea00045289c0 0000000500000005 ffff888115c01b40
+[   55.044080] raw: 0000000000000000 0000000080800080 00000001ffffffff 0000000000000000
+[   55.044083] page dumped because: kasan: bad access detected
+
+[   55.044442] Memory state around the buggy address:
+[   55.044934]  ffff8881144e0100: 00 00 fc fc fb fb fc fc 00 00 fc fc fb fb fc fc
+[   55.045670]  ffff8881144e0180: 00 04 fc fc fb fb fc fc fb fb fc fc fb fb fc fc
+[   55.046406] >ffff8881144e0200: fb fb fc fc 00 00 fc fc fb fb fc fc 00 00 fc fc
+[   55.047146]                                                              ^
+[   55.047739]  ffff8881144e0280: fb fb fc fc fb fb fc fc fb fb fc fc 00 00 fc fc
+[   55.048476]  ffff8881144e0300: 00 00 fc fc 00 00 fc fc 00 00 fc fc 00 00 fc fc
+[   55.049211] ==================================================================
+[   55.049984] kasan test: kmalloc_uaf use-after-free
+[   55.049992] ==================================================================
+[   55.050756] BUG: KASAN: use-after-free in kmalloc_uaf+0x96/0x9c [kasan_test]
+[   55.051362] Write of size 1 at addr ffff88810fd7c0c8 by task insmod/2506
+
+[   55.052308] CPU: 0 PID: 2506 Comm: insmod Tainted: G    B      O      5.0.0-rc4 #1
+[   55.052309] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[   55.052309] Call Trace:
+[   55.052313]  dump_stack+0x5b/0x8b
+[   55.052316]  print_address_description+0x66/0x280
+[   55.052318]  ? kmalloc_uaf+0x96/0x9c [kasan_test]
+[   55.052320]  kasan_report+0x13a/0x19b
+[   55.052323]  ? kmalloc_uaf+0x96/0x9c [kasan_test]
+[   55.052325]  ? kfree+0x1/0x1b0
+[   55.052327]  ? kmalloc_uaf+0x96/0x9c [kasan_test]
+[   55.052329]  kmalloc_uaf+0x96/0x9c [kasan_test]
+[   55.052332]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   55.052334]  kmalloc_tests_init+0x58/0x8a6 [kasan_test]
+[   55.052337]  ? kasan_strings+0xcd/0xcd [kasan_test]
+[   55.052338]  do_one_initcall+0x9c/0x301
+[   55.052340]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[   55.052342]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.052344]  ? __kasan_kmalloc+0xa9/0xf0
+[   55.052346]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.052348]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.052350]  do_init_module+0x1be/0x545
+[   55.052352]  load_module+0x6529/0x7e50
+[   55.052356]  ? module_frob_arch_sections+0x20/0x20
+[   55.052358]  ? kernel_read_file+0x1cb/0x5a0
+[   55.052360]  ? do_mmap+0x766/0xd60
+[   55.052362]  ? __do_sys_finit_module+0x16a/0x180
+[   55.052364]  __do_sys_finit_module+0x16a/0x180
+[   55.052366]  ? __ia32_sys_init_module+0xa0/0xa0
+[   55.052368]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[   55.052370]  ? __do_sys_newfstat+0x83/0xd0
+[   55.052372]  ? __do_page_fault+0x42c/0x990
+[   55.052374]  do_syscall_64+0x8c/0x270
+[   55.052376]  ? page_fault+0x8/0x30
+[   55.052377]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   55.052379] RIP: 0033:0x7fb82b1fa4d9
+[   55.052380] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[   55.052381] RSP: 002b:00007ffe130aba08 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[   55.052383] RAX: ffffffffffffffda RBX: 0000560344210210 RCX: 00007fb82b1fa4d9
+[   55.052384] RDX: 0000000000000000 RSI: 000056034318026b RDI: 0000000000000003
+[   55.052386] RBP: 000056034318026b R08: 0000000000000000 R09: 00007fb82b4bfea0
+[   55.052387] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[   55.052388] R13: 00005603442101e0 R14: 0000000000000000 R15: 0000000000000000
+
+[   55.052749] Allocated by task 2506:
+[   55.053189]  __kasan_kmalloc+0xa9/0xf0
+[   55.053192]  kmalloc_uaf+0x4d/0x9c [kasan_test]
+[   55.053194]  kmalloc_tests_init+0x58/0x8a6 [kasan_test]
+[   55.053195]  do_one_initcall+0x9c/0x301
+[   55.053197]  do_init_module+0x1be/0x545
+[   55.053199]  load_module+0x6529/0x7e50
+[   55.053200]  __do_sys_finit_module+0x16a/0x180
+[   55.053202]  do_syscall_64+0x8c/0x270
+[   55.053203]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   55.053567] Freed by task 2506:
+[   55.053994]  __kasan_slab_free+0x137/0x190
+[   55.053996]  kfree+0x86/0x1b0
+[   55.053998]  kmalloc_uaf+0x71/0x9c [kasan_test]
+[   55.054000]  kmalloc_tests_init+0x58/0x8a6 [kasan_test]
+[   55.054001]  do_one_initcall+0x9c/0x301
+[   55.054003]  do_init_module+0x1be/0x545
+[   55.054005]  load_module+0x6529/0x7e50
+[   55.054006]  __do_sys_finit_module+0x16a/0x180
+[   55.054008]  do_syscall_64+0x8c/0x270
+[   55.054009]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   55.054369] The buggy address belongs to the object at ffff88810fd7c0c0
+                which belongs to the cache kmalloc-16 of size 16
+[   55.055308] The buggy address is located 8 bytes inside of
+                16-byte region [ffff88810fd7c0c0, ffff88810fd7c0d0)
+[   55.056226] The buggy address belongs to the page:
+[   55.056718] page:ffffea00043f5f00 count:1 mapcount:0 mapping:ffff888115c01b40 index:0x0
+[   55.056719] flags: 0x200000000000200(slab)
+[   55.056721] raw: 0200000000000200 ffffea00045289c0 0000000500000005 ffff888115c01b40
+[   55.056723] raw: 0000000000000000 0000000080800080 00000001ffffffff 0000000000000000
+[   55.056724] page dumped because: kasan: bad access detected
+
+[   55.057082] Memory state around the buggy address:
+[   55.057573]  ffff88810fd7bf80: fb fb fb fb fb fb fb fb fc fc fc fc fc fc fc fc
+[   55.058316]  ffff88810fd7c000: 00 00 fc fc 00 00 fc fc 00 04 fc fc 00 04 fc fc
+[   55.059063] >ffff88810fd7c080: 00 00 fc fc 00 04 fc fc fb fb fc fc fb fb fc fc
+[   55.059816]                                               ^
+[   55.060339]  ffff88810fd7c100: 00 00 fc fc 00 00 fc fc fb fb fc fc fb fb fc fc
+[   55.061076]  ffff88810fd7c180: fb fb fc fc fb fb fc fc fb fb fc fc fb fb fc fc
+[   55.061810] ==================================================================
+[   55.062580] kasan test: kmalloc_uaf_memset use-after-free in memset
+[   55.062590] ==================================================================
+[   55.063362] BUG: KASAN: use-after-free in kmalloc_tests_init+0x5d/0x8a6 [kasan_test]
+[   55.064145] Write of size 33 at addr ffff8881149fad80 by task insmod/2506
+
+[   55.065090] CPU: 0 PID: 2506 Comm: insmod Tainted: G    B      O      5.0.0-rc4 #1
+[   55.065091] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[   55.065091] Call Trace:
+[   55.065095]  dump_stack+0x5b/0x8b
+[   55.065097]  print_address_description+0x66/0x280
+[   55.065100]  ? kmalloc_tests_init+0x5d/0x8a6 [kasan_test]
+[   55.065102]  kasan_report+0x13a/0x19b
+[   55.065105]  ? kmalloc_tests_init+0x5d/0x8a6 [kasan_test]
+[   55.065107]  ? kmalloc_tests_init+0x5d/0x8a6 [kasan_test]
+[   55.065109]  memset+0x1f/0x40
+[   55.065112]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   55.065114]  kmalloc_tests_init+0x5d/0x8a6 [kasan_test]
+[   55.065116]  ? kasan_strings+0xcd/0xcd [kasan_test]
+[   55.065118]  do_one_initcall+0x9c/0x301
+[   55.065120]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[   55.065122]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.065124]  ? __kasan_kmalloc+0xa9/0xf0
+[   55.065126]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.065128]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.065130]  do_init_module+0x1be/0x545
+[   55.065132]  load_module+0x6529/0x7e50
+[   55.065135]  ? module_frob_arch_sections+0x20/0x20
+[   55.065138]  ? kernel_read_file+0x1cb/0x5a0
+[   55.065140]  ? do_mmap+0x766/0xd60
+[   55.065142]  ? __do_sys_finit_module+0x16a/0x180
+[   55.065144]  __do_sys_finit_module+0x16a/0x180
+[   55.065146]  ? __ia32_sys_init_module+0xa0/0xa0
+[   55.065148]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[   55.065149]  ? __do_sys_newfstat+0x83/0xd0
+[   55.065152]  ? __do_page_fault+0x42c/0x990
+[   55.065154]  do_syscall_64+0x8c/0x270
+[   55.065155]  ? page_fault+0x8/0x30
+[   55.065157]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   55.065159] RIP: 0033:0x7fb82b1fa4d9
+[   55.065163] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[   55.065165] RSP: 002b:00007ffe130aba08 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[   55.065167] RAX: ffffffffffffffda RBX: 0000560344210210 RCX: 00007fb82b1fa4d9
+[   55.065168] RDX: 0000000000000000 RSI: 000056034318026b RDI: 0000000000000003
+[   55.065169] RBP: 000056034318026b R08: 0000000000000000 R09: 00007fb82b4bfea0
+[   55.065170] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[   55.065171] R13: 00005603442101e0 R14: 0000000000000000 R15: 0000000000000000
+
+[   55.065532] Allocated by task 2506:
+[   55.065972]  __kasan_kmalloc+0xa9/0xf0
+[   55.065975]  kmalloc_uaf_memset+0x4d/0x81 [kasan_test]
+[   55.065977]  kmalloc_tests_init+0x5d/0x8a6 [kasan_test]
+[   55.065978]  do_one_initcall+0x9c/0x301
+[   55.065980]  do_init_module+0x1be/0x545
+[   55.065982]  load_module+0x6529/0x7e50
+[   55.065983]  __do_sys_finit_module+0x16a/0x180
+[   55.065984]  do_syscall_64+0x8c/0x270
+[   55.065986]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   55.066345] Freed by task 2506:
+[   55.066771]  __kasan_slab_free+0x137/0x190
+[   55.066773]  kfree+0x86/0x1b0
+[   55.066775]  kmalloc_uaf_memset+0x71/0x81 [kasan_test]
+[   55.066777]  kmalloc_tests_init+0x5d/0x8a6 [kasan_test]
+[   55.066779]  do_one_initcall+0x9c/0x301
+[   55.066780]  do_init_module+0x1be/0x545
+[   55.066782]  load_module+0x6529/0x7e50
+[   55.066784]  __do_sys_finit_module+0x16a/0x180
+[   55.066785]  do_syscall_64+0x8c/0x270
+[   55.066786]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   55.067150] The buggy address belongs to the object at ffff8881149fad80
+                which belongs to the cache kmalloc-64 of size 64
+[   55.068086] The buggy address is located 0 bytes inside of
+                64-byte region [ffff8881149fad80, ffff8881149fadc0)
+[   55.068985] The buggy address belongs to the page:
+[   55.069477] page:ffffea0004527e80 count:1 mapcount:0 mapping:ffff888115c018c0 index:0x0
+[   55.069478] flags: 0x200000000000200(slab)
+[   55.069480] raw: 0200000000000200 dead000000000100 dead000000000200 ffff888115c018c0
+[   55.069482] raw: 0000000000000000 00000000802a002a 00000001ffffffff 0000000000000000
+[   55.069483] page dumped because: kasan: bad access detected
+
+[   55.069841] Memory state around the buggy address:
+[   55.070332]  ffff8881149fac80: fb fb fb fb fc fc fc fc fb fb fb fb fb fb fb fb
+[   55.071071]  ffff8881149fad00: fc fc fc fc fb fb fb fb fb fb fb fb fc fc fc fc
+[   55.071807] >ffff8881149fad80: fb fb fb fb fb fb fb fb fc fc fc fc fc fc fc fc
+[   55.072543]                    ^
+[   55.072971]  ffff8881149fae00: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+[   55.073707]  ffff8881149fae80: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+[   55.074445] ==================================================================
+[   55.075220] kasan test: kmalloc_uaf2 use-after-free after another kmalloc
+[   55.075232] ==================================================================
+[   55.075999] BUG: KASAN: use-after-free in kmalloc_uaf2+0xd9/0xff [kasan_test]
+[   55.076604] Write of size 1 at addr ffff8881149fae08 by task insmod/2506
+
+[   55.077549] CPU: 0 PID: 2506 Comm: insmod Tainted: G    B      O      5.0.0-rc4 #1
+[   55.077550] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[   55.077550] Call Trace:
+[   55.077554]  dump_stack+0x5b/0x8b
+[   55.077557]  print_address_description+0x66/0x280
+[   55.077559]  ? kmalloc_uaf2+0xd9/0xff [kasan_test]
+[   55.077561]  kasan_report+0x13a/0x19b
+[   55.077564]  ? kmalloc_uaf2+0xd9/0xff [kasan_test]
+[   55.077566]  ? kmalloc_uaf2+0xd9/0xff [kasan_test]
+[   55.077569]  kmalloc_uaf2+0xd9/0xff [kasan_test]
+[   55.077571]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   55.077573]  kmalloc_tests_init+0x62/0x8a6 [kasan_test]
+[   55.077579]  ? kasan_strings+0xcd/0xcd [kasan_test]
+[   55.077581]  do_one_initcall+0x9c/0x301
+[   55.077583]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[   55.077585]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.077587]  ? __kasan_kmalloc+0xa9/0xf0
+[   55.077589]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.077590]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.077593]  do_init_module+0x1be/0x545
+[   55.077595]  load_module+0x6529/0x7e50
+[   55.077598]  ? module_frob_arch_sections+0x20/0x20
+[   55.077600]  ? kernel_read_file+0x1cb/0x5a0
+[   55.077602]  ? do_mmap+0x766/0xd60
+[   55.077605]  ? __do_sys_finit_module+0x16a/0x180
+[   55.077607]  __do_sys_finit_module+0x16a/0x180
+[   55.077609]  ? __ia32_sys_init_module+0xa0/0xa0
+[   55.077611]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[   55.077612]  ? __do_sys_newfstat+0x83/0xd0
+[   55.077615]  ? __do_page_fault+0x42c/0x990
+[   55.077617]  do_syscall_64+0x8c/0x270
+[   55.077618]  ? page_fault+0x8/0x30
+[   55.077620]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   55.077621] RIP: 0033:0x7fb82b1fa4d9
+[   55.077623] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[   55.077624] RSP: 002b:00007ffe130aba08 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[   55.077626] RAX: ffffffffffffffda RBX: 0000560344210210 RCX: 00007fb82b1fa4d9
+[   55.077627] RDX: 0000000000000000 RSI: 000056034318026b RDI: 0000000000000003
+[   55.077628] RBP: 000056034318026b R08: 0000000000000000 R09: 00007fb82b4bfea0
+[   55.077629] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[   55.077630] R13: 00005603442101e0 R14: 0000000000000000 R15: 0000000000000000
+
+[   55.077992] Allocated by task 2506:
+[   55.078432]  __kasan_kmalloc+0xa9/0xf0
+[   55.078435]  kmalloc_uaf2+0x51/0xff [kasan_test]
+[   55.078437]  kmalloc_tests_init+0x62/0x8a6 [kasan_test]
+[   55.078438]  do_one_initcall+0x9c/0x301
+[   55.078440]  do_init_module+0x1be/0x545
+[   55.078441]  load_module+0x6529/0x7e50
+[   55.078443]  __do_sys_finit_module+0x16a/0x180
+[   55.078444]  do_syscall_64+0x8c/0x270
+[   55.078446]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   55.078805] Freed by task 2506:
+[   55.079235]  __kasan_slab_free+0x137/0x190
+[   55.079237]  kfree+0x86/0x1b0
+[   55.079240]  kmalloc_uaf2+0x7a/0xff [kasan_test]
+[   55.079242]  kmalloc_tests_init+0x62/0x8a6 [kasan_test]
+[   55.079243]  do_one_initcall+0x9c/0x301
+[   55.079245]  do_init_module+0x1be/0x545
+[   55.079246]  load_module+0x6529/0x7e50
+[   55.079248]  __do_sys_finit_module+0x16a/0x180
+[   55.079249]  do_syscall_64+0x8c/0x270
+[   55.079251]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   55.079611] The buggy address belongs to the object at ffff8881149fade0
+                which belongs to the cache kmalloc-64 of size 64
+[   55.080548] The buggy address is located 40 bytes inside of
+                64-byte region [ffff8881149fade0, ffff8881149fae20)
+[   55.081451] The buggy address belongs to the page:
+[   55.081943] page:ffffea0004527e80 count:1 mapcount:0 mapping:ffff888115c018c0 index:0x0
+[   55.081944] flags: 0x200000000000200(slab)
+[   55.081946] raw: 0200000000000200 dead000000000100 dead000000000200 ffff888115c018c0
+[   55.081948] raw: 0000000000000000 00000000802a002a 00000001ffffffff 0000000000000000
+[   55.081949] page dumped because: kasan: bad access detected
+
+[   55.082307] Memory state around the buggy address:
+[   55.082799]  ffff8881149fad00: fc fc fc fc fb fb fb fb fb fb fb fb fc fc fc fc
+[   55.083540]  ffff8881149fad80: fb fb fb fb fb fb fb fb fc fc fc fc fb fb fb fb
+[   55.084276] >ffff8881149fae00: fb fb fb fb fc fc fc fc 00 00 00 00 00 03 fc fc
+[   55.087143]                       ^
+[   55.087584]  ffff8881149fae80: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+[   55.088321]  ffff8881149faf00: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+[   55.089058] ==================================================================
+[   55.090098] kasan test: kmem_cache_oob out-of-bounds in kmem_cache_alloc
+[   55.090103] ==================================================================
+[   55.090873] BUG: KASAN: slab-out-of-bounds in kmem_cache_oob+0xa0/0xe5 [kasan_test]
+[   55.091656] Read of size 1 at addr ffff88810af630c8 by task insmod/2506
+
+[   55.092610] CPU: 0 PID: 2506 Comm: insmod Tainted: G    B      O      5.0.0-rc4 #1
+[   55.092611] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[   55.092612] Call Trace:
+[   55.092616]  dump_stack+0x5b/0x8b
+[   55.092619]  print_address_description+0x66/0x280
+[   55.092622]  ? kmem_cache_oob+0xa0/0xe5 [kasan_test]
+[   55.092624]  kasan_report+0x13a/0x19b
+[   55.092627]  ? kmem_cache_oob+0xa0/0xe5 [kasan_test]
+[   55.092629]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   55.092632]  ? kmem_cache_oob+0xa0/0xe5 [kasan_test]
+[   55.092634]  kmem_cache_oob+0xa0/0xe5 [kasan_test]
+[   55.092637]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   55.092639]  kmalloc_tests_init+0x67/0x8a6 [kasan_test]
+[   55.092642]  ? kasan_strings+0xcd/0xcd [kasan_test]
+[   55.092643]  do_one_initcall+0x9c/0x301
+[   55.092645]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[   55.092648]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.092650]  ? __kasan_kmalloc+0xa9/0xf0
+[   55.092652]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.092654]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.092656]  do_init_module+0x1be/0x545
+[   55.092658]  load_module+0x6529/0x7e50
+[   55.092662]  ? module_frob_arch_sections+0x20/0x20
+[   55.092664]  ? kernel_read_file+0x1cb/0x5a0
+[   55.092666]  ? do_mmap+0x766/0xd60
+[   55.092669]  ? __do_sys_finit_module+0x16a/0x180
+[   55.092671]  __do_sys_finit_module+0x16a/0x180
+[   55.092673]  ? __ia32_sys_init_module+0xa0/0xa0
+[   55.092675]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[   55.092677]  ? __do_sys_newfstat+0x83/0xd0
+[   55.092680]  ? __do_page_fault+0x42c/0x990
+[   55.092682]  do_syscall_64+0x8c/0x270
+[   55.092684]  ? page_fault+0x8/0x30
+[   55.092685]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   55.092687] RIP: 0033:0x7fb82b1fa4d9
+[   55.092689] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[   55.092690] RSP: 002b:00007ffe130aba08 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[   55.092693] RAX: ffffffffffffffda RBX: 0000560344210210 RCX: 00007fb82b1fa4d9
+[   55.092694] RDX: 0000000000000000 RSI: 000056034318026b RDI: 0000000000000003
+[   55.092695] RBP: 000056034318026b R08: 0000000000000000 R09: 00007fb82b4bfea0
+[   55.092696] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[   55.092697] R13: 00005603442101e0 R14: 0000000000000000 R15: 0000000000000000
+
+[   55.093070] Allocated by task 2506:
+[   55.093525]  __kasan_kmalloc+0xa9/0xf0
+[   55.093526]  kmem_cache_alloc+0xa5/0x180
+[   55.093529]  kmem_cache_oob+0x5b/0xe5 [kasan_test]
+[   55.093531]  kmalloc_tests_init+0x67/0x8a6 [kasan_test]
+[   55.093533]  do_one_initcall+0x9c/0x301
+[   55.093534]  do_init_module+0x1be/0x545
+[   55.093536]  load_module+0x6529/0x7e50
+[   55.093538]  __do_sys_finit_module+0x16a/0x180
+[   55.093539]  do_syscall_64+0x8c/0x270
+[   55.093541]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   55.093911] Freed by task 0:
+[   55.094337] (stack is not available)
+
+[   55.095161] The buggy address belongs to the object at ffff88810af63000
+                which belongs to the cache test_cache of size 200
+[   55.096117] The buggy address is located 0 bytes to the right of
+                200-byte region [ffff88810af63000, ffff88810af630c8)
+[   55.097057] The buggy address belongs to the page:
+[   55.097549] page:ffffea00042bd8c0 count:1 mapcount:0 mapping:ffff8881126bc140 index:0x0
+[   55.097551] flags: 0x200000000000200(slab)
+[   55.097557] raw: 0200000000000200 dead000000000100 dead000000000200 ffff8881126bc140
+[   55.097559] raw: 0000000000000000 00000000800f000f 00000001ffffffff 0000000000000000
+[   55.097560] page dumped because: kasan: bad access detected
+
+[   55.097935] Memory state around the buggy address:
+[   55.098428]  ffff88810af62f80: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+[   55.099188]  ffff88810af63000: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[   55.099941] >ffff88810af63080: 00 00 00 00 00 00 00 00 00 fc fc fc fc fc fc fc
+[   55.100693]                                               ^
+[   55.101215]  ffff88810af63100: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+[   55.101968]  ffff88810af63180: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+[   55.102719] ==================================================================
+[   55.111316] kasan test: memcg_accounted_kmem_cache allocate memcg accounted object
+[   55.645353] kasan test: kasan_stack_oob out-of-bounds on stack
+[   55.645358] ==================================================================
+[   55.647010] BUG: KASAN: stack-out-of-bounds in kasan_stack_oob+0xb9/0xf8 [kasan_test]
+[   55.648650] Read of size 1 at addr ffff88811234f98a by task insmod/2506
+
+[   55.650617] CPU: 0 PID: 2506 Comm: insmod Tainted: G    B      O      5.0.0-rc4 #1
+[   55.650620] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[   55.650622] Call Trace:
+[   55.650634]  dump_stack+0x5b/0x8b
+[   55.650642]  print_address_description+0x66/0x280
+[   55.650649]  ? kasan_stack_oob+0xb9/0xf8 [kasan_test]
+[   55.650654]  kasan_report+0x13a/0x19b
+[   55.650659]  ? kasan_stack_oob+0xb9/0xf8 [kasan_test]
+[   55.650664]  ? kasan_stack_oob+0xb9/0xf8 [kasan_test]
+[   55.650669]  kasan_stack_oob+0xb9/0xf8 [kasan_test]
+[   55.650673]  ? 0xffffffffc0130000
+[   55.650678]  ? __kasan_slab_free+0x14c/0x190
+[   55.650683]  ? kmem_cache_destroy+0x8f/0xf0
+[   55.650688]  ? mutex_unlock+0x18/0x40
+[   55.650693]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   55.650698]  kmalloc_tests_init+0x71/0x8a6 [kasan_test]
+[   55.650703]  ? kasan_strings+0xcd/0xcd [kasan_test]
+[   55.650707]  do_one_initcall+0x9c/0x301
+[   55.650712]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[   55.650716]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.650721]  ? __kasan_kmalloc+0xa9/0xf0
+[   55.650725]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.650729]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.650735]  do_init_module+0x1be/0x545
+[   55.650740]  load_module+0x6529/0x7e50
+[   55.650747]  ? module_frob_arch_sections+0x20/0x20
+[   55.650753]  ? kernel_read_file+0x1cb/0x5a0
+[   55.650758]  ? do_mmap+0x766/0xd60
+[   55.650763]  ? __do_sys_finit_module+0x16a/0x180
+[   55.650767]  __do_sys_finit_module+0x16a/0x180
+[   55.650771]  ? __ia32_sys_init_module+0xa0/0xa0
+[   55.650777]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[   55.650781]  ? __do_sys_newfstat+0x83/0xd0
+[   55.650787]  ? __do_page_fault+0x42c/0x990
+[   55.650791]  do_syscall_64+0x8c/0x270
+[   55.650795]  ? page_fault+0x8/0x30
+[   55.650799]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   55.650803] RIP: 0033:0x7fb82b1fa4d9
+[   55.650808] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[   55.650811] RSP: 002b:00007ffe130aba08 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[   55.650816] RAX: ffffffffffffffda RBX: 0000560344210210 RCX: 00007fb82b1fa4d9
+[   55.650818] RDX: 0000000000000000 RSI: 000056034318026b RDI: 0000000000000003
+[   55.650821] RBP: 000056034318026b R08: 0000000000000000 R09: 00007fb82b4bfea0
+[   55.650823] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[   55.650825] R13: 00005603442101e0 R14: 0000000000000000 R15: 0000000000000000
+
+[   55.651590] The buggy address belongs to the page:
+[   55.652577] page:ffffea000448d3c0 count:0 mapcount:0 mapping:0000000000000000 index:0x0
+[   55.652592] flags: 0x200000000000000()
+[   55.652598] raw: 0200000000000000 0000000000000000 ffffea000448d3c8 0000000000000000
+[   55.652601] raw: 0000000000000000 0000000000000000 00000000ffffffff 0000000000000000
+[   55.652603] page dumped because: kasan: bad access detected
+
+[   55.653321] Memory state around the buggy address:
+[   55.654306]  ffff88811234f880: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[   55.655796]  ffff88811234f900: 00 00 00 00 f1 f1 f1 f1 04 f4 f4 f4 f2 f2 f2 f2
+[   55.657275] >ffff88811234f980: 00 02 f4 f4 f3 f3 f3 f3 00 00 00 00 00 00 00 f1
+[   55.658749]                       ^
+[   55.659638]  ffff88811234fa00: f1 f1 f1 00 00 00 00 00 00 00 00 f3 f3 f3 f3 f3
+[   55.661112]  ffff88811234fa80: f3 f3 f3 00 00 00 00 00 00 00 00 00 00 00 00 00
+[   55.662582] ==================================================================
+[   55.664081] kasan test: kasan_global_oob out-of-bounds global variable
+[   55.664083] ==================================================================
+[   55.665495] BUG: KASAN: global-out-of-bounds in kasan_global_oob+0x96/0xc0 [kasan_test]
+[   55.666951] Read of size 1 at addr ffffffffc012d78d by task insmod/2506
+
+[   55.668702] CPU: 0 PID: 2506 Comm: insmod Tainted: G    B      O      5.0.0-rc4 #1
+[   55.668704] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[   55.668705] Call Trace:
+[   55.668713]  dump_stack+0x5b/0x8b
+[   55.668719]  print_address_description+0x1d8/0x280
+[   55.668724]  ? kasan_global_oob+0x96/0xc0 [kasan_test]
+[   55.668728]  kasan_report+0x13a/0x19b
+[   55.668733]  ? kasan_global_oob+0x96/0xc0 [kasan_test]
+[   55.668737]  ? kasan_global_oob+0x96/0xc0 [kasan_test]
+[   55.668742]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   55.668746]  kasan_global_oob+0x96/0xc0 [kasan_test]
+[   55.668751]  ? kasan_stack_oob+0xf8/0xf8 [kasan_test]
+[   55.668755]  ? kmem_cache_destroy+0x8f/0xf0
+[   55.668759]  ? mutex_unlock+0x18/0x40
+[   55.668763]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   55.668767]  kmalloc_tests_init+0x76/0x8a6 [kasan_test]
+[   55.668772]  ? kasan_strings+0xcd/0xcd [kasan_test]
+[   55.668775]  do_one_initcall+0x9c/0x301
+[   55.668779]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[   55.668783]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.668787]  ? __kasan_kmalloc+0xa9/0xf0
+[   55.668790]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.668794]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.668798]  do_init_module+0x1be/0x545
+[   55.668803]  load_module+0x6529/0x7e50
+[   55.668809]  ? module_frob_arch_sections+0x20/0x20
+[   55.668813]  ? kernel_read_file+0x1cb/0x5a0
+[   55.668817]  ? do_mmap+0x766/0xd60
+[   55.668822]  ? __do_sys_finit_module+0x16a/0x180
+[   55.668825]  __do_sys_finit_module+0x16a/0x180
+[   55.668829]  ? __ia32_sys_init_module+0xa0/0xa0
+[   55.668832]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[   55.668836]  ? __do_sys_newfstat+0x83/0xd0
+[   55.668841]  ? __do_page_fault+0x42c/0x990
+[   55.668844]  do_syscall_64+0x8c/0x270
+[   55.668847]  ? page_fault+0x8/0x30
+[   55.668850]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   55.668853] RIP: 0033:0x7fb82b1fa4d9
+[   55.668857] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[   55.668859] RSP: 002b:00007ffe130aba08 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[   55.668863] RAX: ffffffffffffffda RBX: 0000560344210210 RCX: 00007fb82b1fa4d9
+[   55.668865] RDX: 0000000000000000 RSI: 000056034318026b RDI: 0000000000000003
+[   55.668867] RBP: 000056034318026b R08: 0000000000000000 R09: 00007fb82b4bfea0
+[   55.668869] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[   55.668871] R13: 00005603442101e0 R14: 0000000000000000 R15: 0000000000000000
+
+[   55.669558] The buggy address belongs to the variable:
+[   55.670519]  global_array+0xd/0xffffffffffffb880 [kasan_test]
+
+[   55.672204] Memory state around the buggy address:
+[   55.673132]  ffffffffc012d680: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[   55.674526]  ffffffffc012d700: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[   55.675898] >ffffffffc012d780: 00 02 fa fa fa fa fa fa 00 00 00 00 00 00 00 00
+[   55.677217]                       ^
+[   55.678002]  ffffffffc012d800: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[   55.679326]  ffffffffc012d880: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[   55.680643] ==================================================================
+[   55.682010] kasan test: kasan_alloca_oob_left out-of-bounds to left on alloca
+[   55.682012] kasan test: kasan_alloca_oob_right out-of-bounds to right on alloca
+[   55.682014] kasan test: ksize_unpoisons_memory ksize() unpoisons the whole allocated chunk
+[   55.682028] ==================================================================
+[   55.683373] BUG: KASAN: slab-out-of-bounds in ksize_unpoisons_memory+0xd2/0xe0 [kasan_test]
+[   55.684775] Write of size 1 at addr ffff888114e142c0 by task insmod/2506
+
+[   55.686434] CPU: 0 PID: 2506 Comm: insmod Tainted: G    B      O      5.0.0-rc4 #1
+[   55.686436] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[   55.686437] Call Trace:
+[   55.686443]  dump_stack+0x5b/0x8b
+[   55.686448]  print_address_description+0x66/0x280
+[   55.686454]  ? ksize_unpoisons_memory+0xd2/0xe0 [kasan_test]
+[   55.686457]  kasan_report+0x13a/0x19b
+[   55.686462]  ? ksize_unpoisons_memory+0xd2/0xe0 [kasan_test]
+[   55.686465]  ? kasan_unpoison_shadow+0x11/0x40
+[   55.686470]  ? ksize_unpoisons_memory+0xd2/0xe0 [kasan_test]
+[   55.686474]  ksize_unpoisons_memory+0xd2/0xe0 [kasan_test]
+[   55.686478]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   55.686483]  kmalloc_tests_init+0x85/0x8a6 [kasan_test]
+[   55.686487]  ? kasan_strings+0xcd/0xcd [kasan_test]
+[   55.686490]  do_one_initcall+0x9c/0x301
+[   55.686493]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[   55.686497]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.686500]  ? __kasan_kmalloc+0xa9/0xf0
+[   55.686504]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.686507]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.686511]  do_init_module+0x1be/0x545
+[   55.686515]  load_module+0x6529/0x7e50
+[   55.686521]  ? module_frob_arch_sections+0x20/0x20
+[   55.686525]  ? kernel_read_file+0x1cb/0x5a0
+[   55.686529]  ? do_mmap+0x766/0xd60
+[   55.686533]  ? __do_sys_finit_module+0x16a/0x180
+[   55.686537]  __do_sys_finit_module+0x16a/0x180
+[   55.686540]  ? __ia32_sys_init_module+0xa0/0xa0
+[   55.686543]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[   55.686547]  ? __do_sys_newfstat+0x83/0xd0
+[   55.686551]  ? __do_page_fault+0x42c/0x990
+[   55.686554]  do_syscall_64+0x8c/0x270
+[   55.686557]  ? page_fault+0x8/0x30
+[   55.686560]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   55.686563] RIP: 0033:0x7fb82b1fa4d9
+[   55.686566] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[   55.686568] RSP: 002b:00007ffe130aba08 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[   55.686572] RAX: ffffffffffffffda RBX: 0000560344210210 RCX: 00007fb82b1fa4d9
+[   55.686574] RDX: 0000000000000000 RSI: 000056034318026b RDI: 0000000000000003
+[   55.686576] RBP: 000056034318026b R08: 0000000000000000 R09: 00007fb82b4bfea0
+[   55.686578] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[   55.686580] R13: 00005603442101e0 R14: 0000000000000000 R15: 0000000000000000
+
+[   55.687236] Allocated by task 2506:
+[   55.687985]  __kasan_kmalloc+0xa9/0xf0
+[   55.687990]  ksize_unpoisons_memory+0x4e/0xe0 [kasan_test]
+[   55.687999]  kmalloc_tests_init+0x85/0x8a6 [kasan_test]
+[   55.688002]  do_one_initcall+0x9c/0x301
+[   55.688005]  do_init_module+0x1be/0x545
+[   55.688008]  load_module+0x6529/0x7e50
+[   55.688010]  __do_sys_finit_module+0x16a/0x180
+[   55.688013]  do_syscall_64+0x8c/0x270
+[   55.688015]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   55.688627] Freed by task 2171:
+[   55.689352]  __kasan_slab_free+0x137/0x190
+[   55.689355]  kfree+0x86/0x1b0
+[   55.689359]  load_elf_binary+0x21d/0x41ee
+[   55.689362]  search_binary_handler+0x15e/0x460
+[   55.689365]  __do_execve_file.isra.44+0x118f/0x1fa0
+[   55.689368]  __x64_sys_execve+0x85/0xb0
+[   55.689370]  do_syscall_64+0x8c/0x270
+[   55.689373]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   55.689985] The buggy address belongs to the object at ffff888114e14240
+                which belongs to the cache kmalloc-128 of size 128
+[   55.691598] The buggy address is located 0 bytes to the right of
+                128-byte region [ffff888114e14240, ffff888114e142c0)
+[   55.693172] The buggy address belongs to the page:
+[   55.694010] page:ffffea0004538500 count:1 mapcount:0 mapping:ffff888115c01640 index:0x0
+[   55.694014] flags: 0x200000000000200(slab)
+[   55.694018] raw: 0200000000000200 0000000000000000 0000000100000001 ffff888115c01640
+[   55.694021] raw: 0000000000000000 0000000080150015 00000001ffffffff 0000000000000000
+[   55.694022] page dumped because: kasan: bad access detected
+
+[   55.694632] Memory state around the buggy address:
+[   55.695474]  ffff888114e14180: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+[   55.696728]  ffff888114e14200: fc fc fc fc fc fc fc fc 00 00 00 00 00 00 00 00
+[   55.697981] >ffff888114e14280: 00 00 00 00 00 00 00 00 fc fc fc fc fc fc fc fc
+[   55.699240]                                            ^
+[   55.700072]  ffff888114e14300: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+[   55.701265]  ffff888114e14380: fc fc fc fc fc fc fc fc fb fb fb fb fb fb fb fb
+[   55.702457] ==================================================================
+[   55.703755] kasan test: copy_user_test out-of-bounds in copy_from_user()
+[   55.703757] ==================================================================
+[   55.704971] BUG: KASAN: slab-out-of-bounds in _copy_from_user+0x66/0xa0
+[   55.705892] Write of size 11 at addr ffff888114a27ee0 by task insmod/2506
+
+[   55.707409] CPU: 0 PID: 2506 Comm: insmod Tainted: G    B      O      5.0.0-rc4 #1
+[   55.707411] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[   55.707412] Call Trace:
+[   55.707418]  dump_stack+0x5b/0x8b
+[   55.707422]  print_address_description+0x66/0x280
+[   55.707425]  ? _copy_from_user+0x66/0xa0
+[   55.707429]  kasan_report+0x13a/0x19b
+[   55.707431]  ? _copy_from_user+0x66/0xa0
+[   55.707434]  ? _copy_from_user+0x66/0xa0
+[   55.707436]  _copy_from_user+0x66/0xa0
+[   55.707441]  copy_user_test+0xa9/0x1c1 [kasan_test]
+[   55.707446]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   55.707450]  kmalloc_tests_init+0x8a/0x8a6 [kasan_test]
+[   55.707454]  ? kasan_strings+0xcd/0xcd [kasan_test]
+[   55.707456]  do_one_initcall+0x9c/0x301
+[   55.707459]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[   55.707462]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.707466]  ? __kasan_kmalloc+0xa9/0xf0
+[   55.707469]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.707472]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.707475]  do_init_module+0x1be/0x545
+[   55.707479]  load_module+0x6529/0x7e50
+[   55.707485]  ? module_frob_arch_sections+0x20/0x20
+[   55.707488]  ? kernel_read_file+0x1cb/0x5a0
+[   55.707492]  ? do_mmap+0x766/0xd60
+[   55.707495]  ? __do_sys_finit_module+0x16a/0x180
+[   55.707498]  __do_sys_finit_module+0x16a/0x180
+[   55.707502]  ? __ia32_sys_init_module+0xa0/0xa0
+[   55.707505]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[   55.707508]  ? __do_sys_newfstat+0x83/0xd0
+[   55.707512]  ? __do_page_fault+0x42c/0x990
+[   55.707522]  do_syscall_64+0x8c/0x270
+[   55.707526]  ? page_fault+0x8/0x30
+[   55.707528]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   55.707531] RIP: 0033:0x7fb82b1fa4d9
+[   55.707534] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[   55.707536] RSP: 002b:00007ffe130aba08 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[   55.707539] RAX: ffffffffffffffda RBX: 0000560344210210 RCX: 00007fb82b1fa4d9
+[   55.707541] RDX: 0000000000000000 RSI: 000056034318026b RDI: 0000000000000003
+[   55.707543] RBP: 000056034318026b R08: 0000000000000000 R09: 00007fb82b4bfea0
+[   55.707545] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[   55.707546] R13: 00005603442101e0 R14: 0000000000000000 R15: 0000000000000000
+
+[   55.708133] Allocated by task 2506:
+[   55.708846]  __kasan_kmalloc+0xa9/0xf0
+[   55.708850]  copy_user_test+0x3d/0x1c1 [kasan_test]
+[   55.708853]  kmalloc_tests_init+0x8a/0x8a6 [kasan_test]
+[   55.708856]  do_one_initcall+0x9c/0x301
+[   55.708858]  do_init_module+0x1be/0x545
+[   55.708861]  load_module+0x6529/0x7e50
+[   55.708864]  __do_sys_finit_module+0x16a/0x180
+[   55.708866]  do_syscall_64+0x8c/0x270
+[   55.708868]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   55.709450] Freed by task 1:
+[   55.710124]  __kasan_slab_free+0x137/0x190
+[   55.710127]  kfree+0x86/0x1b0
+[   55.710131]  acpi_ps_parse_aml+0x42f/0x730
+[   55.710133]  acpi_ps_execute_method+0x515/0x572
+[   55.710137]  acpi_ns_evaluate+0x663/0x8a9
+[   55.710139]  acpi_evaluate_object+0x349/0x6b8
+[   55.710143]  acpi_evaluate_integer+0xad/0x130
+[   55.710146]  acpi_bus_get_status+0x147/0x220
+[   55.710148]  acpi_bus_attach+0xaf/0x7f0
+[   55.710151]  acpi_bus_attach+0x1c9/0x7f0
+[   55.710153]  acpi_bus_attach+0x1c9/0x7f0
+[   55.710156]  acpi_bus_attach+0x1c9/0x7f0
+[   55.710158]  acpi_bus_scan+0x85/0xf0
+[   55.710162]  acpi_scan_init+0x25e/0x5bd
+[   55.710165]  acpi_init+0x542/0x5d2
+[   55.710167]  do_one_initcall+0x9c/0x301
+[   55.710170]  kernel_init_freeable+0x449/0x4f8
+[   55.710173]  kernel_init+0xa/0x120
+[   55.710175]  ret_from_fork+0x35/0x40
+
+[   55.710759] The buggy address belongs to the object at ffff888114a27ee0
+                which belongs to the cache kmalloc-16 of size 16
+[   55.712240] The buggy address is located 0 bytes inside of
+                16-byte region [ffff888114a27ee0, ffff888114a27ef0)
+[   55.713635] The buggy address belongs to the page:
+[   55.714397] page:ffffea00045289c0 count:1 mapcount:0 mapping:ffff888115c01b40 index:0x0
+[   55.714400] flags: 0x200000000000200(slab)
+[   55.714403] raw: 0200000000000200 ffffea0004526bc0 0000000400000004 ffff888115c01b40
+[   55.714406] raw: 0000000000000000 0000000080800080 00000001ffffffff 0000000000000000
+[   55.714407] page dumped because: kasan: bad access detected
+
+[   55.714960] Memory state around the buggy address:
+[   55.715731]  ffff888114a27d80: fb fb fc fc fb fb fc fc fb fb fc fc fb fb fc fc
+[   55.716872]  ffff888114a27e00: fb fb fc fc fb fb fc fc fb fb fc fc fb fb fc fc
+[   55.718010] >ffff888114a27e80: 00 00 fc fc fb fb fc fc fb fb fc fc 00 02 fc fc
+[   55.719154]                                                           ^
+[   55.720029]  ffff888114a27f00: fb fb fc fc 00 00 fc fc 00 00 fc fc 00 00 fc fc
+[   55.721169]  ffff888114a27f80: 00 00 fc fc 00 00 fc fc fb fb fc fc fb fb fc fc
+[   55.722308] ==================================================================
+[   55.723494] kasan test: copy_user_test out-of-bounds in copy_to_user()
+[   55.723495] ==================================================================
+[   55.724598] BUG: KASAN: slab-out-of-bounds in _copy_to_user+0x54/0x80
+[   55.725427] Read of size 11 at addr ffff888114a27ee0 by task insmod/2506
+
+[   55.726799] CPU: 0 PID: 2506 Comm: insmod Tainted: G    B      O      5.0.0-rc4 #1
+[   55.726805] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[   55.726807] Call Trace:
+[   55.726812]  dump_stack+0x5b/0x8b
+[   55.726816]  print_address_description+0x66/0x280
+[   55.726819]  ? _copy_to_user+0x54/0x80
+[   55.726822]  kasan_report+0x13a/0x19b
+[   55.726825]  ? _copy_to_user+0x54/0x80
+[   55.726827]  ? _copy_to_user+0x54/0x80
+[   55.726829]  _copy_to_user+0x54/0x80
+[   55.726834]  copy_user_test+0xcc/0x1c1 [kasan_test]
+[   55.726838]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   55.726841]  kmalloc_tests_init+0x8a/0x8a6 [kasan_test]
+[   55.726845]  ? kasan_strings+0xcd/0xcd [kasan_test]
+[   55.726847]  do_one_initcall+0x9c/0x301
+[   55.726850]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[   55.726853]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.726856]  ? __kasan_kmalloc+0xa9/0xf0
+[   55.726859]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.726862]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.726865]  do_init_module+0x1be/0x545
+[   55.726868]  load_module+0x6529/0x7e50
+[   55.726873]  ? module_frob_arch_sections+0x20/0x20
+[   55.726877]  ? kernel_read_file+0x1cb/0x5a0
+[   55.726880]  ? do_mmap+0x766/0xd60
+[   55.726883]  ? __do_sys_finit_module+0x16a/0x180
+[   55.726886]  __do_sys_finit_module+0x16a/0x180
+[   55.726889]  ? __ia32_sys_init_module+0xa0/0xa0
+[   55.726892]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[   55.726894]  ? __do_sys_newfstat+0x83/0xd0
+[   55.726898]  ? __do_page_fault+0x42c/0x990
+[   55.726900]  do_syscall_64+0x8c/0x270
+[   55.726903]  ? page_fault+0x8/0x30
+[   55.726906]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   55.726908] RIP: 0033:0x7fb82b1fa4d9
+[   55.726911] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[   55.726912] RSP: 002b:00007ffe130aba08 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[   55.726915] RAX: ffffffffffffffda RBX: 0000560344210210 RCX: 00007fb82b1fa4d9
+[   55.726917] RDX: 0000000000000000 RSI: 000056034318026b RDI: 0000000000000003
+[   55.726918] RBP: 000056034318026b R08: 0000000000000000 R09: 00007fb82b4bfea0
+[   55.726920] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[   55.726921] R13: 00005603442101e0 R14: 0000000000000000 R15: 0000000000000000
+
+[   55.727462] Allocated by task 2506:
+[   55.728115]  __kasan_kmalloc+0xa9/0xf0
+[   55.728119]  copy_user_test+0x3d/0x1c1 [kasan_test]
+[   55.728122]  kmalloc_tests_init+0x8a/0x8a6 [kasan_test]
+[   55.728124]  do_one_initcall+0x9c/0x301
+[   55.728127]  do_init_module+0x1be/0x545
+[   55.728129]  load_module+0x6529/0x7e50
+[   55.728131]  __do_sys_finit_module+0x16a/0x180
+[   55.728133]  do_syscall_64+0x8c/0x270
+[   55.728136]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   55.728674] Freed by task 1:
+[   55.729289]  __kasan_slab_free+0x137/0x190
+[   55.729291]  kfree+0x86/0x1b0
+[   55.729294]  acpi_ps_parse_aml+0x42f/0x730
+[   55.729296]  acpi_ps_execute_method+0x515/0x572
+[   55.729299]  acpi_ns_evaluate+0x663/0x8a9
+[   55.729301]  acpi_evaluate_object+0x349/0x6b8
+[   55.729304]  acpi_evaluate_integer+0xad/0x130
+[   55.729306]  acpi_bus_get_status+0x147/0x220
+[   55.729308]  acpi_bus_attach+0xaf/0x7f0
+[   55.729311]  acpi_bus_attach+0x1c9/0x7f0
+[   55.729313]  acpi_bus_attach+0x1c9/0x7f0
+[   55.729315]  acpi_bus_attach+0x1c9/0x7f0
+[   55.729318]  acpi_bus_scan+0x85/0xf0
+[   55.729320]  acpi_scan_init+0x25e/0x5bd
+[   55.729323]  acpi_init+0x542/0x5d2
+[   55.729325]  do_one_initcall+0x9c/0x301
+[   55.729327]  kernel_init_freeable+0x449/0x4f8
+[   55.729330]  kernel_init+0xa/0x120
+[   55.729332]  ret_from_fork+0x35/0x40
+
+[   55.729864] The buggy address belongs to the object at ffff888114a27ee0
+                which belongs to the cache kmalloc-16 of size 16
+[   55.731256] The buggy address is located 0 bytes inside of
+                16-byte region [ffff888114a27ee0, ffff888114a27ef0)
+[   55.732594] The buggy address belongs to the page:
+[   55.733322] page:ffffea00045289c0 count:1 mapcount:0 mapping:ffff888115c01b40 index:0x0
+[   55.733324] flags: 0x200000000000200(slab)
+[   55.733328] raw: 0200000000000200 ffffea0004526bc0 0000000400000004 ffff888115c01b40
+[   55.733330] raw: 0000000000000000 0000000080800080 00000001ffffffff 0000000000000000
+[   55.733331] page dumped because: kasan: bad access detected
+
+[   55.733860] Memory state around the buggy address:
+[   55.734586]  ffff888114a27d80: fb fb fc fc fb fb fc fc fb fb fc fc fb fb fc fc
+[   55.735667]  ffff888114a27e00: fb fb fc fc fb fb fc fc fb fb fc fc fb fb fc fc
+[   55.736711] >ffff888114a27e80: 00 00 fc fc fb fb fc fc fb fb fc fc 00 02 fc fc
+[   55.737755]                                                           ^
+[   55.738555]  ffff888114a27f00: fb fb fc fc 00 00 fc fc 00 00 fc fc 00 00 fc fc
+[   55.739610]  ffff888114a27f80: 00 00 fc fc 00 00 fc fc fb fb fc fc fb fb fc fc
+[   55.740653] ==================================================================
+[   55.741759] kasan test: copy_user_test out-of-bounds in __copy_from_user()
+[   55.741761] ==================================================================
+[   55.742817] BUG: KASAN: slab-out-of-bounds in copy_user_test+0xec/0x1c1 [kasan_test]
+[   55.746895] Write of size 11 at addr ffff888114a27ee0 by task insmod/2506
+
+[   55.748185] CPU: 0 PID: 2506 Comm: insmod Tainted: G    B      O      5.0.0-rc4 #1
+[   55.748186] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[   55.748187] Call Trace:
+[   55.748192]  dump_stack+0x5b/0x8b
+[   55.748196]  print_address_description+0x66/0x280
+[   55.748200]  ? copy_user_test+0xec/0x1c1 [kasan_test]
+[   55.748203]  kasan_report+0x13a/0x19b
+[   55.748206]  ? copy_user_test+0xec/0x1c1 [kasan_test]
+[   55.748210]  ? copy_user_test+0xec/0x1c1 [kasan_test]
+[   55.748213]  copy_user_test+0xec/0x1c1 [kasan_test]
+[   55.748216]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   55.748219]  kmalloc_tests_init+0x8a/0x8a6 [kasan_test]
+[   55.748223]  ? kasan_strings+0xcd/0xcd [kasan_test]
+[   55.748225]  do_one_initcall+0x9c/0x301
+[   55.748227]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[   55.748230]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.748233]  ? __kasan_kmalloc+0xa9/0xf0
+[   55.748236]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.748238]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.748241]  do_init_module+0x1be/0x545
+[   55.748244]  load_module+0x6529/0x7e50
+[   55.748249]  ? module_frob_arch_sections+0x20/0x20
+[   55.748252]  ? kernel_read_file+0x1cb/0x5a0
+[   55.748255]  ? do_mmap+0x766/0xd60
+[   55.748258]  ? __do_sys_finit_module+0x16a/0x180
+[   55.748261]  __do_sys_finit_module+0x16a/0x180
+[   55.748263]  ? __ia32_sys_init_module+0xa0/0xa0
+[   55.748266]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[   55.748268]  ? __do_sys_newfstat+0x83/0xd0
+[   55.748272]  ? __do_page_fault+0x42c/0x990
+[   55.748274]  do_syscall_64+0x8c/0x270
+[   55.748277]  ? page_fault+0x8/0x30
+[   55.748279]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   55.748281] RIP: 0033:0x7fb82b1fa4d9
+[   55.748284] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[   55.748285] RSP: 002b:00007ffe130aba08 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[   55.748288] RAX: ffffffffffffffda RBX: 0000560344210210 RCX: 00007fb82b1fa4d9
+[   55.748289] RDX: 0000000000000000 RSI: 000056034318026b RDI: 0000000000000003
+[   55.748291] RBP: 000056034318026b R08: 0000000000000000 R09: 00007fb82b4bfea0
+[   55.748292] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[   55.748294] R13: 00005603442101e0 R14: 0000000000000000 R15: 0000000000000000
+
+[   55.748786] Allocated by task 2506:
+[   55.749385]  __kasan_kmalloc+0xa9/0xf0
+[   55.749393]  copy_user_test+0x3d/0x1c1 [kasan_test]
+[   55.749396]  kmalloc_tests_init+0x8a/0x8a6 [kasan_test]
+[   55.749398]  do_one_initcall+0x9c/0x301
+[   55.749400]  do_init_module+0x1be/0x545
+[   55.749403]  load_module+0x6529/0x7e50
+[   55.749405]  __do_sys_finit_module+0x16a/0x180
+[   55.749407]  do_syscall_64+0x8c/0x270
+[   55.749409]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   55.749899] Freed by task 1:
+[   55.750464]  __kasan_slab_free+0x137/0x190
+[   55.750467]  kfree+0x86/0x1b0
+[   55.750469]  acpi_ps_parse_aml+0x42f/0x730
+[   55.750471]  acpi_ps_execute_method+0x515/0x572
+[   55.750474]  acpi_ns_evaluate+0x663/0x8a9
+[   55.750476]  acpi_evaluate_object+0x349/0x6b8
+[   55.750478]  acpi_evaluate_integer+0xad/0x130
+[   55.750480]  acpi_bus_get_status+0x147/0x220
+[   55.750483]  acpi_bus_attach+0xaf/0x7f0
+[   55.750485]  acpi_bus_attach+0x1c9/0x7f0
+[   55.750487]  acpi_bus_attach+0x1c9/0x7f0
+[   55.750489]  acpi_bus_attach+0x1c9/0x7f0
+[   55.750491]  acpi_bus_scan+0x85/0xf0
+[   55.750494]  acpi_scan_init+0x25e/0x5bd
+[   55.750496]  acpi_init+0x542/0x5d2
+[   55.750498]  do_one_initcall+0x9c/0x301
+[   55.750500]  kernel_init_freeable+0x449/0x4f8
+[   55.750502]  kernel_init+0xa/0x120
+[   55.750504]  ret_from_fork+0x35/0x40
+
+[   55.750994] The buggy address belongs to the object at ffff888114a27ee0
+                which belongs to the cache kmalloc-16 of size 16
+[   55.752276] The buggy address is located 0 bytes inside of
+                16-byte region [ffff888114a27ee0, ffff888114a27ef0)
+[   55.753502] The buggy address belongs to the page:
+[   55.754172] page:ffffea00045289c0 count:1 mapcount:0 mapping:ffff888115c01b40 index:0x0
+[   55.754174] flags: 0x200000000000200(slab)
+[   55.754177] raw: 0200000000000200 ffffea0004526bc0 0000000400000004 ffff888115c01b40
+[   55.754179] raw: 0000000000000000 0000000080800080 00000001ffffffff 0000000000000000
+[   55.754180] page dumped because: kasan: bad access detected
+
+[   55.754668] Memory state around the buggy address:
+[   55.755343]  ffff888114a27d80: fb fb fc fc fb fb fc fc fb fb fc fc fb fb fc fc
+[   55.756346]  ffff888114a27e00: fb fb fc fc fb fb fc fc fb fb fc fc fb fb fc fc
+[   55.757349] >ffff888114a27e80: 00 00 fc fc fb fb fc fc fb fb fc fc 00 02 fc fc
+[   55.758350]                                                           ^
+[   55.759131]  ffff888114a27f00: fb fb fc fc 00 00 fc fc 00 00 fc fc 00 00 fc fc
+[   55.760094]  ffff888114a27f80: 00 00 fc fc 00 00 fc fc fb fb fc fc fb fb fc fc
+[   55.761058] ==================================================================
+[   55.762060] kasan test: copy_user_test out-of-bounds in __copy_to_user()
+[   55.762061] ==================================================================
+[   55.763035] BUG: KASAN: slab-out-of-bounds in copy_user_test+0x119/0x1c1 [kasan_test]
+[   55.763976] Read of size 11 at addr ffff888114a27ee0 by task insmod/2506
+
+[   55.765181] CPU: 0 PID: 2506 Comm: insmod Tainted: G    B      O      5.0.0-rc4 #1
+[   55.765182] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[   55.765183] Call Trace:
+[   55.765188]  dump_stack+0x5b/0x8b
+[   55.765192]  print_address_description+0x66/0x280
+[   55.765196]  ? copy_user_test+0x119/0x1c1 [kasan_test]
+[   55.765198]  kasan_report+0x13a/0x19b
+[   55.765201]  ? copy_user_test+0x119/0x1c1 [kasan_test]
+[   55.765205]  ? copy_user_test+0x119/0x1c1 [kasan_test]
+[   55.765208]  copy_user_test+0x119/0x1c1 [kasan_test]
+[   55.765211]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   55.765214]  kmalloc_tests_init+0x8a/0x8a6 [kasan_test]
+[   55.765217]  ? kasan_strings+0xcd/0xcd [kasan_test]
+[   55.765219]  do_one_initcall+0x9c/0x301
+[   55.765222]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[   55.765225]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.765227]  ? __kasan_kmalloc+0xa9/0xf0
+[   55.765230]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.765236]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.765240]  do_init_module+0x1be/0x545
+[   55.765243]  load_module+0x6529/0x7e50
+[   55.765247]  ? module_frob_arch_sections+0x20/0x20
+[   55.765250]  ? kernel_read_file+0x1cb/0x5a0
+[   55.765253]  ? do_mmap+0x766/0xd60
+[   55.765256]  ? __do_sys_finit_module+0x16a/0x180
+[   55.765258]  __do_sys_finit_module+0x16a/0x180
+[   55.765261]  ? __ia32_sys_init_module+0xa0/0xa0
+[   55.765263]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[   55.765265]  ? __do_sys_newfstat+0x83/0xd0
+[   55.765269]  ? __do_page_fault+0x42c/0x990
+[   55.765271]  do_syscall_64+0x8c/0x270
+[   55.765273]  ? page_fault+0x8/0x30
+[   55.765275]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   55.765277] RIP: 0033:0x7fb82b1fa4d9
+[   55.765280] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[   55.765281] RSP: 002b:00007ffe130aba08 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[   55.765284] RAX: ffffffffffffffda RBX: 0000560344210210 RCX: 00007fb82b1fa4d9
+[   55.765285] RDX: 0000000000000000 RSI: 000056034318026b RDI: 0000000000000003
+[   55.765287] RBP: 000056034318026b R08: 0000000000000000 R09: 00007fb82b4bfea0
+[   55.765288] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[   55.765289] R13: 00005603442101e0 R14: 0000000000000000 R15: 0000000000000000
+
+[   55.765774] Allocated by task 2506:
+[   55.766350]  __kasan_kmalloc+0xa9/0xf0
+[   55.766354]  copy_user_test+0x3d/0x1c1 [kasan_test]
+[   55.766357]  kmalloc_tests_init+0x8a/0x8a6 [kasan_test]
+[   55.766358]  do_one_initcall+0x9c/0x301
+[   55.766361]  do_init_module+0x1be/0x545
+[   55.766363]  load_module+0x6529/0x7e50
+[   55.766365]  __do_sys_finit_module+0x16a/0x180
+[   55.766367]  do_syscall_64+0x8c/0x270
+[   55.766369]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   55.766850] Freed by task 1:
+[   55.767400]  __kasan_slab_free+0x137/0x190
+[   55.767402]  kfree+0x86/0x1b0
+[   55.767404]  acpi_ps_parse_aml+0x42f/0x730
+[   55.767406]  acpi_ps_execute_method+0x515/0x572
+[   55.767409]  acpi_ns_evaluate+0x663/0x8a9
+[   55.767411]  acpi_evaluate_object+0x349/0x6b8
+[   55.767413]  acpi_evaluate_integer+0xad/0x130
+[   55.767415]  acpi_bus_get_status+0x147/0x220
+[   55.767417]  acpi_bus_attach+0xaf/0x7f0
+[   55.767419]  acpi_bus_attach+0x1c9/0x7f0
+[   55.767421]  acpi_bus_attach+0x1c9/0x7f0
+[   55.767423]  acpi_bus_attach+0x1c9/0x7f0
+[   55.767426]  acpi_bus_scan+0x85/0xf0
+[   55.767428]  acpi_scan_init+0x25e/0x5bd
+[   55.767430]  acpi_init+0x542/0x5d2
+[   55.767432]  do_one_initcall+0x9c/0x301
+[   55.767434]  kernel_init_freeable+0x449/0x4f8
+[   55.767436]  kernel_init+0xa/0x120
+[   55.767438]  ret_from_fork+0x35/0x40
+
+[   55.767921] The buggy address belongs to the object at ffff888114a27ee0
+                which belongs to the cache kmalloc-16 of size 16
+[   55.769158] The buggy address is located 0 bytes inside of
+                16-byte region [ffff888114a27ee0, ffff888114a27ef0)
+[   55.770349] The buggy address belongs to the page:
+[   55.771005] page:ffffea00045289c0 count:1 mapcount:0 mapping:ffff888115c01b40 index:0x0
+[   55.771007] flags: 0x200000000000200(slab)
+[   55.771010] raw: 0200000000000200 ffffea0004526bc0 0000000400000004 ffff888115c01b40
+[   55.771012] raw: 0000000000000000 0000000080800080 00000001ffffffff 0000000000000000
+[   55.771013] page dumped because: kasan: bad access detected
+
+[   55.771482] Memory state around the buggy address:
+[   55.772115]  ffff888114a27d80: fb fb fc fc fb fb fc fc fb fb fc fc fb fb fc fc
+[   55.773056]  ffff888114a27e00: fb fb fc fc fb fb fc fc fb fb fc fc fb fb fc fc
+[   55.773997] >ffff888114a27e80: 00 00 fc fc fb fb fc fc fb fb fc fc 00 02 fc fc
+[   55.774940]                                                           ^
+[   55.775662]  ffff888114a27f00: fb fb fc fc 00 00 fc fc 00 00 fc fc 00 00 fc fc
+[   55.776600]  ffff888114a27f80: 00 00 fc fc 00 00 fc fc fb fb fc fc fb fb fc fc
+[   55.777542] ==================================================================
+[   55.778519] kasan test: copy_user_test out-of-bounds in __copy_from_user_inatomic()
+[   55.778521] ==================================================================
+[   55.779439] BUG: KASAN: slab-out-of-bounds in copy_user_test+0x146/0x1c1 [kasan_test]
+[   55.780369] Write of size 11 at addr ffff888114a27ee0 by task insmod/2506
+
+[   55.781536] CPU: 0 PID: 2506 Comm: insmod Tainted: G    B      O      5.0.0-rc4 #1
+[   55.781537] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[   55.781538] Call Trace:
+[   55.781543]  dump_stack+0x5b/0x8b
+[   55.781546]  print_address_description+0x66/0x280
+[   55.781550]  ? copy_user_test+0x146/0x1c1 [kasan_test]
+[   55.781553]  kasan_report+0x13a/0x19b
+[   55.781556]  ? copy_user_test+0x146/0x1c1 [kasan_test]
+[   55.781559]  ? copy_user_test+0x146/0x1c1 [kasan_test]
+[   55.781562]  copy_user_test+0x146/0x1c1 [kasan_test]
+[   55.781565]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   55.781568]  kmalloc_tests_init+0x8a/0x8a6 [kasan_test]
+[   55.781571]  ? kasan_strings+0xcd/0xcd [kasan_test]
+[   55.781573]  do_one_initcall+0x9c/0x301
+[   55.781575]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[   55.781578]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.781580]  ? __kasan_kmalloc+0xa9/0xf0
+[   55.781583]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.781585]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.781588]  do_init_module+0x1be/0x545
+[   55.781591]  load_module+0x6529/0x7e50
+[   55.781595]  ? module_frob_arch_sections+0x20/0x20
+[   55.781598]  ? kernel_read_file+0x1cb/0x5a0
+[   55.781600]  ? do_mmap+0x766/0xd60
+[   55.781603]  ? __do_sys_finit_module+0x16a/0x180
+[   55.781605]  __do_sys_finit_module+0x16a/0x180
+[   55.781608]  ? __ia32_sys_init_module+0xa0/0xa0
+[   55.781610]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[   55.781613]  ? __do_sys_newfstat+0x83/0xd0
+[   55.781616]  ? __do_page_fault+0x42c/0x990
+[   55.781618]  do_syscall_64+0x8c/0x270
+[   55.781620]  ? page_fault+0x8/0x30
+[   55.781622]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   55.781632] RIP: 0033:0x7fb82b1fa4d9
+[   55.781634] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[   55.781635] RSP: 002b:00007ffe130aba08 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[   55.781637] RAX: ffffffffffffffda RBX: 0000560344210210 RCX: 00007fb82b1fa4d9
+[   55.781639] RDX: 0000000000000000 RSI: 000056034318026b RDI: 0000000000000003
+[   55.781640] RBP: 000056034318026b R08: 0000000000000000 R09: 00007fb82b4bfea0
+[   55.781641] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[   55.781643] R13: 00005603442101e0 R14: 0000000000000000 R15: 0000000000000000
+
+[   55.782105] Allocated by task 2506:
+[   55.782667]  __kasan_kmalloc+0xa9/0xf0
+[   55.782670]  copy_user_test+0x3d/0x1c1 [kasan_test]
+[   55.782672]  kmalloc_tests_init+0x8a/0x8a6 [kasan_test]
+[   55.782681]  do_one_initcall+0x9c/0x301
+[   55.782683]  do_init_module+0x1be/0x545
+[   55.782685]  load_module+0x6529/0x7e50
+[   55.782688]  __do_sys_finit_module+0x16a/0x180
+[   55.782689]  do_syscall_64+0x8c/0x270
+[   55.782691]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   55.783155] Freed by task 1:
+[   55.783661]  __kasan_slab_free+0x137/0x190
+[   55.783663]  kfree+0x86/0x1b0
+[   55.783665]  acpi_ps_parse_aml+0x42f/0x730
+[   55.783667]  acpi_ps_execute_method+0x515/0x572
+[   55.783669]  acpi_ns_evaluate+0x663/0x8a9
+[   55.783671]  acpi_evaluate_object+0x349/0x6b8
+[   55.783673]  acpi_evaluate_integer+0xad/0x130
+[   55.783675]  acpi_bus_get_status+0x147/0x220
+[   55.783677]  acpi_bus_attach+0xaf/0x7f0
+[   55.783679]  acpi_bus_attach+0x1c9/0x7f0
+[   55.783684]  acpi_bus_attach+0x1c9/0x7f0
+[   55.783687]  acpi_bus_attach+0x1c9/0x7f0
+[   55.783689]  acpi_bus_scan+0x85/0xf0
+[   55.783691]  acpi_scan_init+0x25e/0x5bd
+[   55.783693]  acpi_init+0x542/0x5d2
+[   55.783695]  do_one_initcall+0x9c/0x301
+[   55.783697]  kernel_init_freeable+0x449/0x4f8
+[   55.783699]  kernel_init+0xa/0x120
+[   55.783700]  ret_from_fork+0x35/0x40
+
+[   55.784137] The buggy address belongs to the object at ffff888114a27ee0
+                which belongs to the cache kmalloc-16 of size 16
+[   55.785276] The buggy address is located 0 bytes inside of
+                16-byte region [ffff888114a27ee0, ffff888114a27ef0)
+[   55.786371] The buggy address belongs to the page:
+[   55.786969] page:ffffea00045289c0 count:1 mapcount:0 mapping:ffff888115c01b40 index:0x0
+[   55.786971] flags: 0x200000000000200(slab)
+[   55.786974] raw: 0200000000000200 ffffea0004526bc0 0000000400000004 ffff888115c01b40
+[   55.786976] raw: 0000000000000000 0000000080800080 00000001ffffffff 0000000000000000
+[   55.786977] page dumped because: kasan: bad access detected
+
+[   55.787416] Memory state around the buggy address:
+[   55.788014]  ffff888114a27d80: fb fb fc fc fb fb fc fc fb fb fc fc fb fb fc fc
+[   55.788913]  ffff888114a27e00: fb fb fc fc fb fb fc fc fb fb fc fc fb fb fc fc
+[   55.789808] >ffff888114a27e80: 00 00 fc fc fb fb fc fc fb fb fc fc 00 02 fc fc
+[   55.790703]                                                           ^
+[   55.791393]  ffff888114a27f00: fb fb fc fc 00 00 fc fc 00 00 fc fc 00 00 fc fc
+[   55.792290]  ffff888114a27f80: 00 00 fc fc 00 00 fc fc fb fb fc fc fb fb fc fc
+[   55.793183] ==================================================================
+[   55.794111] kasan test: copy_user_test out-of-bounds in __copy_to_user_inatomic()
+[   55.794112] ==================================================================
+[   55.795017] BUG: KASAN: slab-out-of-bounds in copy_user_test+0x173/0x1c1 [kasan_test]
+[   55.795926] Read of size 11 at addr ffff888114a27ee0 by task insmod/2506
+
+[   55.797014] CPU: 0 PID: 2506 Comm: insmod Tainted: G    B      O      5.0.0-rc4 #1
+[   55.797015] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[   55.797016] Call Trace:
+[   55.797020]  dump_stack+0x5b/0x8b
+[   55.797023]  print_address_description+0x66/0x280
+[   55.797027]  ? copy_user_test+0x173/0x1c1 [kasan_test]
+[   55.797029]  kasan_report+0x13a/0x19b
+[   55.797032]  ? copy_user_test+0x173/0x1c1 [kasan_test]
+[   55.797035]  ? copy_user_test+0x173/0x1c1 [kasan_test]
+[   55.797038]  copy_user_test+0x173/0x1c1 [kasan_test]
+[   55.797040]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   55.797043]  kmalloc_tests_init+0x8a/0x8a6 [kasan_test]
+[   55.797046]  ? kasan_strings+0xcd/0xcd [kasan_test]
+[   55.797048]  do_one_initcall+0x9c/0x301
+[   55.797050]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[   55.797052]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.797055]  ? __kasan_kmalloc+0xa9/0xf0
+[   55.797057]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.797059]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.797062]  do_init_module+0x1be/0x545
+[   55.797064]  load_module+0x6529/0x7e50
+[   55.797068]  ? module_frob_arch_sections+0x20/0x20
+[   55.797071]  ? kernel_read_file+0x1cb/0x5a0
+[   55.797073]  ? do_mmap+0x766/0xd60
+[   55.797076]  ? __do_sys_finit_module+0x16a/0x180
+[   55.797078]  __do_sys_finit_module+0x16a/0x180
+[   55.797080]  ? __ia32_sys_init_module+0xa0/0xa0
+[   55.797083]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[   55.797085]  ? __do_sys_newfstat+0x83/0xd0
+[   55.797088]  ? __do_page_fault+0x42c/0x990
+[   55.797090]  do_syscall_64+0x8c/0x270
+[   55.797092]  ? page_fault+0x8/0x30
+[   55.797094]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   55.797095] RIP: 0033:0x7fb82b1fa4d9
+[   55.797101] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[   55.797102] RSP: 002b:00007ffe130aba08 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[   55.797105] RAX: ffffffffffffffda RBX: 0000560344210210 RCX: 00007fb82b1fa4d9
+[   55.797106] RDX: 0000000000000000 RSI: 000056034318026b RDI: 0000000000000003
+[   55.797107] RBP: 000056034318026b R08: 0000000000000000 R09: 00007fb82b4bfea0
+[   55.797108] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[   55.797110] R13: 00005603442101e0 R14: 0000000000000000 R15: 0000000000000000
+
+[   55.797534] Allocated by task 2506:
+[   55.798051]  __kasan_kmalloc+0xa9/0xf0
+[   55.798054]  copy_user_test+0x3d/0x1c1 [kasan_test]
+[   55.798056]  kmalloc_tests_init+0x8a/0x8a6 [kasan_test]
+[   55.798058]  do_one_initcall+0x9c/0x301
+[   55.798060]  do_init_module+0x1be/0x545
+[   55.798062]  load_module+0x6529/0x7e50
+[   55.798064]  __do_sys_finit_module+0x16a/0x180
+[   55.798065]  do_syscall_64+0x8c/0x270
+[   55.798067]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   55.798488] Freed by task 1:
+[   55.798976]  __kasan_slab_free+0x137/0x190
+[   55.798978]  kfree+0x86/0x1b0
+[   55.798980]  acpi_ps_parse_aml+0x42f/0x730
+[   55.798981]  acpi_ps_execute_method+0x515/0x572
+[   55.798984]  acpi_ns_evaluate+0x663/0x8a9
+[   55.798985]  acpi_evaluate_object+0x349/0x6b8
+[   55.798987]  acpi_evaluate_integer+0xad/0x130
+[   55.798989]  acpi_bus_get_status+0x147/0x220
+[   55.798991]  acpi_bus_attach+0xaf/0x7f0
+[   55.798993]  acpi_bus_attach+0x1c9/0x7f0
+[   55.798995]  acpi_bus_attach+0x1c9/0x7f0
+[   55.798996]  acpi_bus_attach+0x1c9/0x7f0
+[   55.798998]  acpi_bus_scan+0x85/0xf0
+[   55.799001]  acpi_scan_init+0x25e/0x5bd
+[   55.799002]  acpi_init+0x542/0x5d2
+[   55.799004]  do_one_initcall+0x9c/0x301
+[   55.799006]  kernel_init_freeable+0x449/0x4f8
+[   55.799008]  kernel_init+0xa/0x120
+[   55.799009]  ret_from_fork+0x35/0x40
+
+[   55.799436] The buggy address belongs to the object at ffff888114a27ee0
+                which belongs to the cache kmalloc-16 of size 16
+[   55.800537] The buggy address is located 0 bytes inside of
+                16-byte region [ffff888114a27ee0, ffff888114a27ef0)
+[   55.801595] The buggy address belongs to the page:
+[   55.802172] page:ffffea00045289c0 count:1 mapcount:0 mapping:ffff888115c01b40 index:0x0
+[   55.802174] flags: 0x200000000000200(slab)
+[   55.802176] raw: 0200000000000200 ffffea0004526bc0 0000000400000004 ffff888115c01b40
+[   55.802178] raw: 0000000000000000 0000000080800080 00000001ffffffff 0000000000000000
+[   55.802179] page dumped because: kasan: bad access detected
+
+[   55.802599] Memory state around the buggy address:
+[   55.803180]  ffff888114a27d80: fb fb fc fc fb fb fc fc fb fb fc fc fb fb fc fc
+[   55.804045]  ffff888114a27e00: fb fb fc fc fb fb fc fc fb fb fc fc fb fb fc fc
+[   55.804912] >ffff888114a27e80: 00 00 fc fc fb fb fc fc fb fb fc fc 00 02 fc fc
+[   55.805776]                                                           ^
+[   55.806439]  ffff888114a27f00: fb fb fc fc 00 00 fc fc 00 00 fc fc 00 00 fc fc
+[   55.807311]  ffff888114a27f80: 00 00 fc fc 00 00 fc fc fb fb fc fc fb fb fc fc
+[   55.808146] ==================================================================
+[   55.809012] kasan test: copy_user_test out-of-bounds in strncpy_from_user()
+[   55.809013] ==================================================================
+[   55.809861] BUG: KASAN: slab-out-of-bounds in strncpy_from_user+0x6f/0x2c0
+[   55.810516] Write of size 11 at addr ffff888114a27ee0 by task insmod/2506
+
+[   55.811579] CPU: 0 PID: 2506 Comm: insmod Tainted: G    B      O      5.0.0-rc4 #1
+[   55.811580] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[   55.811581] Call Trace:
+[   55.811585]  dump_stack+0x5b/0x8b
+[   55.811588]  print_address_description+0x66/0x280
+[   55.811591]  ? strncpy_from_user+0x6f/0x2c0
+[   55.811593]  kasan_report+0x13a/0x19b
+[   55.811600]  ? strncpy_from_user+0x6f/0x2c0
+[   55.811602]  ? strncpy_from_user+0x6f/0x2c0
+[   55.811604]  strncpy_from_user+0x6f/0x2c0
+[   55.811608]  copy_user_test+0x1a3/0x1c1 [kasan_test]
+[   55.811611]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   55.811614]  kmalloc_tests_init+0x8a/0x8a6 [kasan_test]
+[   55.811616]  ? kasan_strings+0xcd/0xcd [kasan_test]
+[   55.811618]  do_one_initcall+0x9c/0x301
+[   55.811620]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[   55.811623]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.811625]  ? __kasan_kmalloc+0xa9/0xf0
+[   55.811627]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.811629]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.811632]  do_init_module+0x1be/0x545
+[   55.811634]  load_module+0x6529/0x7e50
+[   55.811638]  ? module_frob_arch_sections+0x20/0x20
+[   55.811640]  ? kernel_read_file+0x1cb/0x5a0
+[   55.811643]  ? do_mmap+0x766/0xd60
+[   55.811646]  ? __do_sys_finit_module+0x16a/0x180
+[   55.811648]  __do_sys_finit_module+0x16a/0x180
+[   55.811650]  ? __ia32_sys_init_module+0xa0/0xa0
+[   55.811652]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[   55.811654]  ? __do_sys_newfstat+0x83/0xd0
+[   55.811657]  ? __do_page_fault+0x42c/0x990
+[   55.811659]  do_syscall_64+0x8c/0x270
+[   55.811661]  ? page_fault+0x8/0x30
+[   55.811663]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   55.811664] RIP: 0033:0x7fb82b1fa4d9
+[   55.811666] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[   55.811667] RSP: 002b:00007ffe130aba08 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[   55.811670] RAX: ffffffffffffffda RBX: 0000560344210210 RCX: 00007fb82b1fa4d9
+[   55.811671] RDX: 0000000000000000 RSI: 000056034318026b RDI: 0000000000000003
+[   55.811672] RBP: 000056034318026b R08: 0000000000000000 R09: 00007fb82b4bfea0
+[   55.811673] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[   55.811674] R13: 00005603442101e0 R14: 0000000000000000 R15: 0000000000000000
+
+[   55.812085] Allocated by task 2506:
+[   55.812584]  __kasan_kmalloc+0xa9/0xf0
+[   55.812587]  copy_user_test+0x3d/0x1c1 [kasan_test]
+[   55.812590]  kmalloc_tests_init+0x8a/0x8a6 [kasan_test]
+[   55.812591]  do_one_initcall+0x9c/0x301
+[   55.812593]  do_init_module+0x1be/0x545
+[   55.812595]  load_module+0x6529/0x7e50
+[   55.812597]  __do_sys_finit_module+0x16a/0x180
+[   55.812598]  do_syscall_64+0x8c/0x270
+[   55.812600]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   55.813007] Freed by task 1:
+[   55.813478]  __kasan_slab_free+0x137/0x190
+[   55.813480]  kfree+0x86/0x1b0
+[   55.813482]  acpi_ps_parse_aml+0x42f/0x730
+[   55.813484]  acpi_ps_execute_method+0x515/0x572
+[   55.813486]  acpi_ns_evaluate+0x663/0x8a9
+[   55.813487]  acpi_evaluate_object+0x349/0x6b8
+[   55.813490]  acpi_evaluate_integer+0xad/0x130
+[   55.813491]  acpi_bus_get_status+0x147/0x220
+[   55.813493]  acpi_bus_attach+0xaf/0x7f0
+[   55.813495]  acpi_bus_attach+0x1c9/0x7f0
+[   55.813497]  acpi_bus_attach+0x1c9/0x7f0
+[   55.813498]  acpi_bus_attach+0x1c9/0x7f0
+[   55.813500]  acpi_bus_scan+0x85/0xf0
+[   55.813502]  acpi_scan_init+0x25e/0x5bd
+[   55.813504]  acpi_init+0x542/0x5d2
+[   55.813505]  do_one_initcall+0x9c/0x301
+[   55.813508]  kernel_init_freeable+0x449/0x4f8
+[   55.813509]  kernel_init+0xa/0x120
+[   55.813511]  ret_from_fork+0x35/0x40
+
+[   55.813919] The buggy address belongs to the object at ffff888114a27ee0
+                which belongs to the cache kmalloc-16 of size 16
+[   55.814981] The buggy address is located 0 bytes inside of
+                16-byte region [ffff888114a27ee0, ffff888114a27ef0)
+[   55.816007] The buggy address belongs to the page:
+[   55.816566] page:ffffea00045289c0 count:1 mapcount:0 mapping:ffff888115c01b40 index:0x0
+[   55.816567] flags: 0x200000000000200(slab)
+[   55.816570] raw: 0200000000000200 ffffea0004526bc0 0000000400000004 ffff888115c01b40
+[   55.816575] raw: 0000000000000000 0000000080800080 00000001ffffffff 0000000000000000
+[   55.816576] page dumped because: kasan: bad access detected
+
+[   55.816982] Memory state around the buggy address:
+[   55.817539]  ffff888114a27d80: fb fb fc fc fb fb fc fc fb fb fc fc fb fb fc fc
+[   55.818375]  ffff888114a27e00: fb fb fc fc fb fb fc fc fb fb fc fc fb fb fc fc
+[   55.819219] >ffff888114a27e80: 00 00 fc fc fb fb fc fc fb fb fc fc 00 02 fc fc
+[   55.820027]                                                           ^
+[   55.820647]  ffff888114a27f00: fb fb fc fc 00 00 fc fc 00 00 fc fc 00 00 fc fc
+[   55.821456]  ffff888114a27f80: 00 00 fc fc 00 00 fc fc fb fb fc fc fb fb fc fc
+[   55.822263] ==================================================================
+[   55.823128] kasan test: use_after_scope_test use-after-scope on int
+[   55.823129] kasan test: use_after_scope_test use-after-scope on array
+[   55.823381] kasan test: kmem_cache_double_free double-free on heap object
+[   55.823389] ==================================================================
+[   55.824212] BUG: KASAN: double-free or invalid-free in kmem_cache_double_free+0x92/0x9c [kasan_test]
+
+[   55.825504] CPU: 0 PID: 2506 Comm: insmod Tainted: G    B      O      5.0.0-rc4 #1
+[   55.825506] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[   55.825507] Call Trace:
+[   55.825511]  dump_stack+0x5b/0x8b
+[   55.825514]  print_address_description+0x66/0x280
+[   55.825518]  ? kmem_cache_double_free+0x92/0x9c [kasan_test]
+[   55.825520]  kasan_report_invalid_free+0x60/0xa0
+[   55.825523]  ? kmem_cache_double_free+0x92/0x9c [kasan_test]
+[   55.825525]  __kasan_slab_free+0x176/0x190
+[   55.825528]  ? kmem_cache_double_free+0x92/0x9c [kasan_test]
+[   55.825530]  kmem_cache_free+0x75/0x190
+[   55.825534]  kmem_cache_double_free+0x92/0x9c [kasan_test]
+[   55.825537]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   55.825540]  kmalloc_tests_init+0x94/0x8a6 [kasan_test]
+[   55.825542]  ? kasan_strings+0xcd/0xcd [kasan_test]
+[   55.825544]  do_one_initcall+0x9c/0x301
+[   55.825546]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[   55.825550]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.825552]  ? __kasan_kmalloc+0xa9/0xf0
+[   55.825554]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.825556]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.825559]  do_init_module+0x1be/0x545
+[   55.825561]  load_module+0x6529/0x7e50
+[   55.825565]  ? module_frob_arch_sections+0x20/0x20
+[   55.825567]  ? kernel_read_file+0x1cb/0x5a0
+[   55.825570]  ? do_mmap+0x766/0xd60
+[   55.825572]  ? __do_sys_finit_module+0x16a/0x180
+[   55.825574]  __do_sys_finit_module+0x16a/0x180
+[   55.825577]  ? __ia32_sys_init_module+0xa0/0xa0
+[   55.825579]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[   55.825582]  ? __do_sys_newfstat+0x83/0xd0
+[   55.825585]  ? __do_page_fault+0x42c/0x990
+[   55.825587]  do_syscall_64+0x8c/0x270
+[   55.825589]  ? page_fault+0x8/0x30
+[   55.825591]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   55.825593] RIP: 0033:0x7fb82b1fa4d9
+[   55.825595] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[   55.825597] RSP: 002b:00007ffe130aba08 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[   55.825600] RAX: ffffffffffffffda RBX: 0000560344210210 RCX: 00007fb82b1fa4d9
+[   55.825601] RDX: 0000000000000000 RSI: 000056034318026b RDI: 0000000000000003
+[   55.825602] RBP: 000056034318026b R08: 0000000000000000 R09: 00007fb82b4bfea0
+[   55.825603] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[   55.825604] R13: 00005603442101e0 R14: 0000000000000000 R15: 0000000000000000
+
+[   55.826001] Allocated by task 2506:
+[   55.826486]  __kasan_kmalloc+0xa9/0xf0
+[   55.826488]  kmem_cache_alloc+0xa5/0x180
+[   55.826491]  kmem_cache_double_free+0x57/0x9c [kasan_test]
+[   55.826497]  kmalloc_tests_init+0x94/0x8a6 [kasan_test]
+[   55.826500]  do_one_initcall+0x9c/0x301
+[   55.826502]  do_init_module+0x1be/0x545
+[   55.826504]  load_module+0x6529/0x7e50
+[   55.826506]  __do_sys_finit_module+0x16a/0x180
+[   55.826507]  do_syscall_64+0x8c/0x270
+[   55.826509]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   55.826905] Freed by task 2506:
+[   55.827377]  __kasan_slab_free+0x137/0x190
+[   55.827379]  kmem_cache_free+0x75/0x190
+[   55.827382]  kmem_cache_double_free+0x87/0x9c [kasan_test]
+[   55.827384]  kmalloc_tests_init+0x94/0x8a6 [kasan_test]
+[   55.827386]  do_one_initcall+0x9c/0x301
+[   55.827388]  do_init_module+0x1be/0x545
+[   55.827389]  load_module+0x6529/0x7e50
+[   55.827391]  __do_sys_finit_module+0x16a/0x180
+[   55.827393]  do_syscall_64+0x8c/0x270
+[   55.827394]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   55.827790] The buggy address belongs to the object at ffff88810af63000
+                which belongs to the cache test_cache of size 200
+[   55.828823] The buggy address is located 0 bytes inside of
+                200-byte region [ffff88810af63000, ffff88810af630c8)
+[   55.829815] The buggy address belongs to the page:
+[   55.830355] page:ffffea00042bd8c0 count:1 mapcount:0 mapping:ffff8881126bc3c0 index:0x0
+[   55.830357] flags: 0x200000000000200(slab)
+[   55.830360] raw: 0200000000000200 dead000000000100 dead000000000200 ffff8881126bc3c0
+[   55.830362] raw: 0000000000000000 00000000800f000f 00000001ffffffff 0000000000000000
+[   55.830363] page dumped because: kasan: bad access detected
+
+[   55.830755] Memory state around the buggy address:
+[   55.831302]  ffff88810af62f00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[   55.832085]  ffff88810af62f80: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+[   55.832869] >ffff88810af63000: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+[   55.833652]                    ^
+[   55.834107]  ffff88810af63080: fb fb fb fb fb fb fb fb fb fc fc fc fc fc fc fc
+[   55.834890]  ffff88810af63100: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+[   55.835677] ==================================================================
+[   55.846507] kasan test: kmem_cache_invalid_free invalid-free of heap object
+[   55.846515] ==================================================================
+[   55.847335] BUG: KASAN: double-free or invalid-free in kmem_cache_invalid_free+0x8b/0xa0 [kasan_test]
+
+[   55.848553] CPU: 0 PID: 2506 Comm: insmod Tainted: G    B      O      5.0.0-rc4 #1
+[   55.848554] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[   55.848555] Call Trace:
+[   55.848563]  dump_stack+0x5b/0x8b
+[   55.848567]  print_address_description+0x66/0x280
+[   55.848570]  ? kmem_cache_invalid_free+0x8b/0xa0 [kasan_test]
+[   55.848573]  kasan_report_invalid_free+0x60/0xa0
+[   55.848576]  ? kmem_cache_invalid_free+0x8b/0xa0 [kasan_test]
+[   55.848578]  __kasan_slab_free+0x176/0x190
+[   55.848580]  ? kmem_cache_invalid_free+0x8b/0xa0 [kasan_test]
+[   55.848582]  kmem_cache_free+0x75/0x190
+[   55.848585]  kmem_cache_invalid_free+0x8b/0xa0 [kasan_test]
+[   55.848588]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   55.848590]  kmalloc_tests_init+0x99/0x8a6 [kasan_test]
+[   55.848592]  ? kasan_strings+0xcd/0xcd [kasan_test]
+[   55.848595]  do_one_initcall+0x9c/0x301
+[   55.848597]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[   55.848599]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.848601]  ? __kasan_kmalloc+0xa9/0xf0
+[   55.848603]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.848605]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.848609]  do_init_module+0x1be/0x545
+[   55.848611]  load_module+0x6529/0x7e50
+[   55.848614]  ? module_frob_arch_sections+0x20/0x20
+[   55.848618]  ? kernel_read_file+0x1cb/0x5a0
+[   55.848620]  ? do_mmap+0x766/0xd60
+[   55.848623]  ? __do_sys_finit_module+0x16a/0x180
+[   55.848625]  __do_sys_finit_module+0x16a/0x180
+[   55.848635]  ? __ia32_sys_init_module+0xa0/0xa0
+[   55.848638]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[   55.848640]  ? __do_sys_newfstat+0x83/0xd0
+[   55.848644]  ? __do_page_fault+0x42c/0x990
+[   55.848646]  do_syscall_64+0x8c/0x270
+[   55.848648]  ? page_fault+0x8/0x30
+[   55.848650]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   55.848652] RIP: 0033:0x7fb82b1fa4d9
+[   55.848655] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[   55.848656] RSP: 002b:00007ffe130aba08 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[   55.848659] RAX: ffffffffffffffda RBX: 0000560344210210 RCX: 00007fb82b1fa4d9
+[   55.848660] RDX: 0000000000000000 RSI: 000056034318026b RDI: 0000000000000003
+[   55.848661] RBP: 000056034318026b R08: 0000000000000000 R09: 00007fb82b4bfea0
+[   55.848662] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[   55.848663] R13: 00005603442101e0 R14: 0000000000000000 R15: 0000000000000000
+
+[   55.849037] Allocated by task 2506:
+[   55.849493]  __kasan_kmalloc+0xa9/0xf0
+[   55.849495]  kmem_cache_alloc+0xa5/0x180
+[   55.849497]  kmem_cache_invalid_free+0x5a/0xa0 [kasan_test]
+[   55.849499]  kmalloc_tests_init+0x99/0x8a6 [kasan_test]
+[   55.849501]  do_one_initcall+0x9c/0x301
+[   55.849503]  do_init_module+0x1be/0x545
+[   55.849504]  load_module+0x6529/0x7e50
+[   55.849506]  __do_sys_finit_module+0x16a/0x180
+[   55.849507]  do_syscall_64+0x8c/0x270
+[   55.849509]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   55.849880] Freed by task 0:
+[   55.850307] (stack is not available)
+
+[   55.851138] The buggy address belongs to the object at ffff88810af63000
+                which belongs to the cache test_cache of size 200
+[   55.852110] The buggy address is located 1 bytes inside of
+                200-byte region [ffff88810af63000, ffff88810af630c8)
+[   55.853044] The buggy address belongs to the page:
+[   55.853552] page:ffffea00042bd8c0 count:1 mapcount:0 mapping:ffff8881126bc500 index:0x0
+[   55.853554] flags: 0x200000000000200(slab)
+[   55.853558] raw: 0200000000000200 dead000000000100 dead000000000200 ffff8881126bc500
+[   55.853559] raw: 0000000000000000 00000000800f000f 00000001ffffffff 0000000000000000
+[   55.853560] page dumped because: kasan: bad access detected
+
+[   55.853929] Memory state around the buggy address:
+[   55.854437]  ffff88810af62f00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[   55.855207]  ffff88810af62f80: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+[   55.855961] >ffff88810af63000: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[   55.856715]                    ^
+[   55.857145]  ffff88810af63080: 00 00 00 00 00 00 00 00 00 fc fc fc fc fc fc fc
+[   55.857902]  ffff88810af63100: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+[   55.858648] ==================================================================
+[   55.866989] kasan test: kasan_memchr out-of-bounds in memchr
+[   55.867027] kasan test: kasan_memcmp out-of-bounds in memcmp
+[   55.867034] kasan test: kasan_strings use-after-free in strchr
+[   55.867040] kasan test: kasan_strings use-after-free in strrchr
+[   55.867041] kasan test: kasan_strings use-after-free in strcmp
+[   55.867041] kasan test: kasan_strings use-after-free in strncmp
+[   55.867042] kasan test: kasan_strings use-after-free in strlen
+[   55.867043] kasan test: kasan_strings use-after-free in strnlen
+[   55.867044] ==================================================================
+[   55.867863] BUG: KASAN: use-after-free in strnlen+0xa2/0xb0
+[   55.868405] Read of size 1 at addr ffff88810d7a7b80 by task insmod/2506
+
+[   55.869360] CPU: 0 PID: 2506 Comm: insmod Tainted: G    B      O      5.0.0-rc4 #1
+[   55.869362] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.11.2-0-gf9626ccb91-prebuilt.qemu-project.org 04/01/2014
+[   55.869363] Call Trace:
+[   55.869369]  dump_stack+0x5b/0x8b
+[   55.869383]  print_address_description+0x66/0x280
+[   55.869385]  ? strnlen+0xa2/0xb0
+[   55.869387]  kasan_report+0x13a/0x19b
+[   55.869389]  ? strnlen+0xa2/0xb0
+[   55.869391]  ? strnlen+0xa2/0xb0
+[   55.869393]  strnlen+0xa2/0xb0
+[   55.869398]  ? kasan_strings+0x73/0xcd [kasan_test]
+[   55.869400]  kmalloc_tests_init+0xa8/0x8a6 [kasan_test]
+[   55.869403]  ? kasan_strings+0xcd/0xcd [kasan_test]
+[   55.869405]  do_one_initcall+0x9c/0x301
+[   55.869407]  ? trace_event_raw_event_initcall_finish+0x1c0/0x1c0
+[   55.869410]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.869412]  ? __kasan_kmalloc+0xa9/0xf0
+[   55.869414]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.869416]  ? kasan_unpoison_shadow+0x31/0x40
+[   55.869419]  do_init_module+0x1be/0x545
+[   55.869422]  load_module+0x6529/0x7e50
+[   55.869425]  ? module_frob_arch_sections+0x20/0x20
+[   55.869429]  ? kernel_read_file+0x1cb/0x5a0
+[   55.869432]  ? do_mmap+0x766/0xd60
+[   55.869434]  ? __do_sys_finit_module+0x16a/0x180
+[   55.869436]  __do_sys_finit_module+0x16a/0x180
+[   55.869438]  ? __ia32_sys_init_module+0xa0/0xa0
+[   55.869441]  ? __ia32_sys_dup2+0x1c0/0x1c0
+[   55.869443]  ? __do_sys_newfstat+0x83/0xd0
+[   55.869447]  ? __do_page_fault+0x42c/0x990
+[   55.869449]  do_syscall_64+0x8c/0x270
+[   55.869451]  ? page_fault+0x8/0x30
+[   55.869453]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+[   55.869455] RIP: 0033:0x7fb82b1fa4d9
+[   55.869458] Code: 00 f3 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8f 29 2c 00 f7 d8 64 89 01 48
+[   55.869459] RSP: 002b:00007ffe130aba08 EFLAGS: 00000202 ORIG_RAX: 0000000000000139
+[   55.869461] RAX: ffffffffffffffda RBX: 0000560344210210 RCX: 00007fb82b1fa4d9
+[   55.869462] RDX: 0000000000000000 RSI: 000056034318026b RDI: 0000000000000003
+[   55.869464] RBP: 000056034318026b R08: 0000000000000000 R09: 00007fb82b4bfea0
+[   55.869465] R10: 0000000000000003 R11: 0000000000000202 R12: 0000000000000000
+[   55.869466] R13: 00005603442101e0 R14: 0000000000000000 R15: 0000000000000000
+
+[   55.869841] Allocated by task 2506:
+[   55.870296]  __kasan_kmalloc+0xa9/0xf0
+[   55.870299]  kasan_strings+0x4d/0xcd [kasan_test]
+[   55.870301]  kmalloc_tests_init+0xa8/0x8a6 [kasan_test]
+[   55.870303]  do_one_initcall+0x9c/0x301
+[   55.870304]  do_init_module+0x1be/0x545
+[   55.870306]  load_module+0x6529/0x7e50
+[   55.870308]  __do_sys_finit_module+0x16a/0x180
+[   55.870309]  do_syscall_64+0x8c/0x270
+[   55.870310]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   55.870686] Freed by task 2506:
+[   55.871138]  __kasan_slab_free+0x137/0x190
+[   55.871140]  kfree+0x86/0x1b0
+[   55.871142]  kasan_strings+0x5d/0xcd [kasan_test]
+[   55.871145]  kmalloc_tests_init+0xa8/0x8a6 [kasan_test]
+[   55.871146]  do_one_initcall+0x9c/0x301
+[   55.871148]  do_init_module+0x1be/0x545
+[   55.871149]  load_module+0x6529/0x7e50
+[   55.871151]  __do_sys_finit_module+0x16a/0x180
+[   55.871152]  do_syscall_64+0x8c/0x270
+[   55.871154]  entry_SYSCALL_64_after_hwframe+0x44/0xa9
+
+[   55.871515] The buggy address belongs to the object at ffff88810d7a7b70
+                which belongs to the cache kmalloc-32 of size 32
+[   55.872471] The buggy address is located 16 bytes inside of
+                32-byte region [ffff88810d7a7b70, ffff88810d7a7b90)
+[   55.873394] The buggy address belongs to the page:
+[   55.873903] page:ffffea000435e9c0 count:1 mapcount:0 mapping:ffff888115c01a00 index:0x0
+[   55.873905] flags: 0x200000000000200(slab)
+[   55.873908] raw: 0200000000000200 ffffea00043f5640 0000000e0000000e ffff888115c01a00
+[   55.873910] raw: 0000000000000000 0000000080550055 00000001ffffffff 0000000000000000
+[   55.873911] page dumped because: kasan: bad access detected
+
+[   55.874269] Memory state around the buggy address:
+[   55.874778]  ffff88810d7a7a80: fb fb fb fb fc fc fb fb fb fb fc fc fb fb fb fb
+[   55.875539]  ffff88810d7a7b00: fc fc fb fb fb fb fc fc fb fb fb fb fc fc fb fb
+[   55.876295] >ffff88810d7a7b80: fb fb fc fc fb fb fb fb fc fc fb fb fb fb fc fc
+[   55.877049]                    ^
+[   55.877479]  ffff88810d7a7c00: fb fb fb fb fc fc fb fb fb fb fc fc fb fb fb fb
+[   55.878234]  ffff88810d7a7c80: fc fc fb fb fb fb fc fc fb fb fb fb fc fc fb fb
+[   55.878986] ==================================================================
