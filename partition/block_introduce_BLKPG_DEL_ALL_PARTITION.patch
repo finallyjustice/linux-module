@@ -1,0 +1,127 @@
+From d6bbaecdcf3641dc540d7c22a96fbaa3dcd3b52d Mon Sep 17 00:00:00 2001
+From: Dongli Zhang <dongli.zhang0129@gmail.com>
+Date: Wed, 20 Feb 2019 14:52:23 +0800
+Subject: [PATCH RFC 1/1] block: introduce BLKPG_DEL_ALL_PARTITION to blkpg
+
+As there is no ioctl interface to remove all partitions as a whole, the
+user needs to call BLKPG_DEL_PARTITION for each partition from userspace.
+
+This RFC introduces BLKPG_DEL_ALL_PARTITION to remove all partitions of the
+given gendisk.
+
+Signed-off-by: Dongli Zhang <dongli.zhang0129@gmail.com>
+---
+ block/genhd.c              | 20 ++++++++++++++++++++
+ block/ioctl.c              | 15 +++++++++++++--
+ include/linux/genhd.h      |  2 ++
+ include/uapi/linux/blkpg.h |  1 +
+ 4 files changed, 36 insertions(+), 2 deletions(-)
+
+diff --git a/block/genhd.c b/block/genhd.c
+index 1dd8fd6..c19bd83 100644
+--- a/block/genhd.c
++++ b/block/genhd.c
+@@ -746,6 +746,26 @@ void device_add_disk_no_queue_reg(struct device *parent, struct gendisk *disk)
+ }
+ EXPORT_SYMBOL(device_add_disk_no_queue_reg);
+ 
++void del_all_partition(struct gendisk *disk)
++{
++	struct disk_part_iter piter;
++	struct hd_struct *part;
++
++	down_write(&disk->lookup_sem);
++
++	disk_part_iter_init(&piter, disk,
++			    DISK_PITER_INCL_EMPTY | DISK_PITER_REVERSE);
++	while ((part = disk_part_iter_next(&piter))) {
++		invalidate_partition(disk, part->partno);
++		bdev_unhash_inode(part_devt(part));
++		delete_partition(disk, part->partno);
++	}
++	disk_part_iter_exit(&piter);
++
++	up_write(&disk->lookup_sem);
++}
++EXPORT_SYMBOL(del_all_partition);
++
+ void del_gendisk(struct gendisk *disk)
+ {
+ 	struct disk_part_iter piter;
+diff --git a/block/ioctl.c b/block/ioctl.c
+index 4825c78..0e5231d 100644
+--- a/block/ioctl.c
++++ b/block/ioctl.c
+@@ -31,10 +31,12 @@ static int blkpg_ioctl(struct block_device *bdev, struct blkpg_ioctl_arg __user
+ 	if (bdev != bdev->bd_contains)
+ 		return -EINVAL;
+ 	partno = p.pno;
+-	if (partno <= 0)
+-		return -EINVAL;
++
+ 	switch (a.op) {
+ 		case BLKPG_ADD_PARTITION:
++			if (partno <= 0)
++				return -EINVAL;
++
+ 			start = p.start >> 9;
+ 			length = p.length >> 9;
+ 			/* check for fit in a hd_struct */
+@@ -70,6 +72,9 @@ static int blkpg_ioctl(struct block_device *bdev, struct blkpg_ioctl_arg __user
+ 			mutex_unlock(&bdev->bd_mutex);
+ 			return PTR_ERR_OR_ZERO(part);
+ 		case BLKPG_DEL_PARTITION:
++			if (partno <= 0)
++				return -EINVAL;
++
+ 			part = disk_get_part(disk, partno);
+ 			if (!part)
+ 				return -ENXIO;
+@@ -97,6 +102,9 @@ static int blkpg_ioctl(struct block_device *bdev, struct blkpg_ioctl_arg __user
+ 
+ 			return 0;
+ 		case BLKPG_RESIZE_PARTITION:
++			if (partno <= 0)
++				return -EINVAL;
++
+ 			start = p.start >> 9;
+ 			/* new length of partition in bytes */
+ 			length = p.length >> 9;
+@@ -149,6 +157,9 @@ static int blkpg_ioctl(struct block_device *bdev, struct blkpg_ioctl_arg __user
+ 			bdput(bdevp);
+ 			disk_put_part(part);
+ 			return 0;
++		case BLKPG_DEL_ALL_PARTITION:
++			del_all_partition(disk);
++			return 0;
+ 		default:
+ 			return -EINVAL;
+ 	}
+diff --git a/include/linux/genhd.h b/include/linux/genhd.h
+index 06c0fd5..53bba45 100644
+--- a/include/linux/genhd.h
++++ b/include/linux/genhd.h
+@@ -427,6 +427,8 @@ static inline void add_disk_no_queue_reg(struct gendisk *disk)
+ 	device_add_disk_no_queue_reg(NULL, disk);
+ }
+ 
++extern void del_all_partition(struct gendisk *disk);
++
+ extern void del_gendisk(struct gendisk *gp);
+ extern struct gendisk *get_gendisk(dev_t dev, int *partno);
+ extern struct block_device *bdget_disk(struct gendisk *disk, int partno);
+diff --git a/include/uapi/linux/blkpg.h b/include/uapi/linux/blkpg.h
+index ac6474e..81bb5a4 100644
+--- a/include/uapi/linux/blkpg.h
++++ b/include/uapi/linux/blkpg.h
+@@ -42,6 +42,7 @@ struct blkpg_ioctl_arg {
+ #define BLKPG_ADD_PARTITION	1
+ #define BLKPG_DEL_PARTITION	2
+ #define BLKPG_RESIZE_PARTITION	3
++#define BLKPG_DEL_ALL_PARTITION	4
+ 
+ /* Sizes of name fields. Unused at present. */
+ #define BLKPG_DEVNAMELTH	64
+-- 
+2.7.4
+
