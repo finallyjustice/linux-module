@@ -1,0 +1,10 @@
+This is a module to demo how to print cpumask in Linux.
+It has been tested on :
+- Ubuntu 18.04 with 64-bit Linux 5.0.0-37-generic.
+
+For any question, please contact Dongli Zhang @ dongli.zhang0129@gmail.com.
+
+To run the template:
+
+make
+sudo sh install.sh
